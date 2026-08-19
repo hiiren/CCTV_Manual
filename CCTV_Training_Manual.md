@@ -108,7 +108,7 @@
 +----------+--------------------------------------------------+
 ```
 
-[Image: Old CRT monitor based CCTV setup vs modern LCD/IP CCTV setup]
+![Old CRT monitor based CCTV setup vs modern LCD/IP CCTV setup](images/old_vs_modern_cctv.svg)
 
 ### CCTV System Ka Basic Concept
 
@@ -304,7 +304,7 @@
 | **Honeywell** | HCC-7321 | Rs.2,500 - Rs.6,000 | Rs.12,000 - Rs.30,000 |
 | **Zicom** | Z-CM-A120 | Rs.800 - Rs.3,500 | Rs.4,000 - Rs.18,000 |
 
-[Image: Typical analog CCTV camera (dome and bullet) connected to DVR with coaxial cables]
+![Typical analog CCTV camera (dome and bullet) connected to DVR with coaxial cables](images/analog_system_setup.svg)
 
 ### 1.3.2 IP CCTV System (Network CCTV)
 
@@ -2999,7 +2999,7 @@ d) Camera ko 2 cables lagti hain
 | 2 | Fixed lens where varifocal needed | Can't see details | Varifocal use karo jab distance uncertain ho |
 | 3 | Varifocal where fixed is enough | Waste of money | Simple areas mein fixed lens kaafi hai |
 
-[Image: Varifocal camera with zoom/focus adjustment rings, fixed vs varifocal comparison]
+![Varifocal camera with zoom/focus adjustment rings, fixed vs varifocal comparison](images/varifocal_camera.svg)
 
 ---
 
@@ -3256,7 +3256,7 @@ d) Camera ko 2 cables lagti hain
 | 3 | Not testing compression settings | Video quality issues | Test before finalizing |
 | 4 | Mixing compression types | Compatibility issues | Use same compression on all channels |
 
-[Image: Comparison of same scene in H.264, H.265, H.265+ quality]
+![Comparison of same scene in H.264, H.265, H.265+ quality](images/compression_comparison.svg)
 
 ---
 
@@ -5800,7 +5800,7 @@ d) Internet connection check karo
     +-------------------------------------------------+
 `
 
-[Image: IP Camera Types Comparison]
+![IP Camera Types Comparison](images/ip_camera_types.svg)
 
 ### IP Camera Specifications -- Detailed
 
@@ -11520,7 +11520,7 @@ PROBLEM IDENTIFICATION  -->  CAUSE ANALYSIS  -->  SOLUTION  -->  PREVENTION
       (Kya ho raha hai?)     (Kyun ho raha hai?)   (Kaise theek karo?)  (Dobara kaise bache?)
 ```
 
-[Image: Troubleshooting flowchart overview]
+![Troubleshooting flowchart overview](images/troubleshooting_flowchart.svg)
 
 ### Troubleshooting Ka Golden Rule
 
@@ -11778,7 +11778,7 @@ START: Camera mein video nahi aa rahi
 - Video mein grains ya dots nazar aate hain
 - Colors dull lagte hain
 
-[Image: Comparison of clear vs fuzzy video]
+![Comparison of clear vs fuzzy video](images/clear_vs_fuzzy_video.svg)
 
 #### Possible Causes
 
@@ -11812,7 +11812,7 @@ START: Camera mein video nahi aa rahi
 - Lines move karti rehti hain, video stable nahi hai
 - Kabhi lines band ho jaati hain, kabhi aa jaati hain
 
-[Image: Video showing horizontal rolling lines]
+![Video showing horizontal rolling lines](images/rolling_lines.svg)
 
 #### Possible Causes
 
@@ -11852,7 +11852,7 @@ START: Camera mein video nahi aa rahi
 
 #### 9.3.4.1 Black and White Video (Color Nahi Aa Raha)
 
-[Image: Camera showing B&W instead of color]
+![Camera showing B&W instead of color](images/bw_mode_issue.svg)
 
 **Possible Causes:**
 
@@ -11905,7 +11905,7 @@ START: Camera mein video nahi aa rahi
 - Object ka duplicate faint image dikhta hai
 - Text mein ghosting zyada dikhti hai
 
-[Image: Video showing ghosting effect]
+![Video showing ghosting effect](images/ghosting_effect.svg)
 
 #### Possible Causes
 
@@ -11934,7 +11934,7 @@ START: Camera mein video nahi aa rahi
 - "No Signal" message ke saath blue screen
 - Kuch channels blue, kuch theek
 
-[Image: Monitor showing blue screen for one camera]
+![Monitor showing blue screen for one camera](images/blue_screen.svg)
 
 #### Possible Causes & Fix
 
@@ -11984,7 +11984,7 @@ START: Camera mein video nahi aa rahi
 - Night mein black and white hai lekin kuch dikh nahi raha
 - IR reflection aa rahi hai (white glare)
 
-[Image: Day vs Night camera comparison]
+![Day vs Night camera comparison](images/day_night_comparison.svg)
 
 #### Causes & Solutions
 
@@ -12048,7 +12048,7 @@ START: Camera mein video nahi aa rahi
 - Frozen frames aa rahe hain
 - Green/pink blocks dikhte hain
 
-[Image: Video showing compression artifacts]
+![Video showing compression artifacts](images/compression_artifacts.svg)
 
 #### Possible Causes
 
@@ -12108,7 +12108,7 @@ Power issues bahut critical hoti hain kyunki agar camera ko power nahi milti toh
 - Camera completely dead lag raha hai
 - Koi sound ya movement nahi
 
-[Image: Camera with LED off showing no power]
+![Camera with LED off showing no power](images/dead_camera.svg)
 
 #### Diagnosis Flowchart
 
@@ -12181,7 +12181,7 @@ Number of Cameras --> Power Supply Selection:
 - Camera ka LED blink hota rehta hai
 - Kabhi kaam karti hai, kabhi nahi
 
-[Image: Camera LED blinking pattern]
+![Camera LED blinking pattern](images/led_blink_pattern.svg)
 
 #### Possible Causes
 
@@ -12364,7 +12364,7 @@ IP CCTV systems mein networking issues sabse zyada aati hain. Yeh section networ
 - NVR/DVR camera ko detect nahi kar paata
 - Camera ka IP browser mein open nahi hota
 
-[Image: Command prompt showing ping failure]
+![Command prompt showing ping failure](images/ping_failure.svg)
 
 #### Troubleshooting Steps
 
@@ -13107,7 +13107,7 @@ NVR Camera Offline
 - Distant objects blur dikh rahe hain
 - Close objects clear hain, distant blur
 
-[Image: Comparison of focused vs blurry camera view]
+![Comparison of focused vs blurry camera view](images/focus_issue.svg)
 
 #### Causes & Solutions
 
@@ -13142,7 +13142,7 @@ NVR Camera Offline
 - Camera ke paas koi bright white spot dikh raha hai
 - Video ka kuch hissa white-out ho jaata hai raat mein
 
-[Image: Camera with IR reflection problem showing white glare]
+![Camera with IR reflection problem showing white glare](images/ir_reflection.svg)
 
 #### Causes & Solutions
 
@@ -13183,7 +13183,7 @@ IR Reflection Causes:
 - Camera raat mein bhi day mode mein hai (color but dark)
 - Camera baar baar day/night switch ho raha hai (flickering)
 
-[Image: Camera showing incorrect day/night mode]
+![Camera showing incorrect day/night mode](images/wrong_day_night.svg)
 
 #### Causes & Solutions
 
@@ -13230,7 +13230,7 @@ IR Reflection Causes:
 - Camera restart hoti rehti hai
 - Night mein zyada garam hota hai (IR LEDs ki wajah se)
 
-[Image: Camera with temperature warning]
+![Camera with temperature warning](images/overheating_warning.svg)
 
 #### Causes & Solutions
 
@@ -14117,7 +14117,7 @@ Ek professional quotation mein yeh sab hona chahiye:
 +----------------------------------------------------------+
 ```
 
-[Image: Professional CCTV quotation format template]
+![Professional CCTV quotation format template](images/quotation_template.svg)
 
 ### 10.2.3 Item Description Table Format
 
@@ -17354,7 +17354,7 @@ Log Entry   Log Attempt
 #### Component 1: Access Control Controller
 
 ```
-[Image: Access Control Controller Board]
+![Access Control Controller Board](images/access_control_board.svg)
 **[Diagram: Controller Board Layout]** *(Create a labeled PCB layout diagram of an access control controller board showing: terminal blocks for Power In (12V DC), Lock 1 and Lock 2 outputs, Exit Button input, Reader 1 and Reader 2 Wiegand inputs, AUX In and AUX Out ports, RS485 communication port, TCP/IP Ethernet port, USB port, SD card slot, status LEDs (Power, Communication, Lock active), DIP switches for configuration, and the main processor chip. Show the physical board layout with component positions and label each terminal/connection point)*
 
 +--------------------------------------------------+
@@ -17575,7 +17575,7 @@ Step 10: Training
   - Emergency release procedure
 ```
 
-**[Image: Access Control Installation Steps]**
+![Access Control Installation Steps](images/access_install_steps.svg)
 
 > **[!] Safety Warning:** Electric lock 12V ya 24V hota hai, MAGNETIC LOCK MEIN HIGH VOLTAGE NAHI HOTA. Lekin power supply 230V AC hota hai. Power supply ke terminal cover karo, koi touch na kar paye.
 
@@ -18037,7 +18037,7 @@ Ready for Next Vehicle
 #### Component 1: Outdoor Unit
 
 ```
-[Image: Outdoor Unit]
+![Outdoor Unit](images/outdoor_unit.svg)
 **[Diagram: Outdoor Unit Anatomy]** *(Create labeled front-view diagram of VDP outdoor unit showing: camera lens at top center, IR LEDs ring around lens for night vision, light sensor next to lens, large illuminated call button in center, microphone hole below button, speaker grille at bottom, optional card reader slot on the side, mounting bracket with screws on the back, and IP65 weather-sealed aluminum housing. Label each component with its function and show the viewing angle cone from the camera)*
 
 +-------------------------------------------+
@@ -18068,7 +18068,7 @@ Ready for Next Vehicle
 #### Component 2: Indoor Monitor
 
 ```
-[Image: Indoor Monitor]
+![Indoor Monitor](images/indoor_monitor.svg)
 **[Diagram: Indoor Monitor]** *(Create labeled diagram of VDP indoor monitor unit showing: 7-inch LCD touchscreen display taking up most of the front face, a small speaker grille at the top, a microphone hole below the screen, physical buttons labeled "Talk/Talk", "Open Door" (key icon), and "Menu", a LED call indicator light, wall-mounting bracket slots on the back, a power input port (12V DC or PoE), and optional Ethernet port for IP models. Show dimensions and label each component)*
 
 +-------------------------------------------+
