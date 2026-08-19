@@ -3915,7 +3915,7 @@ LAN mein sab devices ek cable ya WiFi ke through ek switch ya router se connecte
                     +---------------------------------------------+
 `
 
-**[Diagram: LAN Network Layout for CCTV]** *(Create a diagram showing DVR/NVR connected to switch, switch connected to cameras and router, router to internet)*
+**![LAN Network Layout for CCTV](images/diagram_lan_network.svg)** *(Create a diagram showing DVR/NVR connected to switch, switch connected to cameras and router, router to internet)*
 
 ### LAN ke Components
 
@@ -4030,7 +4030,7 @@ WAN mein bahut saare LAN aapas mein connect hote hain. Jaise ek company ka Mumba
                          +--------------+
 `
 
-**[Diagram: LAN vs WAN Architecture]** *(Create a side-by-side comparison diagram: Left side shows LAN (Local Area Network) with multiple devices—computers, DVR/NVR, cameras, printers—all connected to a single switch/router within one building/campus, labeled "LAN - Within Building". Right side shows WAN (Wide Area Network) with multiple buildings (Branch Office, Head Office, Warehouse) each having their own LAN, connected together through the Internet/ISP via routers, labeled "WAN - Connecting Multiple Buildings". Include labels for speed differences (LAN: 1Gbps+, WAN: 10-100Mbps), ownership (Private vs ISP), and typical cable types (CAT6 for LAN, Fiber/Leased Line for WAN))*
+**![LAN vs WAN Architecture](images/diagram_lan_wan.svg)** *(Create a side-by-side comparison diagram: Left side shows LAN (Local Area Network) with multiple devices—computers, DVR/NVR, cameras, printers—all connected to a single switch/router within one building/campus, labeled "LAN - Within Building". Right side shows WAN (Wide Area Network) with multiple buildings (Branch Office, Head Office, Warehouse) each having their own LAN, connected together through the Internet/ISP via routers, labeled "WAN - Connecting Multiple Buildings". Include labels for speed differences (LAN: 1Gbps+, WAN: 10-100Mbps), ownership (Private vs ISP), and typical cable types (CAT6 for LAN, Fiber/Leased Line for WAN))*
 
 ### LAN vs WAN Comparison Table
 
@@ -4140,7 +4140,7 @@ WAN mein bahut saare LAN aapas mein connect hote hain. Jaise ek company ka Mumba
     Internet Backbone -> Destination Server
 `
 
-**[Diagram: How Internet Works - Data Path]** *(Create a data path diagram showing the journey of video data from a CCTV camera to a remote viewer: Camera (local IP) → PoE Switch → Router → ISP Modem → ISP Network (local exchange) → Internet Backbone (fiber optic cables, undersea cables) → Destination ISP → Destination Router → Viewer's Mobile Phone/Laptop. Show data packets as small arrows moving along the path, label each hop with the device name, and include latency indicators at each stage. Show both upload (camera to cloud) and download (cloud to mobile) directions)*
+**![How Internet Works - Data Path](images/diagram_internet_data.svg)** *(Create a data path diagram showing the journey of video data from a CCTV camera to a remote viewer: Camera (local IP) → PoE Switch → Router → ISP Modem → ISP Network (local exchange) → Internet Backbone (fiber optic cables, undersea cables) → Destination ISP → Destination Router → Viewer's Mobile Phone/Laptop. Show data packets as small arrows moving along the path, label each hop with the device name, and include latency indicators at each stage. Show both upload (camera to cloud) and download (cloud to mobile) directions)*
 
 ### Internet Connection Types for CCTV in India
 
@@ -4226,7 +4226,7 @@ Har XXX ek number hota hai jo **0 se 255** ke beech hota hai. Isko **octet** keh
              +--------------- Network ka hissa
 `
 
-**[Diagram: IPv4 Address Structure]** *(Create a detailed breakdown diagram of an IPv4 address (e.g., 192.168.1.100) showing: the address split into 4 octets separated by dots, each octet represented as 8 binary bits (e.g., 11000000.10101000.00000001.01100100), annotations showing which octets represent the Network portion vs Host portion for Class C addresses, the subnet mask (255.255.255.0) shown in both decimal and binary form, and a simple house analogy comparing network ID to street name and host ID to house number)*
+**![IPv4 Address Structure](images/diagram_ipv4.svg)** *(Create a detailed breakdown diagram of an IPv4 address (e.g., 192.168.1.100) showing: the address split into 4 octets separated by dots, each octet represented as 8 binary bits (e.g., 11000000.10101000.00000001.01100100), annotations showing which octets represent the Network portion vs Host portion for Class C addresses, the subnet mask (255.255.255.0) shown in both decimal and binary form, and a simple house analogy comparing network ID to street name and host ID to house number)*
 
 ### IP Address Classes
 
@@ -4446,7 +4446,7 @@ Step 3: Result dekho
             Security better hai
 `
 
-**[Diagram: Subnetting for Multi-floor CCTV]** *(Create a building diagram showing a 4-story building with separate subnets per floor: Ground Floor (192.168.1.0/24, 8 cameras), First Floor (192.168.2.0/24, 12 cameras), Second Floor (192.168.3.0/24, 10 cameras), Third Floor (192.168.4.0/24, 6 cameras). Show a core switch/router at the center connecting all floor switches via VLANs. Include IP ranges for each floor, camera counts, and show how separate subnets improve security and performance by isolating traffic)*
+**![Subnetting for Multi-floor CCTV](images/diagram_subnetting.svg)** *(Create a building diagram showing a 4-story building with separate subnets per floor: Ground Floor (192.168.1.0/24, 8 cameras), First Floor (192.168.2.0/24, 12 cameras), Second Floor (192.168.3.0/24, 10 cameras), Third Floor (192.168.4.0/24, 6 cameras). Show a core switch/router at the center connecting all floor switches via VLANs. Include IP ranges for each floor, camera counts, and show how separate subnets improve security and performance by isolating traffic)*
 
 ### CIDR Notation
 
@@ -17216,7 +17216,7 @@ GRAND TOTAL MONTHLY REVENUE    = Rs. 30,200
 5. **Log** - Entry time, user ID, date sab record ho jata hai
 
 ```
-**[Diagram: Access Control Working Flow]** *(Create a vertical flowchart showing the access control decision process: User Approaches Door → Presents Credential (Card/Finger/Face) → Reader Captures Data → Data Sent to Controller → Controller Checks Database → Decision Diamond "Authorized?" → If Yes: Unlock Door → User Enters → Log Entry Created → Door Auto-Lock. If No: Deny Access → Alert/Alarm → Log Denied Attempt → Door Remains Locked. Include feedback loops for failed attempts and timeout scenarios)*
+**![Access Control Working Flow](images/diagram_access_flow.svg)** *(Create a vertical flowchart showing the access control decision process: User Approaches Door → Presents Credential (Card/Finger/Face) → Reader Captures Data → Data Sent to Controller → Controller Checks Database → Decision Diamond "Authorized?" → If Yes: Unlock Door → User Enters → Log Entry Created → Door Auto-Lock. If No: Deny Access → Alert/Alarm → Log Denied Attempt → Door Remains Locked. Include feedback loops for failed attempts and timeout scenarios)*
 
 User Approaches Door
         |
@@ -17355,7 +17355,7 @@ Log Entry   Log Attempt
 
 ```
 ![Access Control Controller Board](images/access_control_board.svg)
-**[Diagram: Controller Board Layout]** *(Create a labeled PCB layout diagram of an access control controller board showing: terminal blocks for Power In (12V DC), Lock 1 and Lock 2 outputs, Exit Button input, Reader 1 and Reader 2 Wiegand inputs, AUX In and AUX Out ports, RS485 communication port, TCP/IP Ethernet port, USB port, SD card slot, status LEDs (Power, Communication, Lock active), DIP switches for configuration, and the main processor chip. Show the physical board layout with component positions and label each terminal/connection point)*
+**![Controller Board Layout](images/diagram_controller_board.svg)** *(Create a labeled PCB layout diagram of an access control controller board showing: terminal blocks for Power In (12V DC), Lock 1 and Lock 2 outputs, Exit Button input, Reader 1 and Reader 2 Wiegand inputs, AUX In and AUX Out ports, RS485 communication port, TCP/IP Ethernet port, USB port, SD card slot, status LEDs (Power, Communication, Lock active), DIP switches for configuration, and the main processor chip. Show the physical board layout with component positions and label each terminal/connection point)*
 
 +--------------------------------------------------+
 |              ACCESS CONTROL CONTROLLER            |
@@ -17394,7 +17394,7 @@ Log Entry   Log Attempt
 | **Solenoid Lock** | Solenoid push/pull | Cabinets | Rs.500 - Rs.1,500 |
 
 ```
-**[Diagram: Magnetic Lock Installation]** *(Create an installation diagram showing: door frame at top with the magnetic lock body (electromagnet coil) mounted on the frame side, the armature plate (flat steel plate) mounted on the door surface at the same height, the door in closed position with both plates in contact, power wires (12V DC) running from the lock to the access control controller, a door position sensor (magnetic reed switch) on the frame, and the gap specification between magnet and armature (<0.5mm when closed). Show both open and closed door states side by side)*
+**![Magnetic Lock Installation](images/diagram_mag_lock.svg)** *(Create an installation diagram showing: door frame at top with the magnetic lock body (electromagnet coil) mounted on the frame side, the armature plate (flat steel plate) mounted on the door surface at the same height, the door in closed position with both plates in contact, power wires (12V DC) running from the lock to the access control controller, a door position sensor (magnetic reed switch) on the frame, and the gap specification between magnet and armature (<0.5mm when closed). Show both open and closed door states side by side)*
 
                     +-------------------+
                     |     Door Frame     |
@@ -17673,7 +17673,7 @@ Step 10: Training
 7. **Safety Check** - Sensor detects if vehicle is under boom
 
 ```
-**[Diagram: Boom Barrier Working Flow]** *(Create a vertical flowchart showing the boom barrier operation sequence: 1) Vehicle Approaches → 2) Loop Sensor Activated → 3) Authorization (Card/Tag/Face scan) → 4) Signal to Controller → 5) Motor Activates → 6) Boom Rises (open position) → 7) Vehicle Passes Under → 8) Sensor Confirms Clear → 9) Auto-Close (boom lowers) → 10) Safety Check (if vehicle detected under boom, boom stays up). Include decision diamonds for "Authorized?" and "Vehicle Clear?" with Yes/No branches)*
+**![Boom Barrier Working Flow](images/diagram_boom_flow.svg)** *(Create a vertical flowchart showing the boom barrier operation sequence: 1) Vehicle Approaches → 2) Loop Sensor Activated → 3) Authorization (Card/Tag/Face scan) → 4) Signal to Controller → 5) Motor Activates → 6) Boom Rises (open position) → 7) Vehicle Passes Under → 8) Sensor Confirms Clear → 9) Auto-Close (boom lowers) → 10) Safety Check (if vehicle detected under boom, boom stays up). Include decision diamonds for "Authorized?" and "Vehicle Clear?" with Yes/No branches)*
 
 Vehicle Approaches
         |
@@ -17747,7 +17747,7 @@ Ready for Next Vehicle
 ### 12.3.5 Boom Barrier Components
 
 ```
-**[Diagram: Boom Barrier Component Layout]** *(Create an exploded/annotated diagram of boom barrier showing: horizontal boom arm (3m-6m length) extending from motor housing, the motor housing box containing motor (24V/230V), gearbox, limit switch, and controller board stacked inside, the base plate bolted to a concrete foundation below, a counterbalance spring inside the housing, and the power supply unit nearby. Label each component with its name, function, and approximate cost range)*
+**![Boom Barrier Component Layout](images/diagram_boom_barrier.svg)** *(Create an exploded/annotated diagram of boom barrier showing: horizontal boom arm (3m-6m length) extending from motor housing, the motor housing box containing motor (24V/230V), gearbox, limit switch, and controller board stacked inside, the base plate bolted to a concrete foundation below, a counterbalance spring inside the housing, and the power supply unit nearby. Label each component with its name, function, and approximate cost range)*
 
 +--------------------------------------------------+
 |            BOOM BARRIER COMPONENTS                |
@@ -17814,7 +17814,7 @@ Ready for Next Vehicle
 #### Foundation Preparation
 
 ```
-**[Diagram: Foundation Dimensions]** *(Create a cross-section diagram of boom barrier concrete foundation showing: ground level surface at top, a rectangular pit below ground with dimensions labeled (Length: 60cm, Width: 50cm, Depth: 50cm), 4 anchor bolts protruding from the concrete up through the base plate, the boom barrier base plate sitting on top of the foundation, M20 grade concrete filling the pit, and a PVC conduit pipe (2 inch) running through the foundation for cable routing. Show measurement annotations for all dimensions and label the concrete grade)*
+**![Foundation Dimensions](images/foundation_dimensions.svg)** *(Create a cross-section diagram of boom barrier concrete foundation showing: ground level surface at top, a rectangular pit below ground with dimensions labeled (Length: 60cm, Width: 50cm, Depth: 50cm), 4 anchor bolts protruding from the concrete up through the base plate, the boom barrier base plate sitting on top of the foundation, M20 grade concrete filling the pit, and a PVC conduit pipe (2 inch) running through the foundation for cable routing. Show measurement annotations for all dimensions and label the concrete grade)*
 
         +----------------------------+
         |        Boom Barrier        |
@@ -17857,7 +17857,7 @@ Ready for Next Vehicle
 #### Vehicle Loop Installation
 
 ```
-**[Diagram: Vehicle Loop in Ground]** *(Create top-view and cross-section diagrams of an inductive vehicle loop sensor embedded in road surface: Top view shows a rectangular loop (1m x 1.5m) cut into the road surface with wires running from the loop to the boom barrier controller. Cross-section view shows the saw-cut groove (3-5mm wide, 30-50mm deep) in the asphalt/concrete, the loop wire laid inside the groove filled with sealant, and the lead-in wire running underground to the detector unit. Label the loop dimensions, cut depth, sealant, road surface layers, and connection point to the loop detector)*
+**![Vehicle Loop in Ground](images/diagram_vehicle_loop.svg)** *(Create top-view and cross-section diagrams of an inductive vehicle loop sensor embedded in road surface: Top view shows a rectangular loop (1m x 1.5m) cut into the road surface with wires running from the loop to the boom barrier controller. Cross-section view shows the saw-cut groove (3-5mm wide, 30-50mm deep) in the asphalt/concrete, the loop wire laid inside the groove filled with sealant, and the lead-in wire running underground to the detector unit. Label the loop dimensions, cut depth, sealant, road surface layers, and connection point to the loop detector)*
 
         TOP VIEW (Road Surface)
         
@@ -17959,7 +17959,7 @@ Ready for Next Vehicle
 [TERM] Indoor Unit = Jo andar laga hai (screen + mic + speaker + bell button)
 
 ```
-**[Diagram: VDP System Overview]** *(Create a split-view diagram with "OUTSIDE" on left and "INSIDE" on right: Outdoor Unit (gate/door) showing camera lens, IR LEDs, mic hole, speaker grille, and call button with an arrow pointing to Indoor Unit (living room) showing 7-inch LCD screen, speaker, mic, talk button, and open-door button. Connect the two units with a bidirectional arrow labeled "Wiring/Network" to show two-way audio-video communication. Label each component on both units)*
+**![VDP System Overview](images/diagram_vdp_overview.svg)** *(Create a split-view diagram with "OUTSIDE" on left and "INSIDE" on right: Outdoor Unit (gate/door) showing camera lens, IR LEDs, mic hole, speaker grille, and call button with an arrow pointing to Indoor Unit (living room) showing 7-inch LCD screen, speaker, mic, talk button, and open-door button. Connect the two units with a bidirectional arrow labeled "Wiring/Network" to show two-way audio-video communication. Label each component on both units)*
 
                    OUTSIDE                      INSIDE
                    
@@ -18038,7 +18038,7 @@ Ready for Next Vehicle
 
 ```
 ![Outdoor Unit](images/outdoor_unit.svg)
-**[Diagram: Outdoor Unit Anatomy]** *(Create labeled front-view diagram of VDP outdoor unit showing: camera lens at top center, IR LEDs ring around lens for night vision, light sensor next to lens, large illuminated call button in center, microphone hole below button, speaker grille at bottom, optional card reader slot on the side, mounting bracket with screws on the back, and IP65 weather-sealed aluminum housing. Label each component with its function and show the viewing angle cone from the camera)*
+**![Outdoor Unit Anatomy](images/outdoor_unit_anatomy.svg)** *(Create labeled front-view diagram of VDP outdoor unit showing: camera lens at top center, IR LEDs ring around lens for night vision, light sensor next to lens, large illuminated call button in center, microphone hole below button, speaker grille at bottom, optional card reader slot on the side, mounting bracket with screws on the back, and IP65 weather-sealed aluminum housing. Label each component with its function and show the viewing angle cone from the camera)*
 
 +-------------------------------------------+
 |              OUTDOOR UNIT                  |
@@ -18069,7 +18069,7 @@ Ready for Next Vehicle
 
 ```
 ![Indoor Monitor](images/indoor_monitor.svg)
-**[Diagram: Indoor Monitor]** *(Create labeled diagram of VDP indoor monitor unit showing: 7-inch LCD touchscreen display taking up most of the front face, a small speaker grille at the top, a microphone hole below the screen, physical buttons labeled "Talk/Talk", "Open Door" (key icon), and "Menu", a LED call indicator light, wall-mounting bracket slots on the back, a power input port (12V DC or PoE), and optional Ethernet port for IP models. Show dimensions and label each component)*
+**![Indoor Monitor](images/indoor_monitor.svg)** *(Create labeled diagram of VDP indoor monitor unit showing: 7-inch LCD touchscreen display taking up most of the front face, a small speaker grille at the top, a microphone hole below the screen, physical buttons labeled "Talk/Talk", "Open Door" (key icon), and "Menu", a LED call indicator light, wall-mounting bracket slots on the back, a power input port (12V DC or PoE), and optional Ethernet port for IP models. Show dimensions and label each component)*
 
 +-------------------------------------------+
 |              INDOOR MONITOR                |
@@ -18130,7 +18130,7 @@ Ready for Next Vehicle
 #### Wired VDP Installation:
 
 ```
-**[Diagram: Wired VDP Connection]** *(Create wiring diagram showing: Outdoor Unit on left and Indoor Unit on right, connected by 5 color-coded wires: Red (12V DC +), Black (12V DC -), Yellow (Video signal via coaxial), White (Audio), and Green (Lock control). Include a 12V DC power adapter connected to the outdoor unit, an electric door strike/lock connected to the lock wire at the indoor unit side, and label each wire's function and color. Show the physical layout as it would appear installed at a gate)*
+**![Wired VDP Connection](images/diagram_wired_vdp.svg)** *(Create wiring diagram showing: Outdoor Unit on left and Indoor Unit on right, connected by 5 color-coded wires: Red (12V DC +), Black (12V DC -), Yellow (Video signal via coaxial), White (Audio), and Green (Lock control). Include a 12V DC power adapter connected to the outdoor unit, an electric door strike/lock connected to the lock wire at the indoor unit side, and label each wire's function and color. Show the physical layout as it would appear installed at a gate)*
 
 OUTDOOR UNIT                         INDOOR UNIT
 +-----------+                       +-----------+
@@ -18156,7 +18156,7 @@ OUTDOOR UNIT                         INDOOR UNIT
 #### IP VDP Installation:
 
 ```
-**[Diagram: IP VDP Network Connection]** *(Create network diagram showing: Internet cloud at top → Router → PoE Switch → branching to Outdoor VDP Unit (192.168.1.20) and Indoor VDP Monitor (192.168.1.21) via CAT6 cables. Below the switch, show a Mobile Phone with the VDP app connected via cloud for remote access. Label all IP addresses, cable types, and data flow direction with arrows)*
+**![IP VDP Network Connection](images/diagram_ip_vdp.svg)** *(Create network diagram showing: Internet cloud at top → Router → PoE Switch → branching to Outdoor VDP Unit (192.168.1.20) and Indoor VDP Monitor (192.168.1.21) via CAT6 cables. Below the switch, show a Mobile Phone with the VDP app connected via cloud for remote access. Label all IP addresses, cable types, and data flow direction with arrows)*
 
         INTERNET
             |
@@ -18203,7 +18203,7 @@ OUTDOOR UNIT    INDOOR UNIT
 **How to Integrate:**
 
 ```
-**[Diagram: VDP + CCTV Integration]** *(Create a system integration diagram showing: CCTV System box (NVR + Cameras, IP 192.168.1.10) on the left, VDP System box (Outdoor Unit 192.168.1.20 + Indoor Unit) on the right, both connected to a central PoE Switch via CAT6 cables. Show the PoE Switch connected to a Router. Include a Monitor/NVR display showing combined CCTV + VDP feeds. Add arrows showing data flow: visitor presses VDP call button → NVR records event → monitor displays both camera and VDP feed simultaneously)*
+**![VDP + CCTV Integration](images/diagram_vdp_cctv.svg)** *(Create a system integration diagram showing: CCTV System box (NVR + Cameras, IP 192.168.1.10) on the left, VDP System box (Outdoor Unit 192.168.1.20 + Indoor Unit) on the right, both connected to a central PoE Switch via CAT6 cables. Show the PoE Switch connected to a Router. Include a Monitor/NVR display showing combined CCTV + VDP feeds. Add arrows showing data flow: visitor presses VDP call button → NVR records event → monitor displays both camera and VDP feed simultaneously)*
 
          CCTV System                     VDP System
     +------------------+          +-------------------+
@@ -18403,7 +18403,7 @@ What's extra:
 **SLA** - Service Level Agreement ek document hai jismein likha hota hai ki tum kya service doge, kab doge, aur kya nahi doge. Yeh AMC ka legal part hai.
 
 ```
-**[Diagram: SLA Sample]** *(Create a sample SLA document layout/form showing: header with contract number and date, two parties (Service Provider and Client), scope of services section listing covered items, response time commitments (e.g., "Critical: 4 hours", "Major: 24 hours", "Minor: 72 hours"), exclusions list, penalties for non-compliance, and signature lines. Style it as a formal document template with sections and checkboxes)*
+**![SLA Sample](images/diagram_sla.svg)** *(Create a sample SLA document layout/form showing: header with contract number and date, two parties (Service Provider and Client), scope of services section listing covered items, response time commitments (e.g., "Critical: 4 hours", "Major: 24 hours", "Minor: 72 hours"), exclusions list, penalties for non-compliance, and signature lines. Style it as a formal document template with sections and checkboxes)*
 
 ===================================================================
               SERVICE LEVEL AGREEMENT (SLA)
@@ -18871,7 +18871,7 @@ Conclusion: Har mahine 4 projects karne se break-even hoga. Uski baad profit.
 ### 12.7.2 Complete Career Path
 
 ```
-**[Diagram: Career Path Chart]** *(Create vertical career ladder/hierarchy chart showing positions from bottom to top: Trainee (Rs.8K-15K, 0-6 months) → Junior Technician (Rs.12K-20K, 6-12 months) → Technician (Rs.18K-30K, 1-3 years) → Senior Technician (Rs.25K-45K, 3-5 years) → Team Lead (Rs.35K-55K, 5-7 years) → Project Manager (Rs.45K-80K, 7-10 years) → Business Owner (Rs.80K-5L+, 10+ years). Include salary ranges, experience required, and key skills needed at each level)*
+**![Career Path Chart](images/diagram_career.svg)** *(Create vertical career ladder/hierarchy chart showing positions from bottom to top: Trainee (Rs.8K-15K, 0-6 months) → Junior Technician (Rs.12K-20K, 6-12 months) → Technician (Rs.18K-30K, 1-3 years) → Senior Technician (Rs.25K-45K, 3-5 years) → Team Lead (Rs.35K-55K, 5-7 years) → Project Manager (Rs.45K-80K, 7-10 years) → Business Owner (Rs.80K-5L+, 10+ years). Include salary ranges, experience required, and key skills needed at each level)*
 
            +---------------------------+
            |   BUSINESS OWNER          |
@@ -19069,7 +19069,7 @@ Senior Technician Skills Checklist
 ### 12.8.2 Growth Stages
 
 ```
-**[Diagram: Company Growth Stages]** *(Create a growth ladder/staircase diagram showing 5 stages ascending from left to right: Stage 1 Solo Technician (1 person, 2-5 projects/month, Rs.20K-40K income) → Stage 2 Solo + Helper (2 people, 5-10 projects, Rs.40K-80K) → Stage 3 Small Team (3-5 people, 10-20 projects, Rs.80K-1.5L) → Stage 4 Company (5-15 staff, 20-50 projects, Rs.1.5L-5L) → Stage 5 Enterprise (15+ staff, 50+ projects, Rs.5L+). Include duration for each stage and key milestones like "Hire first employee", "Get office space", "Hire project manager")*
+**![Company Growth Stages](images/diagram_growth.svg)** *(Create a growth ladder/staircase diagram showing 5 stages ascending from left to right: Stage 1 Solo Technician (1 person, 2-5 projects/month, Rs.20K-40K income) → Stage 2 Solo + Helper (2 people, 5-10 projects, Rs.40K-80K) → Stage 3 Small Team (3-5 people, 10-20 projects, Rs.80K-1.5L) → Stage 4 Company (5-15 staff, 20-50 projects, Rs.1.5L-5L) → Stage 5 Enterprise (15+ staff, 50+ projects, Rs.5L+). Include duration for each stage and key milestones like "Hire first employee", "Get office space", "Hire project manager")*
 
 Stage 1: SOLO TECHNICIAN
   - You only
@@ -19683,7 +19683,7 @@ D. Flex banner
 **Per Station Setup:**
 
 ```
-**[Diagram: Exam Station Layout]** *(Create overhead/floor-plan diagram of practical exam station showing: 3 cameras mounted on walls at different angles (labeled Camera 1-3), Camera 4 on a table, a PVC conduit route running along one wall, DVR + Monitor on a workstation, cable roll and tool box on the floor, and a power supply unit. Label each component position and show cable routing paths between cameras and DVR)*
+**![Exam Station Layout](diagrams/exam_station_layout.svg)** *(Create overhead/floor-plan diagram of practical exam station showing: 3 cameras mounted on walls at different angles (labeled Camera 1-3), Camera 4 on a table, a PVC conduit route running along one wall, DVR + Monitor on a workstation, cable roll and tool box on the floor, and a power supply unit. Label each component position and show cable routing paths between cameras and DVR)*
 
     +---------------------------------------------------+
     |                                                     |
@@ -19942,7 +19942,7 @@ Trainer Signature: ______________
 **Network Topology for Test:**
 
 ```
-**[Diagram: Network Test Topology]** *(Create network topology diagram showing: Internet cloud at top → Router (192.168.1.1) → PoE Switch (192.168.1.2) → branching to IP Cam 1, IP Cam 2, and NVR with assigned IPs. Include labels for each device IP, cable types (CAT6), and show the full chain from camera to remote access)*
+**![Network Test Topology](images/diagram_network_test.svg)** *(Create network topology diagram showing: Internet cloud at top → Router (192.168.1.1) → PoE Switch (192.168.1.2) → branching to IP Cam 1, IP Cam 2, and NVR with assigned IPs. Include labels for each device IP, cable types (CAT6), and show the full chain from camera to remote access)*
 
                   [Internet]
                       |
@@ -21684,7 +21684,7 @@ REVIEW DATE: Next batch se pehle
 ### 14.5.1 Feedback Analysis Process
 
 ```
-**[Diagram: Feedback to Improvement Cycle]** *(Create circular flowchart showing: 1) Collect Feedback (students fill forms) → 2) Analyze (score answers, find patterns) → 3) Identify Gaps (which topics need improvement) → 4) Update Curriculum (modify content, add examples) → 5) Implement Changes (new training methods) → 6) Re-collect Feedback (measure improvement). Show arrows forming a continuous loop with labels at each stage and sample metrics like "avg score improvement" between cycles)*
+**![Feedback to Improvement Cycle](images/diagram_feedback.svg)** *(Create circular flowchart showing: 1) Collect Feedback (students fill forms) → 2) Analyze (score answers, find patterns) → 3) Identify Gaps (which topics need improvement) → 4) Update Curriculum (modify content, add examples) → 5) Implement Changes (new training methods) → 6) Re-collect Feedback (measure improvement). Show arrows forming a continuous loop with labels at each stage and sample metrics like "avg score improvement" between cycles)*
 
         +-------------+
         |  Collect    |

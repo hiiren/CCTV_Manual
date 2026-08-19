@@ -1,0 +1,25 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">Boom Barrier Working Flow / बूम बैरियर फ्लो</text>
+  <rect x="450" y="80" width="300" height="45" rx="22" fill="#2563eb"/><text x="600" y="108" fill="white" font-size="12" text-anchor="middle">1. Vehicle Approaches</text>
+  <line x1="600" y1="125" x2="600" y2="145" stroke="#64748b" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="450" y="145" width="300" height="45" rx="22" fill="#059669"/><text x="600" y="173" fill="white" font-size="12" text-anchor="middle">2. Loop Sensor Activated</text>
+  <line x1="600" y1="190" x2="600" y2="210" stroke="#64748b" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="450" y="210" width="300" height="45" rx="22" fill="#7c3aed"/><text x="600" y="238" fill="white" font-size="12" text-anchor="middle">3. Authorization (Card/Tag/Face)</text>
+  <line x1="600" y1="255" x2="600" y2="275" stroke="#64748b" stroke-width="2" marker-end="url(#a2)"/>
+  <polygon points="600,275 730,320 600,365 470,320" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+  <text x="600" y="325" fill="#1e293b" font-size="12" text-anchor="middle" font-weight="bold">Authorized?</text>
+  <line x1="600" y1="365" x2="600" y2="395" stroke="#16a34a" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="615" y="385" fill="#16a34a" font-size="11">Yes</text>
+  <rect x="450" y="395" width="300" height="45" rx="22" fill="#ea580c"/><text x="600" y="423" fill="white" font-size="12" text-anchor="middle">4. Motor Activates → Boom Rises</text>
+  <line x1="600" y1="440" x2="600" y2="460" stroke="#64748b" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="450" y="460" width="300" height="45" rx="22" fill="#dc2626"/><text x="600" y="488" fill="white" font-size="12" text-anchor="middle">5. Vehicle Passes Under</text>
+  <line x1="600" y1="505" x2="600" y2="525" stroke="#64748b" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="450" y="525" width="300" height="45" rx="22" fill="#059669"/><text x="600" y="553" fill="white" font-size="12" text-anchor="middle">6. Sensor Confirms Clear</text>
+  <line x1="600" y1="570" x2="600" y2="590" stroke="#64748b" stroke-width="2" marker-end="url(#a2)"/>
+  <polygon points="600,590 730,635 600,680 470,635" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+  <text x="600" y="640" fill="#1e293b" font-size="11" text-anchor="middle" font-weight="bold">Vehicle Clear?</text>
+  <line x1="600" y1="680" x2="600" y2="710" stroke="#16a34a" stroke-width="2" marker-end="url(#a2)"/>
+  <rect x="450" y="710" width="300" height="45" rx="22" fill="#2563eb"/><text x="600" y="738" fill="white" font-size="12" text-anchor="middle">7. Auto-Close (Boom Lowers)</text>
+  <defs><marker id="a2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker></defs>
+</svg>

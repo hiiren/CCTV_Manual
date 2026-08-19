@@ -1,0 +1,22 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">Network Press Problem → Solution / नेटवर्क समस्या → समाधान</text>
+  <rect x="100" y="80" width="480" height="300" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="340" y="120" fill="#dc2626" font-size="18" text-anchor="middle" font-weight="bold">❌ Problem / समस्या</text>
+  <text x="140" y="170" fill="#475569" font-size="13">• Cameras keep disconnecting</text>
+  <text x="140" y="200" fill="#475569" font-size="13">• Slow video streaming</text>
+  <text x="140" y="230" fill="#475569" font-size="13">• NVR shows "No Signal"</text>
+  <text x="140" y="260" fill="#475569" font-size="13">• Network congestion</text>
+  <text x="140" y="290" fill="#475569" font-size="13">• Bandwidth overload</text>
+  <rect x="620" y="80" width="480" height="300" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="860" y="120" fill="#16a34a" font-size="18" text-anchor="middle" font-weight="bold">✅ Solution / समाधान</text>
+  <text x="660" y="170" fill="#475569" font-size="13">• Upgrade to managed PoE switch</text>
+  <text x="660" y="200" fill="#475569" font-size="13">• Implement VLANs for traffic isolation</text>
+  <text x="660" y="230" fill="#475569" font-size="13">• QoS settings for video priority</text>
+  <text x="660" y="260" fill="#475569" font-size="13">• Proper bandwidth planning</text>
+  <text x="660" y="290" fill="#475569" font-size="13">• Network monitoring tools</text>
+  <rect x="100" y="410" width="1000" height="180" rx="8" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+  <text x="600" y="450" fill="#2563eb" font-size="16" text-anchor="middle" font-weight="bold">Bandwidth Calculation / बैंडविड्थ कैलकुलेशन</text>
+  <text x="600" y="490" fill="#1e293b" font-size="14" text-anchor="middle">1 Camera (4MP) ≈ 4-6 Mbps | 10 Cameras ≈ 50 Mbps</text>
+  <text x="600" y="520" fill="#1e293b" font-size="14" text-anchor="middle">30 Cameras ≈ 150 Mbps | Need Gigabit switch for 30+ cameras</text>
+</svg>

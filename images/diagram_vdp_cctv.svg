@@ -1,0 +1,27 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">VDP + CCTV Integration / VDP + CCTV इंटीग्रेशन</text>
+  <!-- CCTV System -->
+  <rect x="50" y="100" width="450" height="300" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="275" y="140" fill="#2563eb" font-size="18" text-anchor="middle" font-weight="bold">CCTV System</text>
+  <rect x="100" y="170" width="150" height="60" rx="6" fill="#2563eb"/><text x="175" y="208" fill="white" font-size="12" text-anchor="middle">NVR</text>
+  <rect x="100" y="260" width="80" height="50" rx="6" fill="#16a34a"/><text x="140" y="292" fill="white" font-size="10" text-anchor="middle">Cam 1</text>
+  <rect x="200" y="260" width="80" height="50" rx="6" fill="#16a34a"/><text x="240" y="292" fill="white" font-size="10" text-anchor="middle">Cam 2</text>
+  <rect x="300" y="260" width="80" height="50" rx="6" fill="#16a34a"/><text x="340" y="292" fill="white" font-size="10" text-anchor="middle">Cam 3</text>
+  <text x="275" y="370" fill="#64748b" font-size="11" text-anchor="middle">IP: 192.168.1.10</text>
+  <!-- VDP System -->
+  <rect x="700" y="100" width="450" height="300" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="925" y="140" fill="#16a34a" font-size="18" text-anchor="middle" font-weight="bold">VDP System</text>
+  <rect x="750" y="170" width="150" height="60" rx="6" fill="#363654"/><text x="825" y="208" fill="white" font-size="12" text-anchor="middle">Outdoor Unit</text>
+  <rect x="950" y="170" width="150" height="60" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/><text x="1025" y="208" fill="#1e293b" font-size="12" text-anchor="middle">Indoor Unit</text>
+  <text x="925" y="370" fill="#64748b" font-size="11" text-anchor="middle">Outdoor: 192.168.1.20 | Indoor: 192.168.1.21</text>
+  <!-- Central Switch -->
+  <rect x="425" y="470" width="350" height="60" rx="8" fill="#7c3aed"/><text x="600" y="508" fill="white" font-size="14" text-anchor="middle">PoE Switch</text>
+  <line x1="275" y1="400" x2="500" y2="470" stroke="#2563eb" stroke-width="2" stroke-dasharray="6,3"/>
+  <line x1="925" y1="400" x2="700" y2="470" stroke="#16a34a" stroke-width="2" stroke-dasharray="6,3"/>
+  <!-- Monitor -->
+  <rect x="400" y="580" width="400" height="80" rx="8" fill="#1e293b" stroke="#4a4a6a" stroke-width="2"/>
+  <text x="600" y="615" fill="#16a34a" font-size="14" text-anchor="middle">📺 Combined CCTV + VDP Display</text>
+  <text x="600" y="640" fill="#94a3b8" font-size="11" text-anchor="middle">Visitor presses VDP → NVR records → Monitor shows both feeds</text>
+  <line x1="600" y1="530" x2="600" y2="580" stroke="#64748b" stroke-width="2"/>
+</svg>

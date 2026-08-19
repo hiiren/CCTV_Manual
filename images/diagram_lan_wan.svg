@@ -1,0 +1,34 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="24" text-anchor="middle" font-weight="bold">LAN vs WAN Architecture / LAN बनाम WAN आर्किटेक्चर</text>
+  <!-- LAN Side -->
+  <rect x="50" y="80" width="500" height="650" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="300" y="120" fill="#2563eb" font-size="20" text-anchor="middle" font-weight="bold">LAN - Within Building</text>
+  <text x="300" y="145" fill="#64748b" font-size="12" text-anchor="middle">LAN - बिल्डिंग के अंदर</text>
+  <rect x="200" y="180" width="200" height="50" rx="6" fill="#2563eb"/><text x="300" y="212" fill="white" font-size="12" text-anchor="middle">Switch</text>
+  <rect x="100" y="300" width="120" height="50" rx="6" fill="#16a34a"/><text x="160" y="332" fill="white" font-size="11" text-anchor="middle">Camera 1</text>
+  <rect x="250" y="300" width="120" height="50" rx="6" fill="#16a34a"/><text x="310" y="332" fill="white" font-size="11" text-anchor="middle">Camera 2</text>
+  <rect x="400" y="300" width="120" height="50" rx="6" fill="#16a34a"/><text x="460" y="332" fill="white" font-size="11" text-anchor="middle">NVR</text>
+  <line x1="300" y1="230" x2="160" y2="300" stroke="#2563eb" stroke-width="2"/>
+  <line x1="300" y1="230" x2="310" y2="300" stroke="#2563eb" stroke-width="2"/>
+  <line x1="300" y1="230" x2="460" y2="300" stroke="#2563eb" stroke-width="2"/>
+  <text x="300" y="430" fill="#16a34a" font-size="16" text-anchor="middle" font-weight="bold">Speed: 1 Gbps+</text>
+  <text x="300" y="455" fill="#64748b" font-size="12" text-anchor="middle">Private Network | CAT6 Cable</text>
+  <text x="300" y="480" fill="#64748b" font-size="12" text-anchor="middle">Cost: Low | Latency: &lt;1ms</text>
+  <!-- WAN Side -->
+  <rect x="650" y="80" width="500" height="650" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="900" y="120" fill="#dc2626" font-size="20" text-anchor="middle" font-weight="bold">WAN - Multiple Buildings</text>
+  <text x="900" y="145" fill="#64748b" font-size="12" text-anchor="middle">WAN - कई बिल्डिंग्स को जोड़ना</text>
+  <rect x="700" y="180" width="130" height="60" rx="6" fill="#dc2626"/><text x="765" y="215" fill="white" font-size="11" text-anchor="middle">Head Office</text>
+  <rect x="870" y="180" width="130" height="60" rx="6" fill="#ea580c"/><text x="935" y="215" fill="white" font-size="11" text-anchor="middle">Branch Office</text>
+  <rect x="1040" y="180" width="90" height="60" rx="6" fill="#7c3aed"/><text x="1085" y="215" fill="white" font-size="11" text-anchor="middle">Warehouse</text>
+  <!-- Internet cloud -->
+  <ellipse cx="900" cy="350" rx="150" ry="60" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="900" y="355" fill="#475569" font-size="16" text-anchor="middle" font-weight="bold">Internet</text>
+  <line x1="765" y1="240" x2="850" y2="290" stroke="#dc2626" stroke-width="2"/>
+  <line x1="935" y1="240" x2="900" y2="290" stroke="#ea580c" stroke-width="2"/>
+  <line x1="1085" y1="240" x2="950" y2="290" stroke="#7c3aed" stroke-width="2"/>
+  <text x="900" y="480" fill="#dc2626" font-size="16" text-anchor="middle" font-weight="bold">Speed: 10-100 Mbps</text>
+  <text x="900" y="505" fill="#64748b" font-size="12" text-anchor="middle">ISP Managed | Fiber/Leased Line</text>
+  <text x="900" y="530" fill="#64748b" font-size="12" text-anchor="middle">Cost: High | Latency: 20-100ms</text>
+</svg>

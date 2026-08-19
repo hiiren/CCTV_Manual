@@ -1,0 +1,24 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">Wired VDP Connection / वायर्ड VDP कनेक्शन</text>
+  <!-- Outdoor Unit -->
+  <rect x="100" y="200" width="250" height="350" rx="12" fill="#363654" stroke="#4a4a6a" stroke-width="2"/>
+  <text x="225" y="250" fill="white" font-size="16" text-anchor="middle" font-weight="bold">Outdoor Unit</text>
+  <text x="225" y="275" fill="#9090a8" font-size="12" text-anchor="middle">आउटडोर यूनिट</text>
+  <!-- Indoor Unit -->
+  <rect x="850" y="200" width="250" height="350" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+  <text x="975" y="250" fill="#1e293b" font-size="16" text-anchor="middle" font-weight="bold">Indoor Unit</text>
+  <text x="975" y="275" fill="#64748b" font-size="12" text-anchor="middle">इंडोर यूनिट</text>
+  <!-- 5 Wires -->
+  <line x1="350" y1="280" x2="850" y2="280" stroke="#dc2626" stroke-width="3"/><text x="600" y="273" fill="#dc2626" font-size="11" text-anchor="middle">Red: +12V DC</text>
+  <line x1="350" y1="320" x2="850" y2="320" stroke="#1e293b" stroke-width="3"/><text x="600" y="313" fill="#1e293b" font-size="11" text-anchor="middle">Black: GND</text>
+  <line x1="350" y1="360" x2="850" y2="360" stroke="#eab308" stroke-width="3"/><text x="600" y="353" fill="#ca8a04" font-size="11" text-anchor="middle">Yellow: Video</text>
+  <line x1="350" y1="400" x2="850" y2="400" stroke="#94a3b8" stroke-width="3"/><text x="600" y="393" fill="#64748b" font-size="11" text-anchor="middle">White: Audio</text>
+  <line x1="350" y1="440" x2="850" y2="440" stroke="#16a34a" stroke-width="3"/><text x="600" y="433" fill="#16a34a" font-size="11" text-anchor="middle">Green: Lock</text>
+  <!-- Power Adapter -->
+  <rect x="100" y="580" width="150" height="50" rx="6" fill="#2563eb"/><text x="175" y="612" fill="white" font-size="11" text-anchor="middle">12V DC Adapter</text>
+  <line x1="225" y1="550" x2="225" y2="580" stroke="#2563eb" stroke-width="2"/>
+  <!-- Electric Lock -->
+  <rect x="850" y="580" width="150" height="50" rx="6" fill="#dc2626"/><text x="925" y="612" fill="white" font-size="11" text-anchor="middle">Electric Lock</text>
+  <line x1="975" y1="550" x2="975" y2="580" stroke="#dc2626" stroke-width="2"/>
+</svg>

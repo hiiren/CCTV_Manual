@@ -1,0 +1,19 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">Boom Barrier Component Layout / बूम बैरियर कंपोनेंट</text>
+  <!-- Housing -->
+  <rect x="200" y="300" width="800" height="120" rx="12" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+  <text x="600" y="370" fill="white" font-size="16" text-anchor="middle" font-weight="bold">Boom Barrier Housing / बैरियर हाउसिंग</text>
+  <!-- Boom Arm -->
+  <rect x="400" y="260" width="400" height="30" rx="4" fill="#dc2626" stroke="#b91c1c" stroke-width="2"/>
+  <text x="600" y="282" fill="white" font-size="12" text-anchor="middle">Boom Arm (3-6m)</text>
+  <!-- Components -->
+  <rect x="250" y="330" width="120" height="50" rx="6" fill="#2563eb"/><text x="310" y="362" fill="white" font-size="10" text-anchor="middle">Motor</text>
+  <rect x="400" y="330" width="120" height="50" rx="6" fill="#7c3aed"/><text x="460" y="362" fill="white" font-size="10" text-anchor="middle">Controller</text>
+  <rect x="550" y="330" width="120" height="50" rx="6" fill="#ea580c"/><text x="610" y="362" fill="white" font-size="10" text-anchor="middle">Sensor</text>
+  <rect x="700" y="330" width="120" height="50" rx="6" fill="#16a34a"/><text x="760" y="362" fill="white" font-size="10" text-anchor="middle">Counterweight</text>
+  <!-- Labels -->
+  <text x="600" y="480" fill="#1e293b" font-size="14" text-anchor="middle">Available sizes: 3m | 4.5m | 6m</text>
+  <text x="600" y="510" fill="#64748b" font-size="12" text-anchor="middle">Opening Time: 3-6 seconds | Power: 220V AC</text>
+  <text x="600" y="540" fill="#64748b" font-size="12" text-anchor="middle">Loop sensor integration | Emergency manual release</text>
+</svg>

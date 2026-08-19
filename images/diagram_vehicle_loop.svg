@@ -1,0 +1,22 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">Vehicle Loop Sensor / वाहन लूप सेंसर</text>
+  <!-- Top View -->
+  <text x="300" y="100" fill="#1e293b" font-size="16" text-anchor="middle" font-weight="bold">Top View / ऊपर से देखें</text>
+  <rect x="100" y="120" width="400" height="300" rx="4" fill="#94a3b8" stroke="#64748b" stroke-width="2"/>
+  <text x="300" y="145" fill="#475569" font-size="12" text-anchor="middle">ROAD SURFACE / सड़क</text>
+  <rect x="175" y="170" width="250" height="180" rx="4" fill="none" stroke="#dc2626" stroke-width="3" stroke-dasharray="8,4"/>
+  <text x="300" y="265" fill="#dc2626" font-size="14" text-anchor="middle" font-weight="bold">Inductive Loop</text>
+  <text x="300" y="285" fill="#dc2626" font-size="12" text-anchor="middle">1m x 1.5m</text>
+  <line x1="300" y1="350" x2="300" y2="450" stroke="#2563eb" stroke-width="3"/>
+  <text x="340" y="400" fill="#2563eb" font-size="11">Lead-in wire</text>
+  <rect x="250" y="450" width="100" height="40" rx="4" fill="#2563eb"/><text x="300" y="475" fill="white" font-size="10" text-anchor="middle">Detector</text>
+  <!-- Cross Section -->
+  <text x="900" y="100" fill="#1e293b" font-size="16" text-anchor="middle" font-weight="bold">Cross Section / क्रॉस सेक्शन</text>
+  <rect x="650" y="120" width="500" height="300" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="650" y="120" width="500" height="80" fill="#78716c"/><text x="900" y="165" fill="white" font-size="12" text-anchor="middle">Asphalt / कंक्रीट</text>
+  <rect x="750" y="200" width="10" height="80" fill="#dc2626"/><text x="820" y="245" fill="#dc2626" font-size="10">Saw Cut 3-5mm</text>
+  <rect x="750" y="210" width="10" height="60" fill="#fbbf24"/><text x="820" y="265" fill="#d97706" font-size="10">Loop Wire</text>
+  <rect x="740" y="200" width="30" height="80" fill="#059669" opacity="0.3"/><text x="820" y="285" fill="#059669" font-size="10">Sealant</text>
+  <text x="900" y="500" fill="#64748b" font-size="12" text-anchor="middle">Cut Depth: 30-50mm | Width: 3-5mm</text>
+</svg>

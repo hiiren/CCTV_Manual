@@ -1,0 +1,24 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#ffffff" stroke="#333" stroke-width="2"/>
+  <text x="600" y="50" fill="#1e293b" font-family="sans-serif" font-size="22" text-anchor="middle" font-weight="bold">Split Switch - More Ports / स्प्लिट स्विच - अधिक पोर्ट्स</text>
+  <!-- Main Switch -->
+  <rect x="350" y="100" width="500" height="80" rx="8" fill="#2563eb"/><text x="600" y="148" fill="white" font-size="16" text-anchor="middle" font-weight="bold">Main PoE Switch (16-Port)</text>
+  <!-- Split Switch 1 -->
+  <rect x="100" y="350" width="250" height="70" rx="8" fill="#059669"/><text x="225" y="395" fill="white" font-size="13" text-anchor="middle">Split Switch 1 (8-Port)</text>
+  <!-- Split Switch 2 -->
+  <rect x="850" y="350" width="250" height="70" rx="8" fill="#059669"/><text x="975" y="395" fill="white" font-size="13" text-anchor="middle">Split Switch 2 (8-Port)</text>
+  <line x1="600" y1="180" x2="225" y2="350" stroke="#059669" stroke-width="2" stroke-dasharray="6,3"/>
+  <line x1="600" y1="180" x2="975" y2="350" stroke="#059669" stroke-width="2" stroke-dasharray="6,3"/>
+  <!-- Cameras S1 -->
+  <rect x="50" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="90" y="526" fill="white" font-size="9" text-anchor="middle">Cam 1</text>
+  <rect x="140" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="180" y="526" fill="white" font-size="9" text-anchor="middle">Cam 2</text>
+  <rect x="230" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="270" y="526" fill="white" font-size="9" text-anchor="middle">Cam 3</text>
+  <rect x="320" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="360" y="526" fill="white" font-size="9" text-anchor="middle">Cam 4</text>
+  <!-- Cameras S2 -->
+  <rect x="820" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="860" y="526" fill="white" font-size="9" text-anchor="middle">Cam 5</text>
+  <rect x="910" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="950" y="526" fill="white" font-size="9" text-anchor="middle">Cam 6</text>
+  <rect x="1000" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="1040" y="526" fill="white" font-size="9" text-anchor="middle">Cam 7</text>
+  <rect x="1090" y="500" width="80" height="40" rx="6" fill="#16a34a"/><text x="1130" y="526" fill="white" font-size="9" text-anchor="middle">Cam 8</text>
+  <text x="600" y="620" fill="#64748b" font-size="12" text-anchor="middle">Benefit: Expand from 16 to 32 ports | All cameras managed by same router</text>
+  <text x="600" y="645" fill="#64748b" font-size="12" text-anchor="middle">फायदा: 16 से 32 पोर्ट तक विस्तार | सभी कैमरे एक ही राउटर द्वारा प्रबंधित</text>
+</svg>
