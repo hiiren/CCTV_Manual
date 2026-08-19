@@ -1,0 +1,31 @@
+# LAN Network Layout for CCTV
+graph TB
+    subgraph "Internet Cloud"
+        ISP[ISP Router]
+    end
+    
+    subgraph "Office / Building"
+        Router[Router<br/>192.168.1.1]
+        Switch[PoE Switch<br/>192.168.1.2]
+        
+        subgraph "Cameras"
+            CAM1[Dome Camera<br/>192.168.1.10]
+            CAM2[Bullet Camera<br/>192.168.1.11]
+            CAM3[PTZ Camera<br/>192.168.1.12]
+            CAM4[Dome Camera<br/>192.168.1.13]
+        end
+        
+        DVR[DVR/NVR<br/>192.168.1.100]
+        MON[Monitor]
+        PC[Management PC<br/>192.168.1.50]
+    end
+    
+    ISP -->|WAN| Router
+    Router -->|LAN| Switch
+    Switch --> CAM1
+    Switch --> CAM2
+    Switch --> CAM3
+    Switch --> CAM4
+    Switch --> DVR
+    DVR --> MON
+    Switch --> PC

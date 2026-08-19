@@ -1,0 +1,30 @@
+# Boom Barrier Working Flow
+flowchart TD
+    Start([Vehicle Approaches]) --> Loop{Loop Sensor<br/>Detects Vehicle?}
+    
+    Loop -->|No| Wait[Wait]
+    Wait --> Loop
+    
+    Loop -->|Yes| Auth{Authorization<br/>Check}
+    
+    Auth -->|Valid Card/Remote| Rise[Boom Arm Rises<br/>3-5 seconds]
+    Auth -->|Invalid| Deny[Access Denied<br/>Arm Stays Down]
+    
+    Rise --> Open{Fully Open?<br/>Limit Switch}
+    Open -->|No| Rise
+    Open -->|Yes| Hold[Hold Open Position]
+    
+    Hold --> Pass[Vehicle Passes Through]
+    Pass --> Clear{Loop Sensor<br/>Cleared?}
+    
+    Clear -->|No| Hold
+    Clear -->|Yes| Delay[Auto-Close Delay<br/>5 seconds]
+    
+    Delay --> Close[Boom Arm Lowers<br/>3-5 seconds]
+    Close --> Closed{Fully Closed?<br/>Limit Switch}
+    
+    Closed -->|No| Close
+    Closed -->|Yes| End([Ready for Next Vehicle])
+    
+    Deny --> Alarm[Optional Alarm]
+    Alarm --> End

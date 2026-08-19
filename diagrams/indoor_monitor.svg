@@ -1,0 +1,29 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1a1a2e"/>
+  <text x="600" y="50" fill="white" font-family="sans-serif" font-size="24" text-anchor="middle">VDP Indoor Monitor / वीडियो डोर फोन इंडोर मॉनिटर</text>
+  
+  <!-- Main Body -->
+  <rect x="350" y="100" width="500" height="600" rx="10" fill="#2d2d4a" stroke="#6366f1" stroke-width="2"/>
+  
+  <!-- Screen -->
+  <rect x="380" y="130" width="440" height="350" fill="#0f0f1a" stroke="#34d399" stroke-width="2"/>
+  <text x="600" y="300" fill="#34d399" font-size="20" text-anchor="middle">7-inch LCD Screen</text>
+  <text x="600" y="320" fill="#9090a8" font-size="14" text-anchor="middle">7 इंच एलसीडी स्क्रीन</text>
+  
+  <!-- Speaker -->
+  <rect x="450" y="500" width="300" height="40" fill="#363654"/>
+  <text x="600" y="525" fill="#9090a8" font-size="12" text-anchor="middle">Speaker</text>
+  
+  <!-- Buttons -->
+  <rect x="400" y="560" width="120" height="60" rx="8" fill="#34d399"/>
+  <text x="460" y="595" fill="white" font-size="14" text-anchor="middle">Talk</text>
+  
+  <rect x="540" y="560" width="120" height="60" rx="8" fill="#f87171"/>
+  <text x="600" y="595" fill="white" font-size="14" text-anchor="middle">Unlock</text>
+  
+  <rect x="680" y="560" width="120" height="60" rx="8" fill="#363654"/>
+  <text x="740" y="595" fill="white" font-size="14" text-anchor="middle">Menu</text>
+  
+  <!-- Ports -->
+  <text x="150" y="600" fill="#fbbf24" font-size="14">Ports: 12V DC, Ethernet, USB</text>
+</svg>

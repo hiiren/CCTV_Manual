@@ -1,0 +1,39 @@
+# Access Control Working Flow
+flowchart TD
+    Start([User Approaches Door]) --> Present{Present Credential}
+    
+    Present -->|Card| Reader1[Card Reader Reads Card]
+    Present -->|Fingerprint| Reader2[Biometric Scans Finger]
+    Present -->|Face| Reader3[Camera Captures Face]
+    
+    Reader1 --> Capture[Reader Sends ID to Controller]
+    Reader2 --> Capture
+    Reader3 --> Capture
+    
+    Capture --> Check{Controller Checks<br/>Database}
+    
+    Check -->|Found and Authorized| Time{Check Time Zone?}
+    Check -->|Not Found| Deny1[Access Denied<br/>Unknown Card]
+    Check -->|Found and Blocked| Deny2[Access Denied<br/>Blocked User]
+    
+    Time -->|Within Allowed Hours| Unlock[Unlock Door<br/>Activate Relay]
+    Time -->|Outside Allowed Hours| Deny3[Access Denied<br/>Wrong Time]
+    
+    Unlock --> Log1[Log: Access Granted<br/>User ID, Time, Door]
+    Deny1 --> Log2[Log: Access Denied<br/>Unknown Card]
+    Deny2 --> Log3[Log: Access Denied<br/>Blocked User]
+    Deny3 --> Log4[Log: Access Denied<br/>Wrong Time]
+    
+    Log1 --> Buzzer[Door Buzzer ON<br/>5 seconds]
+    Buzzer --> Sensor{Door Opened?}
+    
+    Sensor -->|Yes| Wait[Wait for Door Close]
+    Sensor -->|No| Alarm[Alarm: Door Forced]
+    
+    Wait --> Close[Door Closed<br/>Re-lock]
+    Close --> End([End])
+    Alarm --> End
+    
+    Log2 --> End
+    Log3 --> End
+    Log4 --> End

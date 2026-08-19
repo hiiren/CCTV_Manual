@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CCTV Training Manual - Classroom Viewer</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        dark: { bg: '#0f0f1a', surface: '#1a1a2e', border: '#363654' },
+        light: { bg: '#f8fafc', surface: '#ffffff', border: '#e2e8f0' },
+        brand: { DEFAULT: '#6366f1', light: '#818cf8' }
+      },
+      fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+    }
+  }
+}
+</script>
+<style>
+body { font-size: 18px; line-height: 1.8; transition: background 0.3s, color 0.3s; }
+.dark body { background: #0f0f1a; color: #e8e8f0; }
+body:not(.dark) { background: #f8fafc; color: #1e293b; }
+
+#sidebar { width: 280px; transition: transform 0.3s ease; }
+#main-content { max-width: 900px; margin: 0 auto; }
+
+/* Callouts */
+.callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 4px solid; }
+.callout.warning { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; color: #fca5a5; }
+.callout.tip { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; color: #93c5fd; }
+.callout.best { background: rgba(34, 197, 94, 0.1); border-color: #22c55e; color: #86efac; }
+.callout.tool { background: rgba(249, 115, 22, 0.1); border-color: #f97316; color: #fdba74; }
+
+/* Presentation Mode */
+body.presentation #sidebar, body.presentation #top-nav, body.presentation #status-panel, body.presentation #back-top { display: none !important; }
+body.presentation #main-content { padding: 40px 80px; max-width: 1200px; }
+body.presentation .md-content { font-size: 24px; line-height: 2; }
+body.presentation h1 { font-size: 3rem; }
+body.presentation h2 { font-size: 2.2rem; }
+body.presentation h3 { font-size: 1.8rem; }
+body.presentation table { font-size: 1.2rem; }
+
+.md-content h1 { font-size: 2.2em; font-weight: 700; margin: 48px 0 24px; border-bottom: 2px solid currentColor; padding-bottom: 12px; }
+.md-content h2 { font-size: 1.6em; font-weight: 600; margin: 40px 0 20px; color: #818cf8; }
+.md-content h3 { font-size: 1.3em; font-weight: 600; margin: 32px 0 16px; }
+.md-content pre { background: #12121f; padding: 20px; border-radius: 12px; overflow-x: auto; border: 1px solid #363654; }
+.md-content code { font-family: 'JetBrains Mono', monospace; }
+.md-content img { max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #22c55e; padding: 4px; }
+.md-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+.md-content th, .md-content td { border: 1px solid #363654; padding: 12px 16px; text-align: left; }
+.md-content th { background: #1a1a2e; }
+
+mark.search-highlight { background: #fbbf24; color: #000; padding: 2px 4px; border-radius: 4px; }
+</style>
+</head>
+<body class="dark">
+
+<!-- TOP NAVBAR -->
+<div id="top-nav" class="fixed top-0 left-0 right-0 h-16 bg-dark-surface border-b border-dark-border flex items-center justify-between px-6 z-50 dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
+  <div class="flex items-center gap-4">
+    <button onclick="toggleSidebar()" class="p-2 hover:bg-dark-bg rounded-lg">☰</button>
+    <div class="font-bold text-brand">CCTV Manual</div>
+    <div class="h-6 w-px bg-dark-border dark:bg-dark-border bg-light-border"></div>
+    <span id="current-chapter" class="text-sm opacity-70">Chapter 1 of 14</span>
+  </div>
+  
+  <div class="flex-1 max-w-md mx-8">
+    <div class="h-2 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded-full overflow-hidden">
+      <div id="progress-bar" class="h-full bg-brand transition-all duration-300" style="width: 7%"></div>
+    </div>
+    <div class="text-xs text-center mt-1 opacity-50" id="progress-text">7% Complete</div>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <button onclick="changeFontSize(-2)" class="px-3 py-1 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded hover:opacity-80 font-bold">A-</button>
+    <button onclick="changeFontSize(2)" class="px-3 py-1 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded hover:opacity-80 font-bold">A+</button>
+    <button onclick="togglePresentation()" class="px-3 py-1 bg-brand rounded hover:bg-brand-light text-white font-medium">F: Present</button>
+    <button onclick="toggleTheme()" class="px-3 py-1 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded hover:opacity-80">☽/☀</button>
+    <input type="text" id="search-input" placeholder="Search..." class="bg-dark-bg dark:bg-dark-bg bg-gray-200 px-3 py-1 rounded border-none outline-none w-48">
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="fixed top-16 left-0 bottom-0 bg-dark-surface border-r border-dark-border overflow-y-auto z-40 dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
+  <div class="p-4 border-b border-dark-border dark:border-dark-border border-light-border">
+    <h3 class="text-xs font-bold uppercase tracking-wider opacity-50">Navigation</h3>
+  </div>
+  <div id="sidebar-links" class="py-2"></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content" class="pt-24 pb-32 px-8 h-screen overflow-y-auto" style="margin-left: 280px; scroll-behavior: smooth;">
+  <div class="md-content" id="content">
+    <p class="opacity-50 mt-40">Loading manual...</p>
+  </div>
+</main>
+
+<!-- COMPONENT PANEL -->
+<div id="component-panel" class="fixed top-16 right-0 bottom-0 w-80 bg-dark-surface border-l border-dark-border transform translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
+  <button onclick="closePanel()" class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+  <div id="panel-content"></div>
+</div>
+
+<!-- INTERACTIVE WIRING DIAGRAMS -->
+<div class="mt-16 mb-16 p-8 border border-dark-border rounded-2xl bg-dark-bg dark:bg-dark-bg bg-gray-50">
+  <h3 class="text-2xl font-bold mb-6 text-brand">Interactive Wiring / इंटरैक्टिव वायरिंग</h3>
+  
+  <div class="relative">
+    <svg viewBox="0 0 800 400" class="w-full h-auto border border-dark-border rounded-lg">
+      <!-- Background -->
+      <rect width="800" height="400" fill="#1a1a2e"/>
+      
+      <!-- DVR -->
+      <rect id="comp-dvr" x="300" y="150" width="200" height="100" rx="8" fill="#363654" stroke="#6366f1" stroke-width="2" class="cursor-pointer hover:stroke-brand-light transition-colors" onclick="showComponent('dvr')"/>
+      <text x="400" y="205" fill="white" font-size="16" text-anchor="middle" pointer-events="none">DVR Unit</text>
+      <text x="400" y="225" fill="#9090a8" font-size="10" text-anchor="middle" pointer-events="none">डीवीआर यूनिट</text>
+      
+      <!-- Camera 1 -->
+      <circle id="comp-cam1" cx="100" cy="100" r="40" fill="#363654" stroke="#34d399" stroke-width="2" class="cursor-pointer hover:stroke-green-400 transition-colors" onclick="showComponent('camera')"/>
+      <text x="100" y="105" fill="white" font-size="12" text-anchor="middle" pointer-events="none">Cam 1</text>
+      
+      <!-- Camera 2 -->
+      <circle id="comp-cam2" cx="100" cy="300" r="40" fill="#363654" stroke="#34d399" stroke-width="2" class="cursor-pointer hover:stroke-green-400 transition-colors" onclick="showComponent('camera')"/>
+      <text x="100" y="305" fill="white" font-size="12" text-anchor="middle" pointer-events="none">Cam 2</text>
+      
+      <!-- Monitor -->
+      <rect id="comp-monitor" x="600" y="150" width="150" height="100" rx="8" fill="#363654" stroke="#fbbf24" stroke-width="2" class="cursor-pointer hover:stroke-yellow-400 transition-colors" onclick="showComponent('monitor')"/>
+      <text x="675" y="205" fill="white" font-size="14" text-anchor="middle" pointer-events="none">Monitor</text>
+      <text x="675" y="225" fill="#9090a8" font-size="10" text-anchor="middle" pointer-events="none">मॉनिटर</text>
+      
+      <!-- Cables -->
+      <path d="M 140 100 L 300 170" stroke="#f87171" stroke-width="3" stroke-dasharray="5,5"/>
+      <path d="M 140 300 L 300 230" stroke="#f87171" stroke-width="3" stroke-dasharray="5,5"/>
+      <path d="M 500 200 L 600 200" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,5"/>
+      
+      <!-- Labels -->
+      <text x="220" y="120" fill="#f87171" font-size="10">BNC Cable</text>
+      <text x="550" y="190" fill="#fbbf24" font-size="10">HDMI/VGA</text>
+    </svg>
+  </div>
+  <p class="mt-4 text-sm opacity-70 text-center">Click on any component to see details / किसी भी कंपोनेंट पर क्लिक करें</p>
+</div>
+
+<!-- STATUS PANEL -->
+<div id="status-panel" class="fixed bottom-6 right-6 bg-dark-surface border border-dark-border p-4 rounded-2xl z-50 w-64 shadow-2xl dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
+  <h4 class="text-xs font-bold uppercase tracking-wider opacity-50 mb-3">Status</h4>
+  <div class="space-y-2 text-sm">
+    <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span>Linked</span><span id="stat-linked" class="font-bold">0</span></div>
+    <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-500"></span>Needed</span><span id="stat-images" class="font-bold">0</span></div>
+    <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>Diagrams</span><span id="stat-diagrams" class="font-bold">0</span></div>
+  </div>
+</div>
+
+<script>
+const CHAPTER_VIDEOS = {
+  ch1: "", ch2: "", ch3: "", ch4: "", ch5: "", ch6: "", ch7: "",
+  ch8: "", ch9: "", ch10: "", ch11: "", ch12: "", ch13: "", ch14: ""
+};
+
+let currentFontSize = 18;
+const CHAPTER_VIDEOS = {
+  ch1: "https://www.youtube.com/embed/qA5K3eGq3bQ", // CCTV Introduction
+  ch2: "https://www.youtube.com/embed/n8_7Ojv8v8M", // CCTV Tools
+  ch3: "https://www.youtube.com/embed/iR2EY0_5r0M", // Analog CCTV
+  ch4: "https://www.youtube.com/embed/s9e2Gd4i0uA", // Networking
+  ch5: "https://www.youtube.com/embed/e_2lZ8v0O6M", // IP CCTV
+  ch6: "https://www.youtube.com/embed/Jd5VlGk_5aQ", // Storage
+  ch7: "https://www.youtube.com/embed/g_3s0X9vXfM", // WiFi Camera
+  ch8: "https://www.youtube.com/embed/k_5jXyE7XyM", // Site Survey
+  ch9: "https://www.youtube.com/embed/t_8hY0vY0yM", // Troubleshooting
+  ch10: "https://www.youtube.com/embed/m_7yT0zX9vQ", // Quotation
+  ch11: "https://www.youtube.com/embed/w_6rE0vX8zM", // Billing
+  ch12: "https://www.youtube.com/embed/b_9zX4vY1xM", // Business
+  ch13: "https://www.youtube.com/embed/h_2yZ9vX0zM", // Exam
+  ch14: "https://www.youtube.com/embed/j_8xW0vY2zM"  // Feedback
+};
+
+let searchMatches = [];
+let searchIdx = -1;
+
+function toggleTheme() { document.body.classList.toggle('dark'); }
+function togglePresentation() { document.body.classList.toggle('presentation'); }
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
+
+function changeFontSize(delta) {
+  currentFontSize = Math.max(14, Math.min(32, currentFontSize + delta));
+  document.getElementById('content').style.fontSize = currentFontSize + 'px';
+}
+
+function preprocessCallouts(md) {
+  return md.replace(/^>\s*\*\*\[([^\]]+)\]\s*(.*?)\*\*\s*(.*)/gm, (match, key, title, content) => {
+    const types = { '!': 'warning', 'TIP': 'tip', 'OK': 'best', 'DO': 'tool' };
+    const cls = types[key] || 'tip';
+    return `<div class="callout ${cls}"><strong>${title || key}</strong><br>${content}</div>`;
+  });
+}
+
+function renderMarkdown(md) {
+  const processed = preprocessCallouts(md);
+  document.getElementById('content').innerHTML = marked.parse(processed);
+  
+  // Process YouTube video placeholders
+  let chIdx = 1;
+  document.querySelectorAll('p').forEach(p => {
+    const text = p.textContent;
+    if (text.includes('[VIDEO_PLACEHOLDER]') || text.includes('Video:')) {
+      const chKey = 'ch' + chIdx;
+      const url = CHAPTER_VIDEOS[chKey];
+      
+      if (url) {
+        p.outerHTML = `
+        <div class="my-8 p-4 border border-dark-border rounded-2xl bg-dark-surface dark:bg-dark-surface bg-gray-50 cursor-pointer hover:border-brand transition-colors" onclick="openVideoModal('${url}')">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 bg-brand rounded-full flex items-center justify-center text-white text-2xl shadow-lg shadow-brand/30">▶</div>
+            <div>
+              <div class="font-bold text-brand">Chapter ${chIdx} Video / अध्याय ${chIdx} वीडियो</div>
+              <div class="text-xs opacity-60 mt-1">कक्षा में देखें (Watch in Class)</div>
+            </div>
+          </div>
+        </div>`;
+      } else {
+        p.outerHTML = `
+        <div class="my-8 p-4 border border-dashed border-dark-border rounded-2xl bg-dark-bg dark:bg-dark-bg bg-gray-100">
+          <div class="text-sm opacity-50">Trainer: Add YouTube URL in CHAPTER_VIDEOS config (Line ~584)</div>
+        </div>`;
+      }
+      chIdx++;
+    }
+  });
+  
+  buildSidebar();
+  updateStats();
+}
+
+function buildSidebar() {
+  const links = document.getElementById('sidebar-links');
+  links.innerHTML = '';
+  document.querySelectorAll('#content h1, #content h2').forEach((h, i) => {
+    if (!h.id) h.id = 'heading-' + i;
+    const a = document.createElement('a');
+    a.href = '#' + h.id;
+    a.className = `block px-4 py-2 text-sm hover:bg-dark-bg dark:hover:bg-dark-bg hover:bg-gray-100 border-l-4 border-transparent hover:border-brand`;
+    a.textContent = h.textContent.substring(0, 40);
+    if (h.tagName === 'H1') a.classList.add('font-bold', 'text-brand');
+    links.appendChild(a);
+  });
+}
+
+function updateStats() {
+  const content = document.getElementById('content');
+  document.getElementById('stat-linked').textContent = content.querySelectorAll('img').length;
+  document.getElementById('stat-images').textContent = (content.innerHTML.match(/IMAGE NEEDED/g) || []).length;
+  document.getElementById('stat-diagrams').textContent = (content.innerHTML.match(/DIAGRAM NEEDED/g) || []).length;
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'f' || e.key === 'F') togglePresentation();
+  if (e.key === 'ArrowRight') window.scrollBy(0, 500);
+  if (e.key === 'ArrowLeft') window.scrollBy(0, -500);
+});
+
+async function tryAutoLoad() {
+  try {
+    const resp = await fetch('CCTV_Training_Manual.md');
+    if (resp.ok) { renderMarkdown(await resp.text()); return; }
+  } catch(e) {}
+  document.getElementById('content').innerHTML = '<p>Failed to load. Please refresh.</p>';
+}
+
+tryAutoLoad();
+
+function showComponent(id) {
+  const panel = document.getElementById('component-panel');
+  const content = document.getElementById('panel-content');
+  
+  const data = {
+    dvr: {
+      name: "DVR (Digital Video Recorder) / डीवीआर",
+      img: "images/04_dvr.jpg",
+      desc: "CCTV ka brain - sab cameras ka video yahan record hota hai. 4/8/16 channels available.",
+      mistake: "Common Mistake: Hard disk laga ke bhool jaate hain format karna!"
+    },
+    camera: {
+      name: "CCTV Camera / सीसीटीवी कैमरा",
+      img: "images/01_dome_camera.jpg",
+      desc: "Yeh video capture karta hai aur DVR ko bhejta hai. Dome, Bullet, PTZ types available.",
+      mistake: "Common Mistake: Camera position galat rakhna - face na dikhe!"
+    },
+    monitor: {
+      name: "Monitor / मॉनिटर",
+      img: "images/20_router.jpg",
+      desc: "DVR ka output dikhata hai. CCTV monitor regular TV se alag hota hai (24/7 use).",
+      mistake: "Common Mistake: Regular TV use karna jo jaldi kharab ho jaata hai."
+    }
+  };
+  
+  const comp = data[id];
+  content.innerHTML = `
+    <div class="mb-6">
+      <img src="${comp.img}" alt="${comp.name}" class="w-full h-48 object-cover rounded-xl border-2 border-brand mb-4" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23363654%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 fill=%22%23818cf8%22 text-anchor=%22middle%22 font-size=%2214%22>📷</text></svg>'"/>
+      <h4 class="text-xl font-bold text-brand mb-2">${comp.name}</h4>
+      <p class="text-sm opacity-80 leading-relaxed mb-4">${comp.desc}</p>
+    </div>
+    <div class="bg-red-900/30 border border-red-500/50 rounded-xl p-4">
+      <h5 class="text-red-400 font-bold text-sm mb-2 flex items-center gap-2">⚠️ ${comp.mistake.split(':')[0]}</h5>
+      <p class="text-xs opacity-80">${comp.mistake.split(':')[1]}</p>
+    </div>
+  `;
+  
+  panel.classList.remove('translate-x-full');
+}
+
+function closePanel() {
+  document.getElementById('component-panel').classList.add('translate-x-full');
+}
+
+function openVideoModal(url) {
+  const modal = document.createElement('div');
+  modal.className = 'fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center p-8';
+  modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+  
+  modal.innerHTML = `
+    <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+      <button onclick="this.closest('.fixed').remove()" class="absolute -top-12 right-0 text-white text-3xl hover:text-brand">✕</button>
+      <iframe src="${url}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+</script>
+</body>
+</html>
