@@ -3,159 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CCTV Training Manual - Classroom Viewer</title>
+<title>CCTV Training Manual</title>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script>
-tailwind.config = {
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: {
-        dark: { bg: '#0f0f1a', surface: '#1a1a2e', border: '#363654' },
-        light: { bg: '#f8fafc', surface: '#ffffff', border: '#e2e8f0' },
-        brand: { DEFAULT: '#6366f1', light: '#818cf8' }
-      },
-      fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
-    }
-  }
-}
-</script>
 <style>
-body { font-size: 18px; line-height: 1.8; transition: background 0.3s, color 0.3s; }
-.dark body { background: #0f0f1a; color: #e8e8f0; }
-body:not(.dark) { background: #f8fafc; color: #1e293b; }
+:root {
+  --bg: #f0f4f8;
+  --surface: #ffffff;
+  --surface2: #f8fafc;
+  --border: #e2e8f0;
+  --border2: #cbd5e1;
+  --text: #1e293b;
+  --text2: #475569;
+  --text3: #94a3b8;
+  --brand: #2563eb;
+  --brand-light: #3b82f6;
+  --brand-bg: #eff6ff;
+  --green: #16a34a;
+  --green-bg: #f0fdf4;
+  --yellow: #d97706;
+  --yellow-bg: #fffbeb;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --blue: #2563eb;
+  --blue-bg: #eff6ff;
+  --orange: #ea580c;
+  --orange-bg: #fff7ed;
+  --purple: #7c3aed;
+  --purple-bg: #f5f3ff;
+  --sidebar-w: 280px;
+  --nav-h: 64px;
+}
 
-#sidebar { width: 280px; transition: transform 0.3s ease; }
-#main-content { max-width: 900px; margin: 0 auto; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Callouts */
-.callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 4px solid; }
-.callout.warning { background: rgba(239, 68, 68, 0.1); border-color: #ef4444; color: #fca5a5; }
-.callout.tip { background: rgba(59, 130, 246, 0.1); border-color: #3b82f6; color: #93c5fd; }
-.callout.best { background: rgba(34, 197, 94, 0.1); border-color: #22c55e; color: #86efac; }
-.callout.tool { background: rgba(249, 115, 22, 0.1); border-color: #f97316; color: #fdba74; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 17px;
+  line-height: 1.8;
+  overflow: hidden;
+  height: 100vh;
+}
 
-/* Presentation Mode */
-body.presentation #sidebar, body.presentation #top-nav, body.presentation #status-panel, body.presentation #back-top { display: none !important; }
-body.presentation #main-content { padding: 40px 80px; max-width: 1200px; }
-body.presentation .md-content { font-size: 24px; line-height: 2; }
-body.presentation h1 { font-size: 3rem; }
-body.presentation h2 { font-size: 2.2rem; }
-body.presentation h3 { font-size: 1.8rem; }
-body.presentation table { font-size: 1.2rem; }
+/* NAVBAR */
+#navbar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 24px; gap: 16px;
+  z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+#navbar .brand { font-weight: 700; font-size: 18px; color: var(--brand); display: flex; align-items: center; gap: 8px; }
+#navbar .sep { width: 1px; height: 24px; background: var(--border); }
+#navbar button {
+  background: var(--surface2); color: var(--text2); border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 13px;
+  font-weight: 500; font-family: inherit; transition: all 0.15s;
+}
+#navbar button:hover { background: var(--brand-bg); color: var(--brand); border-color: var(--brand); }
+#navbar .progress-wrap { flex: 1; max-width: 400px; margin: 0 16px; }
+#navbar .progress-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+#navbar .progress-fill { height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.3s; }
+#navbar .progress-text { font-size: 11px; color: var(--text3); text-align: center; margin-top: 2px; }
+#navbar .search-box { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+#navbar .search-box input {
+  background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+  padding: 6px 12px; border-radius: 8px; font-size: 13px; width: 200px;
+  font-family: inherit; outline: none;
+}
+#navbar .search-box input:focus { border-color: var(--brand); }
+#navbar .search-box span { font-size: 11px; color: var(--text3); white-space: nowrap; }
 
-.md-content h1 { font-size: 2.2em; font-weight: 700; margin: 48px 0 24px; border-bottom: 2px solid currentColor; padding-bottom: 12px; }
-.md-content h2 { font-size: 1.6em; font-weight: 600; margin: 40px 0 20px; color: #818cf8; }
-.md-content h3 { font-size: 1.3em; font-weight: 600; margin: 32px 0 16px; }
-.md-content pre { background: #12121f; padding: 20px; border-radius: 12px; overflow-x: auto; border: 1px solid #363654; }
+/* SIDEBAR */
+#sidebar {
+  position: fixed; top: var(--nav-h); left: 0; bottom: 0;
+  width: var(--sidebar-w); background: var(--surface);
+  border-right: 1px solid var(--border); overflow-y: auto;
+  z-index: 90; transition: transform 0.3s;
+}
+#sidebar.hidden { transform: translateX(-100%); }
+#sidebar .sid-header { padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); }
+#sidebar a {
+  display: block; padding: 8px 20px; color: var(--text2); text-decoration: none;
+  font-size: 13px; border-left: 3px solid transparent; transition: all 0.1s;
+}
+#sidebar a:hover { background: var(--brand-bg); color: var(--brand); }
+#sidebar a.active { background: var(--brand-bg); color: var(--brand); border-left-color: var(--brand); font-weight: 600; }
+#sidebar a.h1-link { font-weight: 600; padding-left: 20px; }
+#sidebar a.h2-link { padding-left: 36px; }
+
+/* MAIN */
+#main {
+  margin-left: var(--sidebar-w); margin-top: var(--nav-h);
+  height: calc(100vh - var(--nav-h)); overflow-y: auto;
+  padding: 40px 60px 160px; scroll-behavior: smooth;
+}
+
+/* MARKDOWN */
+.md-content { max-width: 900px; margin: 0 auto; }
+.md-content h1 { font-size: 2em; font-weight: 700; margin: 48px 0 20px; color: var(--text); border-bottom: 2px solid var(--brand); padding-bottom: 10px; }
+.md-content h2 { font-size: 1.5em; font-weight: 600; margin: 36px 0 16px; color: var(--brand); }
+.md-content h3 { font-size: 1.2em; font-weight: 600; margin: 28px 0 12px; }
+.md-content p { margin: 10px 0; }
+.md-content a { color: var(--brand); text-decoration: none; font-weight: 500; }
+.md-content a:hover { text-decoration: underline; }
+.md-content strong { font-weight: 600; }
+.md-content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+.md-content blockquote { border-left: 4px solid var(--brand); background: var(--brand-bg); padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.md-content ul, .md-content ol { margin: 10px 0 10px 24px; }
+.md-content li { margin: 4px 0; }
+
+/* TABLES */
+.md-content table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.md-content th { background: var(--brand-bg); color: var(--brand); padding: 10px 14px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.md-content td { padding: 10px 14px; border-top: 1px solid var(--border); }
+.md-content tr:nth-child(even) { background: var(--surface2); }
+.md-content tr:hover { background: var(--brand-bg); }
+
+/* CODE */
+.md-content pre { background: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 10px; overflow-x: auto; margin: 16px 0; font-size: 0.88em; line-height: 1.6; }
 .md-content code { font-family: 'JetBrains Mono', monospace; }
-.md-content img { max-width: 100%; height: auto; border-radius: 8px; border: 2px solid #22c55e; padding: 4px; }
-.md-content table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-.md-content th, .md-content td { border: 1px solid #363654; padding: 12px 16px; text-align: left; }
-.md-content th { background: #1a1a2e; }
+.md-content :not(pre) > code { background: var(--surface2); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; border: 1px solid var(--border); color: var(--brand); }
 
-mark.search-highlight { background: #fbbf24; color: #000; padding: 2px 4px; border-radius: 4px; }
+/* IMAGES */
+.md-content img { max-width: 100%; height: auto; border-radius: 8px; border: 2px solid var(--green); padding: 4px; }
+
+/* CALLOUTS */
+.callout { border-radius: 10px; padding: 14px 18px; margin: 14px 0; display: flex; gap: 12px; border: 1px solid; }
+.callout .callout-icon { font-size: 18px; flex-shrink: 0; }
+.callout .callout-body { flex: 1; font-size: 14px; }
+.callout .callout-body strong { display: block; margin-bottom: 4px; }
+.callout.warning { background: var(--red-bg); border-color: #fca5a5; color: #991b1b; }
+.callout.warning .callout-icon, .callout.warning strong { color: var(--red); }
+.callout.tip { background: var(--blue-bg); border-color: #93c5fd; color: #1e40af; }
+.callout.tip .callout-icon, .callout.tip strong { color: var(--blue); }
+.callout.best { background: var(--green-bg); border-color: #86efac; color: #166534; }
+.callout.best .callout-icon, .callout.best strong { color: var(--green); }
+.callout.tool { background: var(--orange-bg); border-color: #fdba74; color: #9a3412; }
+.callout.tool .callout-icon, .callout.tool strong { color: var(--orange); }
+
+/* PLACEHOLDERS */
+.img-placeholder { background: var(--yellow-bg); border: 2px dashed var(--yellow); border-radius: 10px; padding: 16px 20px; margin: 16px 0; display: flex; align-items: center; gap: 14px; }
+.img-placeholder .icon { font-size: 28px; }
+.img-placeholder .label { font-weight: 700; color: var(--yellow); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.img-placeholder .desc { color: var(--text2); font-size: 13px; }
+.diagram-placeholder { background: var(--blue-bg); border: 2px dashed var(--blue); border-radius: 10px; padding: 16px 20px; margin: 16px 0; display: flex; align-items: center; gap: 14px; }
+.diagram-placeholder .icon { font-size: 28px; }
+.diagram-placeholder .label { font-weight: 700; color: var(--blue); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+.diagram-placeholder .desc { color: var(--text2); font-size: 13px; }
+
+/* STATUS */
+#status-panel {
+  position: fixed; bottom: 20px; right: 20px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px;
+  z-index: 95; min-width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+#status-panel h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 10px; font-weight: 700; }
+.stat-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 13px; }
+.stat-label { display: flex; align-items: center; gap: 8px; color: var(--text2); }
+.stat-dot { width: 8px; height: 8px; border-radius: 50%; }
+.stat-count { font-weight: 700; }
+
+/* SEARCH */
+mark.search-highlight { background: var(--yellow); color: #000; padding: 1px 3px; border-radius: 3px; }
+
+/* COMPONENT PANEL */
+#component-panel {
+  position: fixed; top: var(--nav-h); right: 0; bottom: 0; width: 320px;
+  background: var(--surface); border-left: 1px solid var(--border);
+  transform: translateX(100%); transition: transform 0.3s; z-index: 95;
+  padding: 24px; overflow-y: auto; box-shadow: -4px 0 12px rgba(0,0,0,0.08);
+}
+#component-panel.open { transform: translateX(0); }
+#component-panel .close-btn { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 20px; color: var(--text3); cursor: pointer; }
+
+/* PRESENTATION */
+body.presentation #sidebar, body.presentation #navbar, body.presentation #status-panel { display: none !important; }
+body.presentation #main { margin: 0; padding: 60px 100px; }
+body.presentation .md-content { font-size: 22px; line-height: 2; }
+body.presentation h1 { font-size: 2.8rem; }
+body.presentation h2 { font-size: 2rem; }
+body.presentation h3 { font-size: 1.6rem; }
+
+/* SCROLLBAR */
+#main::-webkit-scrollbar { width: 6px; }
+#main::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+#sidebar::-webkit-scrollbar { width: 4px; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #sidebar { width: 260px; }
+  #sidebar.hidden { transform: translateX(-100%); }
+  #main { margin-left: 0; padding: 24px 20px 120px; }
+  #navbar .search-box input { width: 120px; }
+}
 </style>
 </head>
-<body class="dark">
+<body>
 
-<!-- TOP NAVBAR -->
-<div id="top-nav" class="fixed top-0 left-0 right-0 h-16 bg-dark-surface border-b border-dark-border flex items-center justify-between px-6 z-50 dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
-  <div class="flex items-center gap-4">
-    <button onclick="toggleSidebar()" class="p-2 hover:bg-dark-bg rounded-lg">☰</button>
-    <div class="font-bold text-brand">CCTV Manual</div>
-    <div class="h-6 w-px bg-dark-border dark:bg-dark-border bg-light-border"></div>
-    <span id="current-chapter" class="text-sm opacity-70">Chapter 1 of 14</span>
+<!-- NAVBAR -->
+<div id="navbar">
+  <button onclick="toggleSidebar()" title="Toggle Navigation">&#9776;</button>
+  <div class="brand">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+    CCTV Manual
   </div>
-  
-  <div class="flex-1 max-w-md mx-8">
-    <div class="h-2 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded-full overflow-hidden">
-      <div id="progress-bar" class="h-full bg-brand transition-all duration-300" style="width: 7%"></div>
-    </div>
-    <div class="text-xs text-center mt-1 opacity-50" id="progress-text">7% Complete</div>
+  <div class="sep"></div>
+  <span style="font-size:13px;color:var(--text3)" id="current-chapter">Loading...</span>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-text" id="progress-text"></div>
   </div>
-
-  <div class="flex items-center gap-3">
-    <button onclick="changeFontSize(-2)" class="px-3 py-1 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded hover:opacity-80 font-bold">A-</button>
-    <button onclick="changeFontSize(2)" class="px-3 py-1 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded hover:opacity-80 font-bold">A+</button>
-    <button onclick="togglePresentation()" class="px-3 py-1 bg-brand rounded hover:bg-brand-light text-white font-medium">F: Present</button>
-    <button onclick="toggleTheme()" class="px-3 py-1 bg-dark-bg dark:bg-dark-bg bg-gray-200 rounded hover:opacity-80">☽/☀</button>
-    <input type="text" id="search-input" placeholder="Search..." class="bg-dark-bg dark:bg-dark-bg bg-gray-200 px-3 py-1 rounded border-none outline-none w-48">
+  <button onclick="changeFontSize(-2)" title="Smaller Text">A-</button>
+  <button onclick="changeFontSize(2)" title="Larger Text">A+</button>
+  <button onclick="togglePresentation()" style="background:var(--brand);color:#fff;border-color:var(--brand)">Present (F)</button>
+  <div class="sep"></div>
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search..." onkeydown="if(event.key==='Enter')doSearch(1)">
+    <button onclick="doSearch(1)">&#9654;</button>
+    <button onclick="doSearch(-1)">&#9664;</button>
+    <button onclick="clearSearch()">&times;</button>
+    <span id="search-count"></span>
   </div>
 </div>
 
 <!-- SIDEBAR -->
-<div id="sidebar" class="fixed top-16 left-0 bottom-0 bg-dark-surface border-r border-dark-border overflow-y-auto z-40 dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
-  <div class="p-4 border-b border-dark-border dark:border-dark-border border-light-border">
-    <h3 class="text-xs font-bold uppercase tracking-wider opacity-50">Navigation</h3>
-  </div>
-  <div id="sidebar-links" class="py-2"></div>
+<div id="sidebar">
+  <div class="sid-header">Navigation</div>
+  <div id="sidebar-links"></div>
 </div>
 
-<!-- MAIN CONTENT -->
-<main id="main-content" class="pt-24 pb-32 px-8 h-screen overflow-y-auto" style="margin-left: 280px; scroll-behavior: smooth;">
+<!-- MAIN -->
+<div id="main">
   <div class="md-content" id="content">
-    <p class="opacity-50 mt-40">Loading manual...</p>
+    <p style="color:var(--text3);margin-top:60px;text-align:center">Loading manual...</p>
   </div>
-</main>
+</div>
 
 <!-- COMPONENT PANEL -->
-<div id="component-panel" class="fixed top-16 right-0 bottom-0 w-80 bg-dark-surface border-l border-dark-border transform translate-x-full transition-transform duration-300 z-50 p-6 overflow-y-auto dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
-  <button onclick="closePanel()" class="absolute top-4 right-4 text-gray-400 hover:text-white">✕</button>
+<div id="component-panel">
+  <button class="close-btn" onclick="closePanel()">&times;</button>
   <div id="panel-content"></div>
 </div>
 
-<!-- INTERACTIVE WIRING DIAGRAMS -->
-<div class="mt-16 mb-16 p-8 border border-dark-border rounded-2xl bg-dark-bg dark:bg-dark-bg bg-gray-50">
-  <h3 class="text-2xl font-bold mb-6 text-brand">Interactive Wiring / इंटरैक्टिव वायरिंग</h3>
-  
-  <div class="relative">
-    <svg viewBox="0 0 800 400" class="w-full h-auto border border-dark-border rounded-lg">
-      <!-- Background -->
-      <rect width="800" height="400" fill="#1a1a2e"/>
-      
-      <!-- DVR -->
-      <rect id="comp-dvr" x="300" y="150" width="200" height="100" rx="8" fill="#363654" stroke="#6366f1" stroke-width="2" class="cursor-pointer hover:stroke-brand-light transition-colors" onclick="showComponent('dvr')"/>
-      <text x="400" y="205" fill="white" font-size="16" text-anchor="middle" pointer-events="none">DVR Unit</text>
-      <text x="400" y="225" fill="#9090a8" font-size="10" text-anchor="middle" pointer-events="none">डीवीआर यूनिट</text>
-      
-      <!-- Camera 1 -->
-      <circle id="comp-cam1" cx="100" cy="100" r="40" fill="#363654" stroke="#34d399" stroke-width="2" class="cursor-pointer hover:stroke-green-400 transition-colors" onclick="showComponent('camera')"/>
-      <text x="100" y="105" fill="white" font-size="12" text-anchor="middle" pointer-events="none">Cam 1</text>
-      
-      <!-- Camera 2 -->
-      <circle id="comp-cam2" cx="100" cy="300" r="40" fill="#363654" stroke="#34d399" stroke-width="2" class="cursor-pointer hover:stroke-green-400 transition-colors" onclick="showComponent('camera')"/>
-      <text x="100" y="305" fill="white" font-size="12" text-anchor="middle" pointer-events="none">Cam 2</text>
-      
-      <!-- Monitor -->
-      <rect id="comp-monitor" x="600" y="150" width="150" height="100" rx="8" fill="#363654" stroke="#fbbf24" stroke-width="2" class="cursor-pointer hover:stroke-yellow-400 transition-colors" onclick="showComponent('monitor')"/>
-      <text x="675" y="205" fill="white" font-size="14" text-anchor="middle" pointer-events="none">Monitor</text>
-      <text x="675" y="225" fill="#9090a8" font-size="10" text-anchor="middle" pointer-events="none">मॉनिटर</text>
-      
-      <!-- Cables -->
-      <path d="M 140 100 L 300 170" stroke="#f87171" stroke-width="3" stroke-dasharray="5,5"/>
-      <path d="M 140 300 L 300 230" stroke="#f87171" stroke-width="3" stroke-dasharray="5,5"/>
-      <path d="M 500 200 L 600 200" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,5"/>
-      
-      <!-- Labels -->
-      <text x="220" y="120" fill="#f87171" font-size="10">BNC Cable</text>
-      <text x="550" y="190" fill="#fbbf24" font-size="10">HDMI/VGA</text>
-    </svg>
-  </div>
-  <p class="mt-4 text-sm opacity-70 text-center">Click on any component to see details / किसी भी कंपोनेंट पर क्लिक करें</p>
-</div>
-
 <!-- STATUS PANEL -->
-<div id="status-panel" class="fixed bottom-6 right-6 bg-dark-surface border border-dark-border p-4 rounded-2xl z-50 w-64 shadow-2xl dark:bg-dark-surface dark:border-dark-border bg-light-surface border-light-border">
-  <h4 class="text-xs font-bold uppercase tracking-wider opacity-50 mb-3">Status</h4>
-  <div class="space-y-2 text-sm">
-    <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span>Linked</span><span id="stat-linked" class="font-bold">0</span></div>
-    <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-yellow-500"></span>Needed</span><span id="stat-images" class="font-bold">0</span></div>
-    <div class="flex justify-between"><span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span>Diagrams</span><span id="stat-diagrams" class="font-bold">0</span></div>
-  </div>
+<div id="status-panel">
+  <h4>Status</h4>
+  <div class="stat-row"><span class="stat-label"><span class="stat-dot" style="background:var(--green)"></span>Images linked</span><span class="stat-count" id="stat-linked">0</span></div>
+  <div class="stat-row"><span class="stat-label"><span class="stat-dot" style="background:var(--yellow)"></span>Image needed</span><span class="stat-count" id="stat-images">0</span></div>
+  <div class="stat-row"><span class="stat-label"><span class="stat-dot" style="background:var(--blue)"></span>Diagrams needed</span><span class="stat-count" id="stat-diagrams">0</span></div>
 </div>
 
 <script>
@@ -164,79 +263,96 @@ const CHAPTER_VIDEOS = {
   ch8: "", ch9: "", ch10: "", ch11: "", ch12: "", ch13: "", ch14: ""
 };
 
-let currentFontSize = 18;
-const CHAPTER_VIDEOS = {
-  ch1: "https://www.youtube.com/embed/qA5K3eGq3bQ", // CCTV Introduction
-  ch2: "https://www.youtube.com/embed/n8_7Ojv8v8M", // CCTV Tools
-  ch3: "https://www.youtube.com/embed/iR2EY0_5r0M", // Analog CCTV
-  ch4: "https://www.youtube.com/embed/s9e2Gd4i0uA", // Networking
-  ch5: "https://www.youtube.com/embed/e_2lZ8v0O6M", // IP CCTV
-  ch6: "https://www.youtube.com/embed/Jd5VlGk_5aQ", // Storage
-  ch7: "https://www.youtube.com/embed/g_3s0X9vXfM", // WiFi Camera
-  ch8: "https://www.youtube.com/embed/k_5jXyE7XyM", // Site Survey
-  ch9: "https://www.youtube.com/embed/t_8hY0vY0yM", // Troubleshooting
-  ch10: "https://www.youtube.com/embed/m_7yT0zX9vQ", // Quotation
-  ch11: "https://www.youtube.com/embed/w_6rE0vX8zM", // Billing
-  ch12: "https://www.youtube.com/embed/b_9zX4vY1xM", // Business
-  ch13: "https://www.youtube.com/embed/h_2yZ9vX0zM", // Exam
-  ch14: "https://www.youtube.com/embed/j_8xW0vY2zM"  // Feedback
-};
-
+let currentFontSize = 17;
 let searchMatches = [];
 let searchIdx = -1;
+let rawMarkdown = '';
 
-function toggleTheme() { document.body.classList.toggle('dark'); }
-function togglePresentation() { document.body.classList.toggle('presentation'); }
-function toggleSidebar() { document.getElementById('sidebar').classList.toggle('-translate-x-full'); }
-
-function changeFontSize(delta) {
-  currentFontSize = Math.max(14, Math.min(32, currentFontSize + delta));
-  document.getElementById('content').style.fontSize = currentFontSize + 'px';
-}
+const calloutMap = {
+  '!':   { cls: 'warning',  icon: '⚠️', label: 'WARNING' },
+  'TIP': { cls: 'tip',      icon: '💡', label: 'PRO TIP' },
+  'DO':  { cls: 'tool',     icon: '🔧', label: 'TOOL REQUIRED' },
+  'OK':  { cls: 'best',     icon: '✅', label: 'BEST PRACTICE' }
+};
 
 function preprocessCallouts(md) {
-  return md.replace(/^>\s*\*\*\[([^\]]+)\]\s*(.*?)\*\*\s*(.*)/gm, (match, key, title, content) => {
-    const types = { '!': 'warning', 'TIP': 'tip', 'OK': 'best', 'DO': 'tool' };
-    const cls = types[key] || 'tip';
-    return `<div class="callout ${cls}"><strong>${title || key}</strong><br>${content}</div>`;
-  });
+  const lines = md.split('\n');
+  const result = [];
+  let i = 0;
+  while (i < lines.length) {
+    const m = lines[i].match(/^>\s*\*\*\[([^\]]+)\]\s*(.*?)\*\*\s*(.*)/);
+    if (m) {
+      const key = m[1].trim();
+      const info = calloutMap[key];
+      if (info) {
+        let body = m[3] || m[2] || '';
+        if (m[2] && m[3]) body = m[2] + ' ' + m[3];
+        i++;
+        while (i < lines.length && lines[i].match(/^>\s*/)) {
+          const cont = lines[i].replace(/^>\s*/, '');
+          if (cont.match(/^\*\*\[[^\]]+\]/)) break;
+          body += '\n' + cont;
+          i++;
+        }
+        result.push('<div class="callout ' + info.cls + '"><span class="callout-icon">' + info.icon + '</span><div class="callout-body"><strong>' + info.label + '</strong>' + marked.parse(body) + '</div></div>');
+        continue;
+      }
+    }
+    result.push(lines[i]);
+    i++;
+  }
+  return result.join('\n');
 }
 
 function renderMarkdown(md) {
+  rawMarkdown = md;
+  try { marked.setOptions({ gfm: true, breaks: false }); } catch(e) {}
   const processed = preprocessCallouts(md);
   document.getElementById('content').innerHTML = marked.parse(processed);
-  
-  // Process YouTube video placeholders
-  let chIdx = 1;
-  document.querySelectorAll('p').forEach(p => {
-    const text = p.textContent;
-    if (text.includes('[VIDEO_PLACEHOLDER]') || text.includes('Video:')) {
-      const chKey = 'ch' + chIdx;
-      const url = CHAPTER_VIDEOS[chKey];
-      
-      if (url) {
-        p.outerHTML = `
-        <div class="my-8 p-4 border border-dark-border rounded-2xl bg-dark-surface dark:bg-dark-surface bg-gray-50 cursor-pointer hover:border-brand transition-colors" onclick="openVideoModal('${url}')">
-          <div class="flex items-center gap-4">
-            <div class="w-16 h-16 bg-brand rounded-full flex items-center justify-center text-white text-2xl shadow-lg shadow-brand/30">▶</div>
-            <div>
-              <div class="font-bold text-brand">Chapter ${chIdx} Video / अध्याय ${chIdx} वीडियो</div>
-              <div class="text-xs opacity-60 mt-1">कक्षा में देखें (Watch in Class)</div>
-            </div>
-          </div>
-        </div>`;
-      } else {
-        p.outerHTML = `
-        <div class="my-8 p-4 border border-dashed border-dark-border rounded-2xl bg-dark-bg dark:bg-dark-bg bg-gray-100">
-          <div class="text-sm opacity-50">Trainer: Add YouTube URL in CHAPTER_VIDEOS config (Line ~584)</div>
-        </div>`;
-      }
-      chIdx++;
-    }
-  });
-  
+  postProcess();
   buildSidebar();
   updateStats();
+}
+
+function postProcess() {
+  const content = document.getElementById('content');
+
+  content.querySelectorAll('p').forEach(p => {
+    const text = p.textContent.trim();
+    if (text.match(/^\[Image:\s*.+\]/)) {
+      const m = text.match(/^\[Image:\s*(.+?)\]/);
+      if (m) { p.outerHTML = '<div class="img-placeholder"><span class="icon">📷</span><div><div class="label">IMAGE NEEDED</div><div class="desc">' + escapeHtml(m[1]) + '</div></div></div>'; return; }
+    }
+    if (text.match(/^\*{0,2}\[Diagram:\s*.+\]/)) {
+      const m = text.match(/^\*{0,2}\[Diagram:\s*(.+?)\]\*{0,2}/);
+      if (m) { p.outerHTML = '<div class="diagram-placeholder"><span class="icon">📊</span><div><div class="label">DIAGRAM NEEDED</div><div class="desc">' + escapeHtml(m[1]) + '</div></div></div>'; return; }
+    }
+  });
+
+  content.querySelectorAll('strong').forEach(strong => {
+    const parent = strong.parentElement;
+    if (parent && parent.tagName === 'P') {
+      const text = parent.textContent.trim();
+      if (text.match(/^\[Image:\s*.+\]/)) {
+        const m = text.match(/^\[Image:\s*(.+?)\]/);
+        if (m) { parent.outerHTML = '<div class="img-placeholder"><span class="icon">📷</span><div><div class="label">IMAGE NEEDED</div><div class="desc">' + escapeHtml(m[1]) + '</div></div></div>'; return; }
+      }
+      if (text.match(/^\*{0,2}\[Diagram:\s*.+\]/)) {
+        const m = text.match(/^\*{0,2}\[Diagram:\s*(.+?)\]\*{0,2}/);
+        if (m) { parent.outerHTML = '<div class="diagram-placeholder"><span class="icon">📊</span><div><div class="label">DIAGRAM NEEDED</div><div class="desc">' + escapeHtml(m[1]) + '</div></div></div>'; }
+      }
+    }
+  });
+
+  content.querySelectorAll('img').forEach(img => {
+    if (img.closest('.img-linked')) return;
+    if (img.closest('.img-placeholder') || img.closest('.diagram-placeholder')) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'img-linked';
+    wrap.style.cssText = 'border:2px solid var(--green);border-radius:10px;padding:6px;margin:20px 0;display:flex;justify-content:center;background:var(--green-bg)';
+    img.parentNode.insertBefore(wrap, img);
+    wrap.appendChild(img);
+  });
 }
 
 function buildSidebar() {
@@ -246,94 +362,146 @@ function buildSidebar() {
     if (!h.id) h.id = 'heading-' + i;
     const a = document.createElement('a');
     a.href = '#' + h.id;
-    a.className = `block px-4 py-2 text-sm hover:bg-dark-bg dark:hover:bg-dark-bg hover:bg-gray-100 border-l-4 border-transparent hover:border-brand`;
-    a.textContent = h.textContent.substring(0, 40);
-    if (h.tagName === 'H1') a.classList.add('font-bold', 'text-brand');
+    a.textContent = h.textContent.substring(0, 45) + (h.textContent.length > 45 ? '...' : '');
+    a.className = h.tagName === 'H1' ? 'h1-link' : 'h2-link';
     links.appendChild(a);
   });
 }
 
 function updateStats() {
   const content = document.getElementById('content');
-  document.getElementById('stat-linked').textContent = content.querySelectorAll('img').length;
-  document.getElementById('stat-images').textContent = (content.innerHTML.match(/IMAGE NEEDED/g) || []).length;
-  document.getElementById('stat-diagrams').textContent = (content.innerHTML.match(/DIAGRAM NEEDED/g) || []).length;
+  const linked = content.querySelectorAll('img').length;
+  const images = (content.innerHTML.match(/IMAGE NEEDED/g) || []).length;
+  const diagrams = (content.innerHTML.match(/DIAGRAM NEEDED/g) || []).length;
+  document.getElementById('stat-linked').textContent = linked;
+  document.getElementById('stat-images').textContent = images;
+  document.getElementById('stat-diagrams').textContent = diagrams;
 }
 
-document.addEventListener('keydown', (e) => {
+function toggleSidebar() { document.getElementById('sidebar').classList.toggle('hidden'); }
+function togglePresentation() { document.body.classList.toggle('presentation'); }
+
+function changeFontSize(delta) {
+  currentFontSize = Math.max(14, Math.min(28, currentFontSize + delta));
+  document.getElementById('content').style.fontSize = currentFontSize + 'px';
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* SEARCH */
+let activeHighlight = null;
+let totalMatches = 0;
+function doSearch(dir) {
+  const q = document.getElementById('search-input').value.trim();
+  if (!q) { clearSearch(); return; }
+  const content = document.getElementById('content');
+  content.querySelectorAll('mark.search-highlight').forEach(m => { const t = document.createTextNode(m.textContent); m.replaceWith(t); });
+  if (activeHighlight !== q) {
+    activeHighlight = q; searchMatches = []; searchIdx = -1;
+    const lower = q.toLowerCase();
+    function collect(n) { if (n.nodeType === Node.TEXT_NODE) { if (n.textContent.toLowerCase().includes(lower)) searchMatches.push(n); } else { for (const c of n.childNodes) collect(c); } }
+    collect(content); totalMatches = searchMatches.length;
+  }
+  if (searchMatches.length === 0) { document.getElementById('search-count').textContent = '0'; return; }
+  searchIdx = (searchIdx + dir + searchMatches.length) % searchMatches.length;
+  let node = searchMatches[searchIdx];
+  if (!node || !node.parentNode) { activeHighlight = null; doSearch(dir); return; }
+  const text = node.textContent;
+  const idx = text.toLowerCase().indexOf(q.toLowerCase());
+  if (idx === -1) { activeHighlight = null; doSearch(dir); return; }
+  const range = document.createRange();
+  range.setStart(node, idx); range.setEnd(node, idx + q.length);
+  const mark = document.createElement('mark'); mark.className = 'search-highlight';
+  range.surroundContents(mark);
+  mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  document.getElementById('search-count').textContent = (searchIdx + 1) + '/' + totalMatches;
+}
+function clearSearch() {
+  document.getElementById('content').querySelectorAll('mark.search-highlight').forEach(m => { m.replaceWith(document.createTextNode(m.textContent)); });
+  searchMatches = []; searchIdx = -1; activeHighlight = null; totalMatches = 0;
+  document.getElementById('search-count').textContent = '';
+}
+
+/* COMPONENT PANEL */
+function showComponent(id) {
+  const data = {
+    dvr: { name: 'DVR (Digital Video Recorder)', hindi: 'डीवीआर', img: 'images/04_dvr.jpg', desc: 'CCTV ka brain - sab cameras ka video yahan record hota hai. 4/8/16/32 channels available.', mistake: 'Hard disk laga ke format karna bhool jaate hain!' },
+    camera: { name: 'CCTV Camera', hindi: 'सीसीटीवी कैमरा', img: 'images/01_dome_camera.jpg', desc: 'Video capture karke DVR ko bhejta hai. Dome, Bullet, PTZ types available hain.', mistake: 'Camera position galat rakhna - face na dikhe!' },
+    monitor: { name: 'CCTV Monitor', hindi: 'सीसीटीवी मॉनिटर', img: 'images/20_router.jpg', desc: 'DVR ka output dikhata hai. Regular TV se alag hota hai - 24/7 use ke liye designed.', mistake: 'Regular TV use karna jo jaldi kharab ho jaata hai.' }
+  };
+  const comp = data[id];
+  document.getElementById('panel-content').innerHTML =
+    '<div style="margin-top:20px">' +
+    '<img src="' + comp.img + '" style="width:100%;height:180px;object-fit:cover;border-radius:10px;border:2px solid var(--brand);margin-bottom:16px" onerror="this.style.display=\'none\'">' +
+    '<h3 style="color:var(--brand);margin-bottom:4px">' + comp.name + '</h3>' +
+    '<div style="font-size:13px;color:var(--text3);margin-bottom:12px">' + comp.hindi + '</div>' +
+    '<p style="font-size:14px;line-height:1.6;margin-bottom:16px">' + comp.desc + '</p>' +
+    '<div style="background:var(--red-bg);border:1px solid #fca5a5;border-radius:8px;padding:12px">' +
+    '<div style="font-weight:700;color:var(--red);font-size:13px;margin-bottom:4px">⚠️ Common Mistake</div>' +
+    '<div style="font-size:13px;color:#991b1b">' + comp.mistake + '</div></div></div>';
+  document.getElementById('component-panel').classList.add('open');
+}
+function closePanel() { document.getElementById('component-panel').classList.remove('open'); }
+
+/* VIDEO MODAL */
+function openVideoModal(url) {
+  const modal = document.createElement('div');
+  modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center;padding:32px';
+  modal.onclick = function(e) { if (e.target === modal) modal.remove(); };
+  modal.innerHTML = '<div style="position:relative;width:100%;max-width:900px;aspect-ratio:16/9;background:#000;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5)">' +
+    '<button onclick="this.closest(\'div\').parentElement.remove()" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:24px;cursor:pointer">&times;</button>' +
+    '<iframe src="' + url + '?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:100%;height:100%"></iframe></div>';
+  document.body.appendChild(modal);
+}
+
+/* KEYBOARD */
+document.addEventListener('keydown', function(e) {
+  if (e.target.tagName === 'INPUT') return;
   if (e.key === 'f' || e.key === 'F') togglePresentation();
-  if (e.key === 'ArrowRight') window.scrollBy(0, 500);
-  if (e.key === 'ArrowLeft') window.scrollBy(0, -500);
+  if (e.key === 'ArrowRight') document.getElementById('main').scrollBy(0, 500);
+  if (e.key === 'ArrowLeft') document.getElementById('main').scrollBy(0, -500);
+  if (e.key === 'Escape') { clearSearch(); closePanel(); }
 });
 
+/* SCROLL SPY */
+document.getElementById('main').addEventListener('scroll', function() {
+  const headings = document.querySelectorAll('#content h1, #content h2');
+  let current = null;
+  headings.forEach(h => { if (h.getBoundingClientRect().top < 200) current = h; });
+  if (current) {
+    document.querySelectorAll('#sidebar a').forEach(a => a.classList.remove('active'));
+    const link = document.querySelector('#sidebar a[href="#' + current.id + '"]');
+    if (link) { link.classList.add('active'); link.scrollIntoView({ block: 'nearest' }); }
+    document.getElementById('current-chapter').textContent = current.textContent.substring(0, 60);
+  }
+});
+
+/* AUTO LOAD */
 async function tryAutoLoad() {
-  try {
-    const resp = await fetch('CCTV_Training_Manual.md');
-    if (resp.ok) { renderMarkdown(await resp.text()); return; }
-  } catch(e) {}
-  document.getElementById('content').innerHTML = '<p>Failed to load. Please refresh.</p>';
+  const paths = ['CCTV_Training_Manual.md', './CCTV_Training_Manual.md', 'manual.md'];
+  for (const p of paths) {
+    try {
+      const resp = await fetch(p);
+      if (resp.ok) {
+        const text = await resp.text();
+        renderMarkdown(text);
+        return;
+      }
+    } catch(e) {}
+  }
+  document.getElementById('content').innerHTML = '<div style="text-align:center;margin-top:80px"><h2 style="color:var(--text2)">Could not load manual</h2><p style="color:var(--text3);margin-top:8px">Click below to select the file manually.</p><label style="display:inline-block;margin-top:16px;padding:10px 24px;background:var(--brand);color:#fff;border-radius:8px;cursor:pointer;font-weight:600">Choose File<input type="file" accept=".md" style="display:none" onchange="loadFile(this.files[0])"></label></div>';
+}
+
+function loadFile(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) { renderMarkdown(e.target.result); };
+  reader.readAsText(file);
 }
 
 tryAutoLoad();
-
-function showComponent(id) {
-  const panel = document.getElementById('component-panel');
-  const content = document.getElementById('panel-content');
-  
-  const data = {
-    dvr: {
-      name: "DVR (Digital Video Recorder) / डीवीआर",
-      img: "images/04_dvr.jpg",
-      desc: "CCTV ka brain - sab cameras ka video yahan record hota hai. 4/8/16 channels available.",
-      mistake: "Common Mistake: Hard disk laga ke bhool jaate hain format karna!"
-    },
-    camera: {
-      name: "CCTV Camera / सीसीटीवी कैमरा",
-      img: "images/01_dome_camera.jpg",
-      desc: "Yeh video capture karta hai aur DVR ko bhejta hai. Dome, Bullet, PTZ types available.",
-      mistake: "Common Mistake: Camera position galat rakhna - face na dikhe!"
-    },
-    monitor: {
-      name: "Monitor / मॉनिटर",
-      img: "images/20_router.jpg",
-      desc: "DVR ka output dikhata hai. CCTV monitor regular TV se alag hota hai (24/7 use).",
-      mistake: "Common Mistake: Regular TV use karna jo jaldi kharab ho jaata hai."
-    }
-  };
-  
-  const comp = data[id];
-  content.innerHTML = `
-    <div class="mb-6">
-      <img src="${comp.img}" alt="${comp.name}" class="w-full h-48 object-cover rounded-xl border-2 border-brand mb-4" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23363654%22 width=%22100%22 height=%22100%22/><text x=%2250%22 y=%2255%22 fill=%22%23818cf8%22 text-anchor=%22middle%22 font-size=%2214%22>📷</text></svg>'"/>
-      <h4 class="text-xl font-bold text-brand mb-2">${comp.name}</h4>
-      <p class="text-sm opacity-80 leading-relaxed mb-4">${comp.desc}</p>
-    </div>
-    <div class="bg-red-900/30 border border-red-500/50 rounded-xl p-4">
-      <h5 class="text-red-400 font-bold text-sm mb-2 flex items-center gap-2">⚠️ ${comp.mistake.split(':')[0]}</h5>
-      <p class="text-xs opacity-80">${comp.mistake.split(':')[1]}</p>
-    </div>
-  `;
-  
-  panel.classList.remove('translate-x-full');
-}
-
-function closePanel() {
-  document.getElementById('component-panel').classList.add('translate-x-full');
-}
-
-function openVideoModal(url) {
-  const modal = document.createElement('div');
-  modal.className = 'fixed inset-0 bg-black/80 z-[9999] flex items-center justify-center p-8';
-  modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
-  
-  modal.innerHTML = `
-    <div class="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
-      <button onclick="this.closest('.fixed').remove()" class="absolute -top-12 right-0 text-white text-3xl hover:text-brand">✕</button>
-      <iframe src="${url}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
-    </div>
-  `;
-  document.body.appendChild(modal);
-}
 </script>
 </body>
 </html>
