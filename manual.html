@@ -187,6 +187,47 @@ body.presentation h1 { font-size: 2.8rem; }
 body.presentation h2 { font-size: 2rem; }
 body.presentation h3 { font-size: 1.6rem; }
 
+/* CHATBOT */
+#chat-btn {
+  position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px;
+  background: var(--brand); color: #fff; border: none; border-radius: 50%;
+  cursor: pointer; font-size: 24px; z-index: 200;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#chat-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 99, 235, 0.5); }
+#chat-panel {
+  position: fixed; bottom: 90px; right: 24px; width: 380px; height: 520px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  z-index: 200; display: flex; flex-direction: column;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  transform: translateY(20px) scale(0.95); opacity: 0; pointer-events: none;
+  transition: all 0.25s ease;
+}
+#chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
+#chat-header {
+  padding: 16px 18px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+#chat-header .title { font-weight: 700; font-size: 15px; color: var(--brand); display: flex; align-items: center; gap: 8px; }
+#chat-header .close { background: none; border: none; font-size: 18px; color: var(--text3); cursor: pointer; }
+#chat-messages { flex: 1; overflow-y: auto; padding: 16px; }
+#chat-input-wrap { padding: 12px 16px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+#chat-input {
+  flex: 1; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px;
+  font-size: 14px; font-family: inherit; outline: none; resize: none; height: 42px;
+}
+#chat-input:focus { border-color: var(--brand); }
+#chat-send {
+  width: 42px; height: 42px; background: var(--brand); color: #fff;
+  border: none; border-radius: 10px; cursor: pointer; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+#chat-send:hover { background: var(--brand-light); }
+#chat-messages::-webkit-scrollbar { width: 4px; }
+#chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
 /* SCROLLBAR */
 #main::-webkit-scrollbar { width: 6px; }
 #main::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
@@ -247,6 +288,28 @@ body.presentation h3 { font-size: 1.6rem; }
 <div id="component-panel">
   <button class="close-btn" onclick="closePanel()">&times;</button>
   <div id="panel-content"></div>
+</div>
+
+<!-- AI CHATBOT -->
+<button id="chat-btn" onclick="toggleChat()" title="AI Assistant">💬</button>
+<div id="chat-panel">
+  <div id="chat-header">
+    <div class="title">🤖 CCTV AI Assistant</div>
+    <button class="close" onclick="toggleChat()">&times;</button>
+  </div>
+  <div id="chat-messages">
+    <div style="margin-bottom:12px">
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:12px;border-bottom-left-radius:4px;padding:10px 14px;font-size:14px;line-height:1.6">
+        Namaste! 🙏 Main CCTV Training Manual ka AI assistant hoon.<br><br>
+        Aap mujhse CCTV installation, cameras, networking, troubleshooting ke baare mein sawaal pooch sakte hain.<br><br>
+        <strong>Hinglish mein poocho!</strong>
+      </div>
+    </div>
+  </div>
+  <div id="chat-input-wrap">
+    <input type="text" id="chat-input" placeholder="Type your question...">
+    <button id="chat-send" onclick="sendChat()">&#9654;</button>
+  </div>
 </div>
 
 <!-- STATUS PANEL -->
@@ -502,6 +565,154 @@ function loadFile(file) {
 }
 
 tryAutoLoad();
+
+/* ===== AI CHATBOT ===== */
+function toggleChat() {
+  const panel = document.getElementById('chat-panel');
+  panel.classList.toggle('open');
+  if (panel.classList.contains('open')) document.getElementById('chat-input').focus();
+}
+
+function addChatMsg(text, isUser) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.style.cssText = 'margin-bottom:12px;display:flex;justify-content:' + (isUser ? 'flex-end' : 'flex-start');
+  const bubble = document.createElement('div');
+  bubble.style.cssText = 'max-width:85%;padding:10px 14px;border-radius:12px;font-size:14px;line-height:1.6;white-space:pre-wrap;' +
+    (isUser ? 'background:var(--brand);color:#fff;border-bottom-right-radius:4px' : 'background:var(--surface2);border:1px solid var(--border);border-bottom-left-radius:4px');
+  bubble.innerHTML = text;
+  div.appendChild(bubble);
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const q = input.value.trim();
+  if (!q) return;
+  input.value = '';
+  addChatMsg(q, true);
+  setTimeout(function() { addChatMsg(getCCTVAnswer(q), false); }, 400);
+}
+
+document.getElementById('chat-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+});
+
+function getCCTVAnswer(q) {
+  const lq = q.toLowerCase();
+
+  // Greetings
+  if (lq.match(/^(hi|hello|hey|hii|namaste|namaskar)/))
+    return 'Namaste! 🙏 Main CCTV Training Manual ka AI assistant hoon. Aap CCTV installation, networking, troubleshooting, ya kisi bhi chapter ke baare mein sawaal pooch sakte hain.';
+
+  // Camera types
+  if (lq.match(/dome|dom camera/))
+    return '**Dome Camera** 📷\n\nIndoor use ke liye best hai. Ceiling pe lagta hai, vandal-resistant hota hai.\n\n• Resolution: 2MP to 8MP\n• Range: 10m to 30m IR\n• Use: Office, Shop, Home, Bank\n• Price: ₹800 to ₹5,000\n\nDome camera kaafi discrete hota hai - kisi ko pata bhi nahi chalta ki camera hai!';
+  if (lq.match(/bullet|gun camera/))
+    return '**Bullet Camera** 📷\n\nOutdoor use ke liye best hai. Long range dekhta hai, weatherproof hota hai.\n\n• Resolution: 2MP to 8MP\n• Range: 30m to 100m+ IR\n• Use: Boundary wall, Parking, Gate\n• Price: ₹1,200 to ₹8,000\n\nBullet camera dikhne mein bada hota hai jo deterrent ka kaam karta hai!';
+  if (lq.match(/ptz|pan.?tilt.?zoom/))
+    return '**PTZ Camera** 📷\n\n360 degree ghum sakta hai, zoom kar sakta hai. Control room se operate hota hai.\n\n• Pan: 360° continuous\n• Tilt: -15° to +90°\n• Zoom: 4x to 36x optical\n• Use: Large areas, Highway, Mall\n• Price: ₹8,000 to ₹50,000+\n\nPTZ camera ek camera se poora area cover kar leta hai!';
+  if (lq.match(/varifocal|zoom.*focus/))
+    return '**Varifocal Camera** 📷\n\nIsme zoom aur focus manually adjust kar sakte ho. Fixed lens se better hai flexibility ke liye.\n\n• Lens: 2.8mm to 12mm adjustable\n• Use: Jab exact coverage chahiye\n• Installation mein adjustment chahiye\n\nVarifocal mein aap lens manually set karke perfect view le sakte ho!';
+
+  // DVR/NVR
+  if (lq.match(/dvr|digital video recorder/))
+    return '**DVR (Digital Video Recorder)**\n\nAnalog cameras ko record karta hai. CCTV ka brain hai.\n\n• Channels: 4, 8, 16, 32\n• Resolution: 1MP to 5MP support\n• Storage: 1 HDD (up to 10TB)\n• Compression: H.264/H.265\n• Price: ₹2,500 to ₹25,000\n\n⚠️ Common Mistake: Hard disk laga ke format karna bhool jaate hain!';
+  if (lq.match(/nvr|network video recorder/))
+    return '**NVR (Network Video Recorder)**\n\nIP cameras ko record karta hai. DVR se zyada advanced hai.\n\n• Channels: 4, 8, 16, 32, 64\n• Resolution: Up to 12MP support\n• Storage: Multiple HDD slots\n• Compression: H.265/H.265+\n• Price: ₹5,000 to ₹50,000+\n\nNVR PoE switch ke saath best kaam karta hai!';
+  if (lq.match(/recording|retention|kitne din/))
+    return '**Recording & Retention**\n\nKitne din recording rahega ye HDD size aur camera count pe depend karta hai.\n\nFormula: HDD Size (TB) ÷ (Cameras × Mbps × 86400 ÷ 8) = Days\n\nGeneral Guide:\n• 1TB HDD + 4 cameras (2MP): ~20 days\n• 2TB HDD + 8 cameras (2MP): ~15 days\n• 4TB HDD + 16 cameras (2MP): ~10 days\n\nH.265 compression se 50% zyada recording ho sakti hai!';
+
+  // Cables & Connectors
+  if (lq.match(/bnc|coaxial|rg59/))
+    return '**BNC Connector & Coaxial Cable**\n\nAnalog CCTV mein use hota hai.\n\n• Cable: RG59 (75 ohm)\n• Max distance: 300m (video)\n• Connector: BNC (Bayonet Neill-Concelman)\n• Crimping tool chahiye\n• Price: ₹15-25 per meter cable\n\n⚠️ Important: Power alag se dena padta hai (siamese cable use karo).';
+  if (lq.match(/rj45|cat6|cat5|ethernet|lan cable/))
+    return '**RJ45 & CAT6 Cable**\n\nIP CCTV mein use hota hai.\n\n• Cable: CAT5e ya CAT6\n• Max distance: 100m\n• Connector: RJ45\n• PoE support: Haan (802.3af/at/bt)\n• Speed: 1Gbps+ (CAT6)\n• Price: ₹25-40 per meter\n\n⚠️ STP cable outdoor mein use karo (shielded).';
+  if (lq.match(/crimping|crimp/))
+    return '**Crimping** 🔧\n\nCable ke end mein connector lagana = crimping.\n\nBNC Crimping:\n1. Cable ka outer layer cut karo (2cm)\n2. Copper wire expose karo\n3. BNC connector mein dalo\n4. Crimping tool se press karo\n5. Test karo\n\nRJ45 Crimping:\n1. CAT6 cable cut karo\n2. Wires straight karo (T-568B standard)\n3. RJ45 jack mein dalo\n4. Crimp karo\n5. Cable tester se check karo';
+  if (lq.match(/fiber|optic|fiber optic/))
+    return '**Fiber Optic Cable**\n\nLong distance CCTV mein use hota hai.\n\n• Distance: 200m to 2km+\n• Speed: 1Gbps to 10Gbps\n• Types: Single-mode, Multi-mode\n• Connectors: SC, LC, ST\n• Price: ₹50-200 per meter\n\nFiber tab use karo jab distance 100m se zyada ho!';
+
+  // Networking
+  if (lq.match(/ip address|ip kya hai|ip address kya/))
+    return '**IP Address**\n\nHar device ko ek unique address milta hai network pe.\n\nFormat: 192.168.1.100 (4 octets)\n\nTypes:\n• Static IP: Manually set (CCTV ke liye best)\n• Dynamic IP: Router automatically deta hai\n\nCCTV mein Static IP use karo kyunki IP change hua to recording band ho jayegi!';
+  if (lq.match(/poe|power over ethernet/))
+    return '**PoE (Power Over Ethernet)**\n\nEk cable se data + power dono mil jaate hain.\n\n• IEEE 802.3af: 15.4W (normal cameras)\n• IEEE 802.3at (PoE+): 30W (PTZ cameras)\n• IEEE 802.3bt (PoE++): 60W-100W\n• Max distance: 100m\n\nPoE switch se installation aasan hoti hai - alag power cable nahi chahiye!';
+  if (lq.match(/switch|network switch/))
+    return '**Network Switch**\n\nCameras ko NVR se connect karta hai.\n\nTypes:\n• Unmanaged: Plug-and-play (home use)\n• Managed: Configuration possible (enterprise)\n• PoE Switch: Data + Power ek cable mein\n\nFor CCTV:\n• 8-port PoE switch: 8 cameras tak\n• 16-port: 16 cameras tak\n• Uplink port: NVR se connect karo\n\n⚠️ PoE budget check karo - har port pe kitna power milega!';
+  if (lq.match(/subnet|subnet mask|vlan/))
+    return '**Subnet & VLAN**\n\nNetwork ko logically divide karna.\n\nCCTV ke liye VLAN kyun zaroori hai:\n• Traffic alag rakho (CCTV vs Office)\n• Security better hoti hai\n• Bandwidth manage hoti hai\n\nExample:\n• VLAN 10: CCTV (192.168.10.0/24)\n• VLAN 20: Office (192.168.20.0/24)\n\nSubnet Mask: 255.255.255.0 (/24) - 254 devices allow karta hai.';
+
+  // Troubleshooting
+  if (lq.match(/camera.*nahi|camera.*not.*working|video.*nahi|screen.*black|kala.*screen/))
+    return '**Camera kaam nahi kar raha - Troubleshooting**\n\nStep by step check karo:\n\n1. **Power check** - Camera ka LED on hai?\n2. **Cable check** - Cable loose to nahi hai?\n3. **DVR/NVR check** - Port active hai?\n4. **Monitor check** - Monitor working hai?\n5. **Ping test** - Camera ping ho raha hai?\n\nAgar LED blink ho raha hai = Power aa raha hai but video nahi ja raha\nAgar LED off hai = Power supply problem hai';
+  if (lq.match(/blur|dhundhla|fuzzy|unclear|focus/))
+    return '**Blurry/Dhundhla Video**\n\nReasons:\n1. **Lens fog** - Moisture ke wajah se\n2. **Focus adjust karo** - Varifocal camera mein manual focus\n3. **Dirty lens** - Lens saaf karo\n4. **IR reflection** - Camera ke paas reflector hatao\n5. **Wrong lens size** - Scene ke liye chhota lens\n\nSolution: Sabse pehle lens saaf karo, phir focus adjust karo!';
+  if (lq.match(/night.*vision|ir|infrared|raat.*nahi|dark.*video/))
+    return '**Night Vision / IR Issues**\n\nIR camera raat ko automatically switch hota hai.\n\nProblems:\n• IR LEDs kaam nahi kar rahe → Camera repair/service\n• White glare aa raha hai → IR reflection (wall se door rakho)\n• Black and white ho gaya → Normal hai (IR mode mein color nahi aata)\n• IR range kam hai → Lens saaf karo\n\nTip: IR cut filter camera better quality deta hai!';
+  if (lq.match(/no signal|signal.*nahi|blue screen|signal loss/))
+    return '**No Signal / Blue Screen**\n\nReasons:\n1. **Cable issue** - BNC/RJ45 connector loose hai\n2. **Cable damage** - Cable cut ya damage ho gaya\n3. **Wrong channel** - DVR mein sahi channel select karo\n4. **Camera dead** - Camera kharab ho gaya\n5. **HDMI/VGA cable** - Monitor ki cable check karo\n\nQuick Fix: Cable wapas crimp karo aur reconnect karo!';
+  if (lq.match(/ping|network.*test|connectivity/))
+    return '**Ping Test**\n\nCamera se network connectivity check karo.\n\nCommand Prompt mein:\nping 192.168.1.100 (camera ka IP)\n\nResults:\n• Reply aa raha hai = Camera connected hai\n• Request timed out = Camera reachable nahi\n• Destination unreachable = Network issue hai\n\nTip: Continuous ping lagao: ping -t 192.168.1.100';
+
+  // Installation
+  if (lq.match(/install|installation|lagana|kaise lagaye/))
+    return '**CCTV Installation Steps**\n\n1. **Site Survey** - Camera ki jagah decide karo\n2. **Cable Route** - Cable kaise jaayegi plan karo\n3. **Mounting** - Camera mount karo (wall/ceiling)\n4. **Cabling** - Cable lay karo (BNC/RJ45)\n5. **Connection** - DVR/NVR se connect karo\n6. **Configuration** - IP settings, recording setup\n7. **Testing** - Sab cameras check karo\n8. **Documentation** - IP list, photos, handover\n\n⚠️ Hamesha safety pehle - height pe kaam karte waqt harness lagao!';
+  if (lq.match(/site survey|survey/))
+    return '**Site Survey** 📋\n\nInstallation se pehle survey zaroori hai:\n\nChecklist:\n• Camera ki jagah aur angle\n• Cable route kaise jaayegi\n• Lighting conditions\n• Power source available hai?\n• Internet connection hai?\n• Weatherproofing (outdoor cameras)\n• Client ki requirements\n\nDeliverable: Survey report with camera positions, cable lengths, and BOQ.';
+  if (lq.match(/cable route|cable.*kaise|cable.*path/))
+    return '**Cable Route Planning**\n\nCable laid karne ke tarike:\n\n1. **PVC Conduit** - Walls ke andar (best)\n2. **Trunking** - Walls pe bahar (asan)\n3. **Cable Tray** - False ceiling mein\n4. **Underground** - Outdoor cameras ke liye\n\nRules:\n• Power cable se door rakho (minimum 30cm)\n• 90 degree bend se bacho\n• Maximum 100m cable length (CAT6)\n• Labels lagao dono ends pe\n• Waterproof junction boxes outdoor mein';
+
+  // Business
+  if (lq.match(/quotation|quote|rate|price|cost|kitna.*charge|rate card/))
+    return '**CCTV Quotation / Rate**\n\nGeneral Rates (2026):\n\n• Dome Camera (2MP): ₹1,500-3,000\n• Bullet Camera (2MP): ₹2,000-4,000\n• DVR 4ch: ₹3,000-5,000\n• DVR 8ch: ₹5,000-8,000\n• NVR 8ch: ₹8,000-15,000\n• PoE Switch 8-port: ₹4,000-8,000\n• CAT6 Cable (per meter): ₹25-40\n• Installation (per camera): ₹500-1,000\n\n⚠️ Labour + Material alag quote karo!';
+  if (lq.match(/amc|annual maintenance|maintenance/))
+    return '**AMC (Annual Maintenance Contract)**\n\nYearly maintenance package:\n\n• Basic AMC: 10-15% of project cost\n• Includes: Cleaning, minor repairs, software updates\n• Response time: 24-48 hours\n• Visits: 4 per year (quarterly)\n\nAMC ke benefits:\n• Regular income milta hai\n• Client ka trust banta hai\n• Problems se pehle fix ho jaate hain';
+  if (lq.match(/business|startup|company|kaise shuru/))
+    return '**CCTV Business Start Kaise Karein**\n\nStep 1: Training lo (ye manual padho!)\nStep 2: Tools khareedo (₹5,000-15,000)\nStep 3: Pehle 5 free installations karo (portfolio)\nStep 4: Google My Business setup karo\nStep 5: Rate card banao\nStep 6: Local electricians se network banao\n\nSalary Guide:\n• Trainee: ₹8K-15K/month\n• Technician: ₹18K-30K/month\n• Senior: ₹25K-45K/month\n• Project Manager: ₹45K-80K/month\n• Business Owner: ₹80K-5L+/month';
+
+  // Storage
+  if (lq.match(/hard disk|hdd|storage|space|kitna.*gb|kitna.*tb/))
+    return '**Hard Disk for CCTV**\n\nCCTV ke liye Surveillance grade HDD use karo:\n\n• WD Purple (Surveillance)\n• Seagate SkyHawk\n• Regular HDD mat lagao (24/7 chalne ke liye designed nahi)\n\nSize Guide:\n• 1TB: 4 cameras, 15-20 days\n• 2TB: 8 cameras, 15-20 days\n• 4TB: 16 cameras, 15-20 days\n• 8TB: 32 cameras, 20-30 days\n\nH.265 compression se 50% zyada recording hoti hai!';
+
+  // Power
+  if (lq.match(/power|adapter|smps|power supply|bijli/))
+    return '**CCTV Power Supply**\n\nCamera ko power dene ke tarike:\n\n1. **PoE (Best)** - CAT6 cable se power + data\n2. **DC Adapter** - 12V DC alag cable\n3. **SMPS** - Centralized power supply\n\nSMPS (Switch Mode Power Supply):\n• 4-channel: 4 cameras\n• 8-channel: 8 cameras\n• 12V DC output\n• Current: 2A-5A per channel\n\n⚠️ UPS lagao power cut ke liye!';
+
+  // H.264 vs H.265
+  if (lq.match(/h\.?264|h\.?265|compression|codec|encode/))
+    return '**Video Compression: H.264 vs H.265**\n\nH.264 (AVC):\n• Older standard\n• 50GB/month per camera (2MP)\n• Compatible with all devices\n\nH.265 (HEVC):\n• Newer standard\n• 25GB/month per camera (2MP)\n• 50% less storage!\n• Better quality at same bitrate\n\nH.265+ (Hikvision):\n• Even better compression\n• 15-20GB/month per camera\n\nRecommendation: H.265 use karo - storage bachega!';
+
+  // Access Control
+  if (lq.match(/access control|door.*lock|card.*reader|biometric/))
+    return '**Access Control System**\n\nDoor ka access control:\n\nComponents:\n• Card Reader / Biometric\n• Controller Board\n• Electric Lock (Magnetic Lock)\n• Exit Button\n• Power Supply\n\nTypes:\n• Card-based (RFID)\n• Fingerprint\n• Face Recognition\n• PIN-based\n\nMagnetic Lock: 12V DC, 280kg holding force';
+  if (lq.match(/boom barrier|barrier|gate.*automatic/))
+    return '**Boom Barrier**\n\nAutomatic gate barrier for parking:\n\n• Boom arm: 3m to 6m\n• Motor: 24V DC or 230V AC\n• Speed: 3-6 seconds open/close\n• Loop sensor: Vehicle detect karta hai\n• Controller: Card/Remote/Face se operate\n\nFoundation: 60cm x 50cm x 50cm concrete pit\nWeight: 50-100 kg';
+  if (lq.match(/video door phone|vdp|door phone|intercom/))
+    return '**Video Door Phone (VDP)**\n\nGate pe visitor aaye to andar se dekh sakte ho:\n\nComponents:\n• Outdoor Unit: Camera + Mic + Speaker + Call Button\n• Indoor Unit: Screen + Speaker + Talk + Unlock Button\n\nConnection:\n• Wired: 5-wire (12V, Audio, Video, Lock, GND)\n• Wireless: WiFi based\n• IP: Network based (best)\n\nFeatures: Remote unlock, night vision, recording';
+
+  // General
+  if (lq.match(/safety|suraksha|safe/))
+    return '**CCTV Installation Safety** ⚠️\n\n1. Height pe kaam karo to safety harness lagao\n2. Power OFF karke wiring karo\n3. Water se door raho (electrical hazard)\n4. Proper tools use karo\n5. Earthing check karo\n6. Cable management - trip hazard na ho\n7. Weatherproofing outdoor mein\n8. Lightning protection lagao';
+  if (lq.match(/tools|tool kit|kya kya chahiye|samān/))
+    return '**CCTV Installation Tools** 🔧\n\nEssential Tools:\n• BNC Crimping Tool: ₹500-1,500\n• RJ45 Crimping Tool: ₹300-800\n• Cable Tester: ₹200-1,000\n• Multimeter: ₹300-2,000\n• Drill Machine: ₹2,000-5,000\n• Screwdriver Set: ₹200-500\n• Wire Stripper: ₹100-300\n• Punch Down Tool: ₹200-500\n\nTotal Tool Kit: ₹5,000-15,000';
+
+  // Default / fallback
+  const topics = [
+    'Camera types (dome, bullet, PTZ, varifocal)',
+    'DVR vs NVR',
+    'Networking (IP, PoE, VLAN)',
+    'Cables (BNC, RJ45, Fiber)',
+    'Troubleshooting (no video, blur, night vision)',
+    'Installation steps',
+    'Quotation & Rates',
+    'Hard Disk & Storage',
+    'Access Control & Boom Barrier',
+    'Business & Career'
+  ];
+  return 'Mujhe ye sawaal samajh nahi aaya. 😅\n\nMain in topics ke baare mein baat kar sakta hoon:\n\n' + topics.map(function(t) { return '• ' + t; }).join('\n') + '\n\nKoi bhi topic poochho ya Hinglish mein sawaal pucho!';
+}
 </script>
 </body>
 </html>
