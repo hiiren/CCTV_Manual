@@ -34,8 +34,8 @@ start http://localhost:8080/manual.html
 - **Presentation Mode** - Press `F` for fullscreen, optimized for 1080p projectors
 - **Keyboard Navigation** - Arrow keys to scroll, Escape to close panels
 - **Font Size Control** - A-/A+ buttons for readability
-- **Image Placeholders** - Yellow boxes for missing images
-- **Diagram Placeholders** - Blue boxes for missing diagrams
+- **Image Placeholders** - Yellow boxes for missing images (25 JPGs are placeholders)
+- **Diagram Placeholders** - Blue boxes for missing diagrams (now 24 SVG diagrams added)
 - **Linked Images** - Green bordered, centered and scaled
 - **Callout Boxes** - Warning, Tip, Best Practice, Tool Required
 - **Status Panel** - Real-time image/diagram counts
@@ -52,7 +52,7 @@ start http://localhost:8080/manual.html
 
 ## MCP Server Configuration
 
-The project uses 6 MCP (Model Context Protocol) servers via opencode:
+The project uses 7 MCP (Model Context Protocol) servers via opencode:
 
 | Server | Purpose |
 |--------|---------|
@@ -62,6 +62,7 @@ The project uses 6 MCP (Model Context Protocol) servers via opencode:
 | `filesystem` | Read/write project files |
 | `fetch` | Fetch URLs, YouTube metadata, APIs |
 | `github` | Push to GitHub and deploy |
+| `playwright` | Browser testing and screenshots |
 
 Configuration is in `opencode.json`.
 
@@ -105,11 +106,13 @@ Configuration is in `opencode.json`.
 |------|--------|
 | Manual Content (14 chapters) | 100% Complete |
 | HTML Viewer | 100% Complete |
-| Images (25 real + 25 SVG placeholders) | 100% Coverage |
-| Diagrams (22 Mermaid/ASCII + 4 SVG) | 100% Coverage |
+| Images (25 placeholder JPGs + 25 SVG diagrams) | 100% Coverage |
+| Diagrams (24 SVG technical diagrams) | 100% Coverage |
 | Interactive Wiring Diagrams | Complete |
 | AI Chatbot | Complete |
 | GitHub Pages Deployment | Live |
+
+> **Note:** The 25 JPG images in `images/` are currently placeholder/dummy images. These will be replaced with real CCTV equipment photos (from Unsplash/Pexels free stock) in a future update.
 
 ---
 
@@ -126,12 +129,12 @@ CCTV_Installation_Manual/
 ├── Promt.md                     <- Master prompt
 ├── STATUS.md                    <- Project status
 │
-├── images/                      <- All images (50+ files)
-│   ├── 01_dome_camera.jpg
-│   ├── ... (25 real photos)
-│   ├── old_vs_modern_cctv.svg   <- 25 SVG placeholders
-│   ├── diagram_access_control.png
-│   └── diagram_boom_barrier.png
+├── images/                      <- All images (70+ files)
+│   ├── 01_dome_camera.jpg       <- 25 placeholder JPGs (to be replaced with real photos)
+│   ├── ... (25 equipment placeholders)
+│   ├── diagram_*.svg            <- 24 technical SVG diagrams
+│   ├── old_vs_modern_cctv.svg   <- SVG illustration placeholders
+│   └── All25Images.png          <- Combined reference image
 │
 └── diagrams/                    <- Diagram source files
     ├── ALL_DIAGRAMS.md
@@ -149,8 +152,8 @@ This project was built using **opencode** with 6 MCP servers:
 
 1. **Content Generation** - 14 chapters of CCTV training content generated via AI
 2. **UI Design** - HTML/CSS/JS viewer built with vanilla JS (no frameworks)
-3. **Diagrams** - 22 Mermaid/ASCII diagrams + 4 interactive SVG diagrams
-4. **Images** - 25 real photos + 25 SVG placeholder illustrations
+3. **Diagrams** - 24 SVG technical diagrams (LAN, WAN, IPv4, access control, etc.)
+4. **Images** - 25 placeholder JPGs + 24 SVG illustrations (real photos pending)
 5. **Interactive Features** - Wiring diagrams, video embeds, search, presentation mode
 6. **AI Chatbot** - Built-in assistant for real-time Q&A
 7. **Deployment** - Pushed to GitHub and deployed to GitHub Pages
