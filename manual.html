@@ -348,7 +348,13 @@ const CHAPTER_VIDEOS = {
   ch11: "https://www.youtube.com/embed/eoHZ0jrIOGo",
   ch12: "https://www.youtube.com/embed/BiT41dW46yk",
   ch13: "https://www.youtube.com/embed/COb5-0sPrkg",
-  ch14: "https://www.youtube.com/embed/abffeDp-CAE"
+  ch14: "https://www.youtube.com/embed/abffeDp-CAE",
+  ch15: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  ch16: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  ch17: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  ch18: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  ch19: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  ch20: "https://www.youtube.com/embed/dQw4w9WgXcQ"
 };
 
 let currentFontSize = 18;
@@ -731,7 +737,7 @@ function getCCTVAnswer(q) {
 
   // Greetings
   if (lq.match(/^(hi|hello|hey|hii|namaste|namaskar)/))
-    return 'Namaste! 🙏 Main CCTV Training Manual ka AI assistant hoon. Aap CCTV installation, networking, troubleshooting, ya kisi bhi chapter ke baare mein sawaal pooch sakte hain.';
+    return 'Namaste! 🙏 Main CCTV Training Manual ka AI assistant hoon. Aap CCTV installation, networking, troubleshooting, home automation, access control, ya kisi bhi chapter ke baare mein sawaal pooch sakte hain.';
 
   // Camera types
   if (lq.match(/dome|dom camera/))
@@ -811,13 +817,71 @@ function getCCTVAnswer(q) {
   if (lq.match(/h\.?264|h\.?265|compression|codec|encode/))
     return '**Video Compression: H.264 vs H.265**\n\nH.264 (AVC):\n• Older standard\n• 50GB/month per camera (2MP)\n• Compatible with all devices\n\nH.265 (HEVC):\n• Newer standard\n• 25GB/month per camera (2MP)\n• 50% less storage!\n• Better quality at same bitrate\n\nH.265+ (Hikvision):\n• Even better compression\n• 15-20GB/month per camera\n\nRecommendation: H.265 use karo - storage bachega!';
 
+  // Software Tools
+  if (lq.match(/configtool|hikvision.*tool|sadvp|sadv/))
+    return '**Hikvision ConfigTool / SADP**\n\nHikvision devices discover aur configure karne ka tool.\n\n• SADP: Devices auto-detect karta hai network pe\n• IP change, password reset, firmware upgrade\n• Batch configuration for multiple cameras\n• Download: Hikvision official website\n\nTip: Naye camera ka IP SADP se set karo phir web browser mein login karo!';
+  if (lq.match(/putty|terminal|ssh|serial/))
+    return '**PuTTY — Terminal/SSH Client**\n\nNetwork devices ko CLI se manage karne ke liye.\n\n• SSH: NVR/Switch/Router remote access\n• Serial: Console cable se direct connection\n• Telnet: Purane devices ke liye\n\nUse in CCTV:\n• Switch CLI configuration\n• NVR advanced settings\n• Network troubleshooting\n\nDownload: putty.org (free)';
+  if (lq.match(/wireshark|packet.*capture|packet.*sniff/))
+    return '**Wireshark — Network Protocol Analyzer**\n\nNetwork traffic capture aur analyze karne ke liye.\n\n• Camera se data flow check karo\n• Bandwidth issues diagnose karo\n• PoE power consumption dekho\n• Network errors dhundho\n\nCCTV mein use:\n• Camera connectivity issues\n• NVR streaming problems\n• Network bottleneck analysis\n\nDownload: wireshark.org (free)';
+  if (lq.match(/web.*interface|browser.*login|camera.*login|web.*access/))
+    return '**Camera/NVR Web Interface**\n\nHar camera/NVR ka web browser se login hota hai.\n\nSteps:\n1. Camera ka IP browser mein type karo\n2. Username/Password daalo (admin/admin)\n3. Settings mein jaao: Network, Video, Recording\n4. Live view dekho\n\nDefault Ports:\n• HTTP: 80 ya 8080\n• HTTPS: 443\n• RTSP: 554\n\nTip: IE/Chrome mein ActiveX control install karo!';
+  if (lq.match(/ivms|hik.*connect|gocctv|gdmss|dahua.*app/))
+    return '**CMS / Mobile Apps**\n\nMultiple cameras remotely dekhne ke liye apps.\n\n• Hik-Connect (Hikvision)\n• iVMS-4200 (Hikvision PC)\n• gDMSS (Dahua)\n• iDMSS (Dahua iOS)\n• CP Plus EzyKam\n\nPC CMS:\n• iVMS-4200: 64 cameras tak\n• Smart PSS (Dahua)\n• Multi-brand: XMEye, ZHIDUO\n\nMobile: Play Store se download karo, P2P se connect karo!';
+
   // Access Control
-  if (lq.match(/access control|door.*lock|card.*reader|biometric/))
-    return '**Access Control System**\n\nDoor ka access control:\n\nComponents:\n• Card Reader / Biometric\n• Controller Board\n• Electric Lock (Magnetic Lock)\n• Exit Button\n• Power Supply\n\nTypes:\n• Card-based (RFID)\n• Fingerprint\n• Face Recognition\n• PIN-based\n\nMagnetic Lock: 12V DC, 280kg holding force';
+  if (lq.match(/access control|card.*reader|rfid|proximity.*card/))
+    return '**Access Control — Card-Based System**\n\nRFID/Proximity card se door khulta hai.\n\nComponents:\n• RFID Card Reader (125kHz / 13.56MHz)\n• Controller Board\n• Magnetic Lock (280kg holding)\n• Exit Button\n• Power Supply (12V DC)\n\nCard Types:\n• Proximity (125kHz): ₹20-50/card\n• MIFARE (13.56MHz): ₹50-150/card\n• Smart Card: ₹200-500/card\n\nPrice: ₹5,000-25,000 per door';
+  if (lq.match(/fingerprint|finger.*scan|bio.*metric.*finger/))
+    return '**Fingerprint Access Control**\n\nFingerprint se door khulta hai.\n\nFeatures:\n• Capacity: 100-5000 fingerprints\n• Response: <1 second\n• False Accept Rate: <0.001%\n• Weather: Indoor use best\n\nInstallation:\n• Mount at 1.2m height\n• Power: 12V DC\n• Connect to controller board\n• Enroll fingerprints via admin\n\nPrice: ₹3,000-15,000 per reader\n\n⚠️ Wet/dirty fingers kaam nahi karte — backup PIN chahiye!';
+  if (lq.match(/face.*recognition|face.*read|face.*detect/))
+    return '**Face Recognition Access Control**\n\nFace scan se door khulta hai — touch-free!\n\nFeatures:\n• Capacity: 100-30,000 faces\n• Detection: 1-3 meters distance\n• Speed: <0.5 seconds\n• Anti-spoofing: Photo/video se hack nahi hoga\n• Temperature check bhi hota hai (COVID ke baad popular)\n\nBest for:\n• Offices, Schools, Hospitals\n• High-traffic entry points\n• Contactless access\n\nPrice: ₹8,000-35,000 per device';
+  if (lq.match(/magnetic.*lock|mag.*lock|electro.*lock|door.*lock.*system/))
+    return '**Magnetic Lock (Mag Lock)**\n\nElectric lock jo card/biometric se open hota hai.\n\nTypes:\n• Surface Mount: 120kg-280kg holding\n• Mortise Mount: 200kg-500kg holding\n• Glass Door Lock: 100kg-200kg\n\nSpecs:\n• Voltage: 12V DC\n• Current: 200mA-500mA\n• Holding Force: 120kg to 500kg\n• Fail-Safe: Power band = door khulta (safety)\n• Fail-Secure: Power band = door band (security)\n\nPrice: ₹800-5,000 per lock';
   if (lq.match(/boom barrier|barrier|gate.*automatic/))
     return '**Boom Barrier**\n\nAutomatic gate barrier for parking:\n\n• Boom arm: 3m to 6m\n• Motor: 24V DC or 230V AC\n• Speed: 3-6 seconds open/close\n• Loop sensor: Vehicle detect karta hai\n• Controller: Card/Remote/Face se operate\n\nFoundation: 60cm x 50cm x 50cm concrete pit\nWeight: 50-100 kg';
-  if (lq.match(/video door phone|vdp|door phone|intercom/))
-    return '**Video Door Phone (VDP)**\n\nGate pe visitor aaye to andar se dekh sakte ho:\n\nComponents:\n• Outdoor Unit: Camera + Mic + Speaker + Call Button\n• Indoor Unit: Screen + Speaker + Talk + Unlock Button\n\nConnection:\n• Wired: 5-wire (12V, Audio, Video, Lock, GND)\n• Wireless: WiFi based\n• IP: Network based (best)\n\nFeatures: Remote unlock, night vision, recording';
+
+  // Home Automation (Chapter 15)
+  if (lq.match(/home.*auto|smart.*home|ghar.*auto|knx|zigbee|z.?wave/))
+    return '**Home Automation & KNX** 🏠\n\nGhar ke electrical devices ko ek system se control karna.\n\nProtocols:\n• KNX: Wired (bus cable), enterprise-grade, ₹5L-25L\n• Zigbee: Wireless, low power, ₹50K-5L\n• Z-Wave: Wireless, home use, ₹30K-3L\n• WiFi: Sabse aasan, ₹10K-1L\n\nDevices:\n• Smart Switches (lights, fans)\n• Smart Thermostat (AC control)\n• Motorized Curtains\n• Scene Controllers\n\nCCTV + Home Automation = Complete Smart Home Package!';
+  if (lq.match(/scene|scene.*control|smart.*scene|pre.?set.*mode/))
+    return '**Scene Control — Smart Scenes**\n\nEk button se poora ghar badal jata hai!\n\nScene Examples:\n• "Good Morning": Lights on, curtains open, AC off\n• "Good Night": All lights off, doors lock, cameras on\n• "Movie Time": Dim lights, projector on, curtains close\n• "Away Mode": All off, cameras activate, alarm on\n\nSetup:\n1. Hub/Gateway configure karo\n2. Devices add karo\n3. Scene create karo (app se)\n4. Button/voice/trigger assign karo\n\nPrice: ₹5,000-20,000 per scene controller';
+  if (lq.match(/smart.*switch|smart.*light|light.*control|dimmer/))
+    return '**Smart Switches & Lighting**\n\nGhar ki lights aur fans ko smart banao.\n\nTypes:\n• WiFi Switch Module: ₹500-2,000/module\n• Zigbee Switch: ₹800-3,000/module\n• Smart Dimmer: ₹1,500-5,000\n• Smart Bulb: ₹300-1,500/bulb\n• LED Strip Controller: ₹500-2,000\n\nFeatures:\n• Phone app se control\n• Voice control (Alexa/Google)\n• Timer/Schedule\n• Energy monitoring\n• Dimming control\n\nInstallation: Existing switch ke back mein lagta hai — no rewiring!';
+  if (lq.match(/curtain|motorized.*curtain|auto.*curtain|blind/))
+    return '**Motorized Curtains & Blinds**\n\nCurtains automatically khul band hoti hain.\n\nTypes:\n• Belt Drive: ₹8,000-20,000\n• Rod Drive: ₹10,000-25,000\n• Roller Blind Motor: ₹6,000-15,000\n\nControl:\n• Remote control\n• App control\n• Voice (Alexa/Google)\n• Timer/Schedule\n• Sunlight sensor (auto-close when bright)\n\nIntegration: KNX/Zigbee/WiFi se home automation mein add karo!';
+  if (lq.match(/thermostat|temperature.*control|ac.*control|smart.*ac/))
+    return '**Smart Thermostat — AC Control**\n\nAC ko automatically ya phone se control karo.\n\nFeatures:\n• Temperature scheduling\n• Geofencing (phone aaya to AC on)\n• Energy usage tracking\n• Voice control\n• Remote access\n\nPopular Models:\n• Honeywell Lyric: ₹12,000-18,000\n• Nest Thermostat: ₹15,000-25,000\n• Havells Crabtree: ₹5,000-10,000\n\nTip: AC ke IR blaster se bhi control ho sakta hai — ₹1,000-3,000!';
+
+  // Intercom/EPABX (Chapter 17)
+  if (lq.match(/intercom|epabx|office.*phone|extension|matrix/))
+    return '**Intercom & EPABX Systems** 📞\n\nOffice/building ke andar internal communication.\n\nIntercom: Door entry + guard communication\n• Wired: ₹2,000-8,000\n• IP: ₹8,000-50,000\n• Video: ₹5,000-35,000\n\nEPABX: Office telephone system\n• Extensions: 8-512\n• Trunk Lines: 2-30\n• Brands: Matrix, AT&T, Nortel\n• Price: ₹15,000-2,00,000\n\nCCTV + Intercom = Security + Communication package!';
+  if (lq.match(/wired.*intercom|wire.*intercom|two.*wire|four.*wire/))
+    return '**Wired Intercom System**\n\nCable se connected intercom — reliable hai.\n\nTypes:\n• 2-Wire: Sabse simple, chhote offices\n• 4-Wire: Audio + Video, better quality\n• IP-Based: Network cable se, best quality\n\nComponents:\n• Master Station (reception/main desk)\n• Sub Station (desk/room units)\n• Door Station (gate pe)\n• Power Supply\n\nInstallation:\n1. Main panel ek jagah rakho\n2. Har extension pe wire daalo\n3. Door station gate pe lagao\n4. Configuration karo (names, rings)\n\nPrice: ₹15,000-75,000 (10-20 extensions)';
+
+  // AV Solutions (Chapter 18)
+  if (lq.match(/projector|lcd.*projector|led.*projector|short.*throw/))
+    return '**Projector — AV Solutions** 🎬\n\nPresentation ke liye projector.\n\nTypes:\n• LCD Projector: ₹20,000-80,000\n• LED Projector: ₹15,000-50,000\n• Laser Projector: ₹50,000-3,00,000\n• Short Throw: ₹30,000-1,50,000\n\nSpecs to check:\n• Brightness: 3000-5000 lumens\n• Resolution: 1080p / 4K\n• Throw Ratio: 1.2:1 to 2.0:1\n• Connectivity: HDMI, WiFi, USB\n\nMounting: Ceiling mount ₹1,000-3,000\nScreen: 100" motorized ₹5,000-15,000';
+  if (lq.match(/speaker|pa.*system|public.*address|amplifier|horn/))
+    return '**PA System / Speakers** 🔊\n\nPublic Address system for announcements.\n\nTypes:\n• Ceiling Speaker: ₹500-3,000/piece\n• Wall Mount: ₹800-5,000/piece\n• Horn Speaker: ₹300-1,500/piece (outdoor)\n• Column Speaker: ₹3,000-15,000\n\nComponents:\n• Amplifier (50W-500W): ₹5,000-50,000\n• Mixer (optional): ₹3,000-20,000\n• Microphone: ₹500-5,000\n• Speaker Cables: ₹10-30/meter\n\nApplication: Schools, Offices, Malls, Factories';
+  if (lq.match(/display.*wall|video.*wall|led.*wall|lcd.*video.*wall/))
+    return '**Video Wall / Display Wall** 📺\n\nMultiple screens ko ek bade display mein join karna.\n\nComponents:\n• LCD Panels: 46" / 55" each\n• Video Wall Controller: ₹50,000-5,00,000\n• Mounting Frame: ₹5,000-20,000\n• Content Player: ₹5,000-30,000\n\nLayouts:\n• 2x2 (4 screens): ₹1,50,000-5,00,000\n• 3x3 (9 screens): ₹4,00,000-15,00,000\n• 4x4 (16 screens): ₹8,00,000-30,00,000\n\nUse: Control rooms, Malls, Airports, Hotels\n\nBezel width: 3.5mm (seamless look)';
+  if (lq.match(/cabling.*av|hdmi|vga|av.*cable|audio.*video.*cable/))
+    return '**AV Cabling** 🔌\n\nAudio-Video cables for AV systems.\n\nCable Types:\n• HDMI: ₹100-500 (3m), supports 4K\n• VGA: ₹50-200 (3m), analog, max 1080p\n• DisplayPort: ₹200-800, best quality\n• Optical Audio: ₹300-1,000, noise-free\n• CAT6 (AV over IP): ₹25-40/m, long distance\n\nAV over IP:\n• HDMI signal ko network pe bhejo\n• 100m+ distance possible\n• Matrix switching possible\n• HDBaseT: ₹5,000-20,000 per pair\n\n⚠️ Maximum HDMI cable: 15m (uske baad signal weak)';
+
+  // Smart Door Locks (Chapter 19)
+  if (lq.match(/smart.*lock|digital.*lock|door.*lock.*smart|electronic.*lock/))
+    return '**Smart Door Locks** 🔐\n\nDigital lock jo phone, PIN, fingerprint se khulta hai.\n\nTypes:\n• PIN Pad Lock: ₹3,000-8,000\n• Fingerprint Lock: ₹8,000-25,000\n• Card Lock: ₹5,000-15,000\n• Multi-Method Lock: ₹12,000-40,000\n\nFeatures:\n• Remote unlock (app se)\n• Auto-lock timer\n• Access logs\n• Temporary PINs (guests)\n• Low battery alert\n• Emergency key backup\n\nBrands: Yale, Godrej, Samsung, Igloohome\n\n⚠️ Battery life: 6-12 months (AA batteries)';
+  if (lq.match(/alarm|siren|burglar|intrusion|theft|chor/))
+    return '**Intrusion Detection & Alarm System** 🚨\n\nChori ya unauthorized entry ka pata lagao.\n\nComponents:\n• Motion Sensor (PIR): ₹300-1,500\n• Door/Window Sensor: ₹200-800\n• Glass Break Sensor: ₹500-2,000\n• Siren/Horn: ₹500-3,000\n• Alarm Panel: ₹3,00-15,000\n• Remote Control: ₹500-2,000\n\nHow it works:\n1. Sensor detect kare → Panel ko signal\n2. Panel → Siren bajata hai\n3. Panel → SMS/Call alert bhejta hai\n4. Panel → CCTV recording trigger karta hai\n\nPrice: ₹10,000-75,000 (complete system)';
+  if (lq.match(/pir|motion.*sensor|motion.*detect|human.*detect/))
+    return '**PIR Motion Sensor**\n\nInfrared se human body detect karta hai.\n\nWorking:\n• PIR sensor heat detect karta hai\n• Human body 37°C hoti hai\n• Background se temperature difference = alarm\n\nSpecs:\n• Range: 5m-15m\n• Angle: 90°-120°\n• Response time: <1 second\n• Mounting height: 2-2.5m\n\nCCTV Integration:\n• Motion detected → Camera recording start\n• Motion detected → Alert push notification\n• Reduces false recording (saves storage)\n\nPrice: ₹300-1,500 per sensor';
+  if (lq.match(/door.*sensor|magnetic.*contact|window.*sensor/))
+    return '**Door/Window Contact Sensor**\n\nDarwaza ya khidki khuli ya band — detect karta hai.\n\nComponents:\n• Magnet (door pe)\n• Reed Switch (frame pe)\n• Wireless transmitter\n\nWorking:\n• Door band = Circuit complete = No alarm\n• Door khula = Circuit break = Alarm!\n\nTypes:\n• Wired: ₹100-300/sensor\n• Wireless: ₹200-800/sensor\n• Surface mount / Flush mount\n\nBattery: 1-2 years (CR2032)\n\nInstallation: Door frame pe lagao, magnet door pe — 1cm gap OK!';
+
+  // FUDS Services (Chapter 20)
+  if (lq.match(/fuds|fuds.*service|fuds.*international|fuds.*product/))
+    return '**FUDS International — Our Services** 🏢\n\nFUDS International provides complete security solutions:\n\n1. **CCTV Installation** — Analog/IP cameras, DVR/NVR setup\n2. **Access Control** — Card, biometric, face recognition systems\n3. **Home Automation** — KNX, smart switches, scene control\n4. **Intercom/EPABX** — Office communication systems\n5. **AV Solutions** — Projectors, speakers, video walls\n6. **Smart Door Locks** — Digital locks, intrusion detection\n7. **AMC Services** — Annual maintenance contracts\n\nWhy FUDS?\n• 10+ years experience\n• Certified technicians\n• All brands supported\n• 24/7 support\n• Affordable pricing\n\nContact: FUDS International website';
 
   // General
   if (lq.match(/safety|suraksha|safe/))
@@ -835,7 +899,13 @@ function getCCTVAnswer(q) {
     'Installation steps',
     'Quotation & Rates',
     'Hard Disk & Storage',
-    'Access Control & Boom Barrier',
+    'Access Control & Biometrics',
+    'Home Automation & KNX',
+    'Intercom & EPABX',
+    'AV Solutions (Projector, Speaker)',
+    'Smart Door Locks & Alarm',
+    'Software Tools (SADP, PuTTY, Wireshark)',
+    'FUDS Services',
     'Business & Career'
   ];
   return 'Mujhe ye sawaal samajh nahi aaya. 😅\n\nMain in topics ke baare mein baat kar sakta hoon:\n\n' + topics.map(function(t) { return '• ' + t; }).join('\n') + '\n\nKoi bhi topic poochho ya Hinglish mein sawaal pucho!';

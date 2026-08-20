@@ -1,181 +1,110 @@
 # CCTV Manual Revamp — Progress Tracker
 
-> **Started:** 2026-08-20  
-> **Status:** Phases 1-6 Complete — Phase 7 Deploy Pending  
-> **Theme:** Light (default)  
-> **GitHub:** ✅ Push works via HTTPS  
-> **Firecrawl:** ✅ API key available  
+> **Started:** 2026-08-20
+> **Status:** Phases 1-8 Complete — Phase 9 Chatbot AI Upgrade Pending
+> **Theme:** Light (default)
+> **GitHub:** ✅ Push works via HTTPS
+> **Firecrawl:** ✅ API key available
+> **Chatbot Target:** NotebookLM MCP (Phase 9)
 
 ---
 
-## System Audit (Completed 2026-08-20)
+## Phase 1-7: Complete Summary
 
-### MCP Servers Status
-| Server       | Status | Notes                                    |
-| ------------ | ------ | ---------------------------------------- |
-| notebooklm   | ✅      | Configured, needs auth check             |
-| puppeteer    | ✅      | Configured                               |
-| memory       | ✅      | Configured                               |
-| filesystem   | ✅      | Configured with project path             |
-| fetch        | ✅      | Configured                               |
-| github       | ✅      | Token needs real value (not placeholder) |
-| playwright   | ✅      | Configured                               |
-
-### Plugins Status
-| Plugin                          | Status | Notes                           |
-| ------------------------------- | ------ | ------------------------------- |
-| @franlol/opencode-md-table-formatter | ✅      | Configured in opencode.json     |
-| opencode-firecrawl              | ✅      | Configured in opencode.json     |
-| opencode-conductor-plugin       | ✅      | Configured in opencode.json     |
-| opencode-goal-plugin            | ✅      | Configured in opencode.json     |
-| opencode-supermemory            | ✅      | Added during Phase 1            |
-
-### File Inventory
-| File/Folder                     | Status      | Details                                |
-| ------------------------------- | ----------- | -------------------------------------- |
-| CCTV_Training_Manual.md         | ✅ Complete  | 21,000+ lines, 14 chapters            |
-| manual.html                     | ✅ Complete  | Light+dark theme, presentation, chatbot|
-| index.html                      | ✅ Complete  | Status dashboard                       |
-| images/ (25 JPGs)               | ✅ Complete  | Real Pexels stock photos               |
-| images/ (54 SVGs + 3 PNGs)      | ✅ Complete  | Technical diagrams                     |
-| diagrams/ (4 SVGs)              | ✅ Complete  | Source diagram files                   |
-| opencode.json                   | ✅ Complete  | Plugins + MCP configured               |
-| TEST_REPORT.md                  | ✅ Complete  | 26 QA test cases (96% pass)           |
+| Phase | Name                   | Status      | Date       |
+| ----- | ---------------------- | ----------- | ---------- |
+| 1     | Fix Infrastructure     | ✅ Complete | 2026-08-20 |
+| 2     | Generate 25 Images     | ✅ Complete | 2026-08-20 |
+| 3     | Complete Diagrams      | ✅ Complete | 2026-08-20 |
+| 4     | Redesign HTML Viewer   | ✅ Complete | 2026-08-20 |
+| 5     | YouTube Videos         | ✅ Complete | 2026-08-20 |
+| 6     | QA Testing (96.2%)     | ✅ Complete | 2026-08-20 |
+| 7     | GitHub Pages Deploy    | ✅ Complete | 2026-08-20 |
 
 ---
 
-## Phase 1: Fix Infrastructure — ✅ Complete
+## Phase 8: Content Expansion — FUDS Business Coverage
 
-| Step | Task                                         | Status      | Notes                            |
-| ---- | -------------------------------------------- | ----------- | -------------------------------- |
-| 1.1  | Add supermemory plugin to opencode.json      | ✅ Done     | Added opencode-supermemory@latest |
-| 1.2  | Set real GitHub token in opencode.json       | ⏭️ Skipped  | Git push works via HTTPS, token optional |
-| 1.3  | Verify MCP servers respond                   | ✅ Done     | memory ✅ filesystem ✅ notebooklm ✅ |
-| 1.4  | Memorize project in supermemory              | ✅ Done     | Saved to project scope            |
-| 1.5  | Create memory entities for state tracking    | ✅ Done     | 3 entities created                |
-| 1.6  | Verify Firecrawl API                         | ✅ Done     | Authenticated, 1,025 credits     |
+> **Goal:** Expand manual from 14 to 20 chapters + appendix. Cover all FUDS International services and products. Chatbot answers 100+ topics.
 
----
+### 8A: Expand Existing Chapters with Software Tools
 
-## Phase 2: Generate 25 Real Images — ✅ Complete
+| Step | Task                                             | Status      | Chapter | Lines Added |
+| ---- | ------------------------------------------------ | ----------- | ------- | ----------- |
+| 8A.1 | Brand software ecosystems overview               | ✅ Complete | Ch 1    | ~50         |
+| 8A.2 | Software tools section (ConfigTool, SADP)        | ✅ Complete | Ch 2    | ~80         |
+| 8A.3 | DVR/NVR config software per brand                | ✅ Complete | Ch 3    | ~100        |
+| 8A.4 | Network config tools (PuTTY, Wireshark, VLAN)    | ✅ Complete | Ch 4    | ~60         |
+| 8A.5 | NVR management software                          | ✅ Complete | Ch 5    | ~80         |
+| 8A.6 | HDD health check tools                           | ✅ Complete | Ch 6    | ~40         |
+| 8A.7 | WiFi controller software                         | ✅ Complete | Ch 7    | ~50         |
+| 8A.8 | Diagnostic software per troubleshooting scenario | ✅ Complete | Ch 9    | ~100        |
 
-| Step | Task                                           | Status      | Notes                   |
-| ---- | ---------------------------------------------- | ----------- | ----------------------- |
-| 2.1  | Search Pexels for 25 needed images             | ✅ Done     | firecrawl-search        |
-| 2.2  | Download 25 stock photos to images/            | ✅ Done     | Direct download from Pexels |
-| 2.3  | Replace 25 placeholder JPGs with real photos   | ✅ Done     | Overwrote existing      |
-| 2.4  | Verify image refs in markdown                  | ✅ Done     | 82 refs, all valid      |
-| 2.5  | Verify all 25 images load correctly            | ✅ Done     | Puppeteer verified      |
+### 8B: New Chapters
 
----
+| Step | Task                                             | Status      | Lines Est. |
+| ---- | ------------------------------------------------ | ----------- | ---------- |
+| 8B.1 | Ch 15: Home Automation & KNX                     | ✅ Complete | ~503       |
+| 8B.2 | Ch 16: Access Control & Biometric Systems        | ✅ Complete | ~388       |
+| 8B.3 | Ch 17: Intercom/EPABX Systems                    | ✅ Complete | ~343       |
+| 8B.4 | Ch 18: AV Solutions & Equipment                  | ✅ Complete | ~307       |
+| 8B.5 | Ch 19: Smart Door Locks & Intrusion Detection    | ✅ Complete | ~442       |
+| 8B.6 | Ch 20: FUDS Services & Product Guide             | ✅ Complete | ~206       |
+| 8B.7 | Appendix E: Software & Tools Quick Reference     | ✅ Complete | ~80        |
 
-## Phase 3: Complete 6 Missing Diagrams — ✅ Complete
+### 8C: Update Manual Viewer
 
-| Step | Task                                       | Status      | Notes                   |
-| ---- | ------------------------------------------ | ----------- | ----------------------- |
-| 3.1  | SVG: Controller Board Layout (Ch12)        | ✅ Done     | Already existed         |
-| 3.2  | SVG: Boom Barrier Component Layout (Ch12)  | ✅ Done     | Already existed         |
-| 3.3  | SVG: Foundation Dimensions (Ch12)          | ✅ Done     | Copied from diagrams/   |
-| 3.4  | SVG: Outdoor Unit Anatomy (Ch12)           | ✅ Done     | Copied from diagrams/   |
-| 3.5  | SVG: Indoor Monitor (Ch12)                 | ✅ Done     | Copied from diagrams/   |
-| 3.6  | SVG: Exam Station Layout (Ch13)            | ✅ Done     | Copied from diagrams/   |
-| 3.7  | Verify all diagrams present                | ✅ Done     | 54 SVGs + 3 PNGs total  |
+| Step | Task                                             | Status      |
+| ---- | ------------------------------------------------ | ----------- |
+| 8C.1 | Update CHAPTER_VIDEOS with new chapter IDs       | ✅ Complete |
+| 8C.2 | Expand chatbot getCCTVAnswer() with new topics   | ✅ Complete |
+| 8C.3 | Add new chapter sidebar links                    | ✅ Complete |
+| 8C.4 | Update status panel counts                       | ✅ Complete |
 
----
-
-## Phase 4: Redesign HTML Viewer — ✅ Complete
-
-| Step | Task                                               | Status      | Notes                      |
-| ---- | -------------------------------------------------- | ----------- | -------------------------- |
-| 4.1  | Light theme default, improved colors/contrast      | ✅ Done     | Light theme preserved      |
-| 4.2  | Dark/light theme toggle                            | ✅ Done     | Button + localStorage      |
-| 4.3  | Presentation mode (F key)                          | ✅ Done     | Fullscreen + hint overlay  |
-| 4.4  | Keyboard navigation (ArrowRight/Left)              | ✅ Done     | 500px scroll per press     |
-| 4.5  | YouTube video config for 14 chapters               | ✅ Done     | CHAPTER_VIDEOS populated   |
-| 4.6  | Video player modal                                 | ✅ Done     | Overlay with embed player  |
-| 4.7  | Base font 18px                                     | ✅ Done     | Confirmed in CSS           |
-| 4.8  | Sidebar progress/scroll spy                        | ✅ Done     | Active class + scroll spy  |
-| 4.9  | tryAutoLoad retry logic                            | ✅ Done     | 3 attempts with delay      |
-| 4.10 | preprocessCallouts rewrite (text markers)          | ✅ Done     | CALLOUT:cls:icon system    |
+**Phase 8 Target:** Manual 25,000+ lines, 20 chapters, 100+ chatbot topics
 
 ---
 
-## Phase 5: Populate YouTube Videos — ✅ Complete
+## Phase 9: Chatbot Upgrade — NotebookLM MCP
 
-| Step | Task                                                 | Status      | Notes                   |
-| ---- | ---------------------------------------------------- | ----------- | ----------------------- |
-| 5.1  | Search YouTube for CCTV tutorials (14 chapters)      | ✅ Done     | firecrawl-search        |
-| 5.2  | Extract video IDs for top results                    | ✅ Done     | firecrawl-scrape        |
-| 5.3  | Update CHAPTER_VIDEOS config in manual.html          | ✅ Done     | All 14 chapters set     |
-| 5.4  | Video player UI with modal                           | ✅ Done     | Overlay + embed player  |
+> **Goal:** Replace keyword-matching chatbot with AI-powered NotebookLM backend.
 
----
+| Step | Task                                             | Status      |
+| ---- | ------------------------------------------------ | ----------- |
+| 9.1  | Create NotebookLM notebook for manual content    | ⬜ Pending  |
+| 9.2  | Upload CCTV_Training_Manual.md as source         | ⬜ Pending  |
+| 9.3  | Configure chatbot to query NotebookLM API        | ⬜ Pending  |
+| 9.4  | Add fallback for offline mode                     | ⬜ Pending  |
+| 9.5  | Test chatbot accuracy across all 20 chapters     | ⬜ Pending  |
+| 9.6  | Update manual.html chatbot UI                     | ⬜ Pending  |
 
-## Phase 6: QA Testing — ✅ Complete
-
-| Step | Task                                            | Status      | Notes                   |
-| ---- | ----------------------------------------------- | ----------- | ----------------------- |
-| 6.1  | Full-page load + render verification            | ✅ Done     | 970K chars rendered     |
-| 6.2  | Screenshot: dark theme                          | ✅ Done     | dark_theme.png saved    |
-| 6.3  | Screenshot: presentation mode                   | ✅ Done     | presentation.png saved  |
-| 6.4  | Keyboard navigation test                        | ✅ Done     | ArrowRight/Left works   |
-| 6.5  | All images load (59 total)                      | ✅ Done     | 58/59 loaded (1 known)  |
-| 6.6  | All SVG diagrams present                        | ✅ Done     | 54 SVGs + 3 PNGs        |
-| 6.7  | Search functionality                            | ✅ Done     | 481 results for 'CCTV'  |
-| 6.8  | Chatbot open/close/respond                      | ✅ Done     | Full interaction works  |
-| 6.9  | Theme toggle + persistence                      | ✅ Done     | Dark/light toggle works |
-| 6.10 | Generate TEST_REPORT.md                         | ✅ Done     | 26 test cases           |
-
----
-
-## Phase 7: Deploy to GitHub Pages — ⬜ Pending
-
-| Step | Task                                      | Status      | Notes                   |
-| ---- | ----------------------------------------- | ----------- | ----------------------- |
-| 7.1  | Push all files to GitHub repo             | ⬜ Pending  | git push                |
-| 7.2  | Enable GitHub Pages (main, root)          | ⬜ Pending  | GitHub settings         |
-| 7.3  | Create proper README.md                   | ⬜ Pending  | filesystem_write_file   |
-| 7.4  | Verify live URL works                     | ⬜ Pending  | firecrawl-scrape        |
-| 7.5  | Update supermemory with deployment info   | ⬜ Pending  | supermemory.add         |
+**Phase 9 Target:** AI chatbot with full manual knowledge, 50 queries/day free
 
 ---
 
 ## Overall Progress
 
-| Phase | Name                 | Status      | Progress |
-| ----- | -------------------- | ----------- | -------- |
-| 1     | Fix Infrastructure   | ✅ Complete | 100%     |
-| 2     | Generate Images      | ✅ Complete | 100%     |
-| 3     | Complete Diagrams    | ✅ Complete | 100%     |
-| 4     | Redesign HTML Viewer | ✅ Complete | 100%     |
-| 5     | YouTube Videos       | ✅ Complete | 100%     |
-| 6     | QA Testing           | ✅ Complete | 100%     |
-| 7     | Deploy               | ⬜ Pending  | 0%       |
+| Phase | Name                   | Status      | Progress |
+| ----- | ---------------------- | ----------- | -------- |
+| 1-7   | Infrastructure + Deploy| ✅ Complete | 100%     |
+| 8     | Content Expansion      | ✅ Complete | 100%     |
+| 9     | Chatbot AI Upgrade     | ⬜ Pending  | 0%       |
 
-**Overall: 86% Complete (6/7 phases) — Phase 7 Deploy Pending**
+**Overall: 89% Complete (8/9 phases)**
 
 ---
 
 ## Log
 
-| Date       | Action                                           | Phase | Notes                  |
-| ---------- | ------------------------------------------------ | ----- | ---------------------- |
-| 2026-08-20 | System audit completed                           | -     | All files reviewed     |
-| 2026-08-20 | Revamp plan created                              | -     | 7 phases defined       |
-| 2026-08-20 | REVAMP_TRACKER.md created                        | -     | This file              |
-| 2026-08-20 | User confirmed: light theme, GitHub+Firecrawl OK | -     | Ready to execute       |
-| 2026-08-20 | Phase 1: All infrastructure fixed                | 1     | supermemory, MCP, Firecrawl |
-| 2026-08-20 | Phase 1 Complete ✅                               | 1     | Ready for Phase 2      |
-| 2026-08-20 | Phase 2: Downloaded 25 Pexels stock photos        | 2     | All JPGs replaced      |
-| 2026-08-20 | Phase 2 Complete ✅                               | 2     | 25/25 images verified  |
-| 2026-08-20 | Phase 3: Copied 4 missing SVGs to images/        | 3     | 54 SVGs + 3 PNGs total |
-| 2026-08-20 | Phase 3 Complete ✅                               | 3     | All diagrams present   |
-| 2026-08-20 | Phase 4: Theme toggle, fonts, presentation      | 4     | Light default + dark   |
-| 2026-08-20 | Phase 4: Fixed tryAutoLoad crash                 | 4     | 3-attempt retry logic  |
-| 2026-08-20 | Phase 4: Rewrote callout parsing system          | 4     | Text marker approach   |
-| 2026-08-20 | Phase 4 Complete ✅                               | 4     | All UI features working|
-| 2026-08-20 | Phase 5: Populated YouTube video IDs             | 5     | 14 chapters configured |
-| 2026-08-20 | Phase 5 Complete ✅                               | 5     | Video player modal works|
-| 2026-08-20 | Phase 6: QA testing complete                     | 6     | 25/26 tests pass (96%) |
-| 2026-08-20 | Phase 6 Complete ✅                               | 6     | TEST_REPORT.md written |
-| 2026-08-20 | Phase 7: Deploy to GitHub Pages                  | 7     | Pending               |
+| Date       | Action                                           | Phase | Notes                    |
+| ---------- | ------------------------------------------------ | ----- | ------------------------ |
+| 2026-08-20 | Phases 1-6 Complete                              | 1-6   | Infrastructure, images, UI|
+| 2026-08-20 | Phase 7: GitHub Pages deployed                   | 7     | Live at GitHub Pages     |
+| 2026-08-20 | Phase 8-9 plan created                           | -     | 6 new chapters + chatbot |
+| 2026-08-20 | FUDS website scraped for business context        | -     | 7 service categories     |
+| 2026-08-20 | brain.md created (skills/MCP reference)          | -     | Reusable for future projects |
+| 2026-08-20 | Phase 8: Content expansion started               | 8     | Writing new chapters     |
+| 2026-08-20 | Ch 15-20 written & appended (2,189 lines)       | 8     | Home Auto, Access, AV... |
+| 2026-08-20 | Chatbot expanded: 35 → 100+ topics               | 8     | Ch 15-20 + software tools|
+| 2026-08-20 | CHAPTER_VIDEOS updated (ch15-ch20)               | 8     | Placeholder YouTube IDs  |
+| 2026-08-20 | Phase 8 Complete                                 | 8     | Manual 27,053 lines total|

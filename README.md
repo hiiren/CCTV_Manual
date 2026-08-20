@@ -13,13 +13,8 @@ Visit the live manual directly in your browser. No installation needed.
 
 ### Local
 ```bash
-# Navigate to project folder
 cd C:\Users\Lenovo\Desktop\CCTV_Installation_Manual
-
-# Start server
 python -m http.server 8080
-
-# Open in browser
 start http://localhost:8080/manual.html
 ```
 
@@ -28,68 +23,51 @@ start http://localhost:8080/manual.html
 ## Features
 
 ### Manual Viewer (`manual.html`)
-- **Light Theme** - Clean, classroom-friendly design (default)
-- **Dark Theme** - Toggle with button (optional)
-- **Interactive Sidebar** - Auto-generated chapter navigation with scroll spy
-- **Search** - Find any text instantly across all chapters
-- **Presentation Mode** - Press `F` for fullscreen, optimized for 1080p projectors
-- **Keyboard Navigation** - Arrow keys to scroll, Escape to close panels
-- **Font Size Control** - A-/A+ buttons for readability
-- **25 Real Stock Photos** - Pexels free photos replacing all placeholders
-- **54 SVG Diagrams** - Technical diagrams for networking, CCTV, access control
-- **Callout Boxes** - Warning, Tip, Best Practice, Tool Required
-- **Status Panel** - Real-time image/diagram counts
-- **Interactive Wiring Diagrams** - Click components to see details
-- **YouTube Video Embeds** - Video cards for all 14 chapters
-- **AI Chatbot** - Built-in assistant for real-time Q&A (Hinglish)
+- **Light Theme** — Clean, classroom-friendly design (default)
+- **Dark Theme** — Toggle with button (optional)
+- **Interactive Sidebar** — Auto-generated chapter navigation with scroll spy
+- **Search** — Find any text instantly across all chapters
+- **Presentation Mode** — Press `F` for fullscreen, optimized for 1080p projectors
+- **Keyboard Navigation** — Arrow keys to scroll, Escape to close panels
+- **Font Size Control** — A-/A+ buttons for readability
+- **25 Real Stock Photos** — Pexels free photos
+- **54 SVG Diagrams** — Technical diagrams for networking, CCTV, access control
+- **Callout Boxes** — Warning, Tip, Best Practice, Tool Required
+- **YouTube Video Embeds** — Video cards for all chapters
+- **AI Chatbot** — Built-in assistant for real-time Q&A (Hinglish)
+
+### Chatbot Upgrade Plan (Phase 9)
+- Current: Keyword-matching (100+ topics, all 20 chapters covered)
+- Target: NotebookLM AI-powered (full manual knowledge)
+- Free tier: 50 queries/day
 
 ---
 
-## QA Status
+## Chapter Structure (20 Chapters)
 
-| Metric | Result |
-|--------|--------|
-| Test Cases | 26 |
-| Pass Rate | 96.2% (25/26) |
-| Images Loaded | 58/59 (1 known headless-only issue) |
-| Tables | 540 |
-| Code Blocks | 369 |
-| Callouts | 52 |
-| Nav Links | 251 |
-
-See `TEST_REPORT.md` for full details.
-
----
-
-## About This Manual
-
-- **Audience:** New Technicians, Diploma Students, Interns, Electricians, Freshers
-- **Language:** Hindi + English Mix (Hinglish)
-- **Edition:** 2026 Edition
-- **Experience Level:** From Zero to Professional
-- **Total Lines:** 21,000+ lines of Markdown
-- **Chapters:** 14 chapters + Annexures
-
----
-
-## Table of Contents
-
-| Chapter | Title |
-|---------|-------|
-| 1 | Introduction to CCTV Systems |
-| 2 | CCTV Components and Tools |
-| 3 | Analog CCTV Systems |
-| 4 | Networking Fundamentals |
-| 5 | IP CCTV Systems |
-| 6 | Storage |
-| 7 | Wireless Cameras |
-| 8 | Site Survey |
-| 9 | Complete Troubleshooting Guide |
-| 10 | Quotation, BOQ and Sales |
-| 11 | Billing and Handover |
-| 12 | Business Model |
-| 13 | Complete Practical Examination |
-| 14 | Feedback and Certification |
+| #   | Chapter                                      | Coverage              |
+| --- | -------------------------------------------- | --------------------- |
+| 1   | Introduction to CCTV Systems                 | Brands, types, basics |
+| 2   | CCTV Components and Tools                    | Hardware, tools, cables |
+| 3   | Analog CCTV Systems                          | DVR, analog cameras   |
+| 4   | Networking Fundamentals                      | IP, LAN, VLAN, ports  |
+| 5   | IP CCTV Systems                              | NVR, IP cameras, PoE  |
+| 6   | Storage                                      | HDD, recording, retention |
+| 7   | Wireless Cameras                             | WiFi, mobile access   |
+| 8   | Site Survey                                  | Survey, planning      |
+| 9   | Complete Troubleshooting Guide               | All common issues     |
+| 10  | Quotation, BOQ and Sales                     | Pricing, estimates    |
+| 11  | Billing and Handover                         | Invoicing, handover   |
+| 12  | Business Model                               | Growth strategy       |
+| 13  | Complete Practical Examination               | Hands-on tasks        |
+| 14  | Feedback and Certification                   | Wrap-up               |
+| 15  | **Home Automation & KNX**                        | **New** — Smart home, lighting, scenes |
+| 16  | **Access Control & Biometric Systems**           | **New** — Card, fingerprint, face recognition |
+| 17  | **Intercom/EPABX Systems**                       | **New** — Matrix, phone systems |
+| 18  | **AV Solutions & Equipment**                     | **New** — Projector, speakers, display |
+| 19  | **Smart Door Locks & Intrusion Detection**       | **New** — Smart locks, alarms |
+| 20  | **FUDS Services & Product Guide**                | **New** — All FUDS International services |
+| A   | Software & Tools Quick Reference             | **New** — Master software table |
 
 ---
 
@@ -98,12 +76,14 @@ See `TEST_REPORT.md` for full details.
 | Item | Status |
 |------|--------|
 | Manual Content (14 chapters) | ✅ Complete |
+| New Chapters (Ch 15-20 + Appendix) | ✅ Complete |
 | HTML Viewer (light+dark, presentation, chatbot) | ✅ Complete |
 | Images (25 real Pexels stock photos) | ✅ Complete |
 | SVG Diagrams (54 technical diagrams) | ✅ Complete |
-| YouTube Videos (14 chapters configured) | ✅ Complete |
+| YouTube Videos (all chapters) | ✅ Complete |
 | QA Testing (96.2% pass rate) | ✅ Complete |
-| GitHub Pages Deployment | ⬜ Pending (enable in Settings) |
+| GitHub Pages Deployment | ✅ Live |
+| Chatbot AI Upgrade (NotebookLM) | ⬜ Phase 9 |
 
 ---
 
@@ -112,21 +92,27 @@ See `TEST_REPORT.md` for full details.
 ```
 CCTV_Installation_Manual/
 ├── README.md                    <- This file
-├── CCTV_Training_Manual.md      <- Main manual (21,000+ lines)
+├── CCTV_Training_Manual.md      <- Main manual (27,000+ lines, 20 chapters)
 ├── manual.html                  <- HTML viewer with AI chatbot
 ├── index.html                   <- Status dashboard
 ├── opencode.json                <- MCP server config + plugins
-├── TEST_REPORT.md               <- QA test results (26 cases)
-├── REVAMP_TRACKER.md            <- 7-phase progress tracker
+├── TEST_REPORT.md               <- QA test results
+├── REVAMP_TRACKER.md            <- Phase progress tracker
+├── brain.md                     <- Skills/MCP/plugins reference
 │
 ├── images/                      <- 79 files (25 JPGs + 54 SVGs)
-│   ├── 01_dome_camera.jpg       <- Real Pexels stock photos
-│   ├── ... (25 equipment photos)
-│   ├── exam_station_layout.svg  <- Technical SVG diagrams
-│   └── ... (54 SVG diagrams)
-│
-└── diagrams/                    <- Diagram source files (4 SVGs)
+└── diagrams/                    <- Diagram source files
 ```
+
+---
+
+## Tech Stack
+
+- **HTML/CSS/JS** — Vanilla, no frameworks
+- **Markdown** — 27,000+ lines of Hinglish content
+- **MCP Servers** — notebooklm, puppeteer, memory, filesystem, fetch, github, playwright
+- **Plugins** — firecrawl, conductor, goal-plugin, supermemory, md-table-formatter
+- **Deployment** — GitHub Pages
 
 ---
 

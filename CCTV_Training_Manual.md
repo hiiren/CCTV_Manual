@@ -758,6 +758,112 @@ d) Hybrid CCTV
 
 ---
 
+## 1.6 Brand Software Ecosystems
+
+Har CCTV brand ka apna software ecosystem hota hai. Technician ke liye yeh jaanna zaroori hai ki kaunsa brand ka kaunsa software use hota hai, kyunki site pe tumhe alag-alag brands ke cameras handle karne padenge.
+
+### CP Plus / Dahua Ecosystem
+
+CP Plus Dahua ka rebranded version hai, isliye dono ka software same hota hai.
+
+**Mobile App: EzyKam+**
+- Android aur iOS dono pe available
+- Live viewing, playback, PTZ control
+- Motion detection alerts milte hain
+- Cloud storage bhi support karta hai
+
+**PC Software: ConfigTool**
+- Windows pe install hota hai
+- Network pe sab CP Plus/Dahua devices automatically detect ho jaate hain
+- Batch configuration possible — ek saath 100+ cameras configure kar sakte ho
+- Password reset bhi kar sakte ho agar admin password bhool gaye ho
+- Firmware upgrade bhi isse hota hai
+
+**Guarding Vision**
+- Hikvision ka app hai lekin Dahua ke kuch devices bhi support karta hai
+- Remote viewing ke liye use hota hai
+
+> **CALLOUT:tip:💡:Tip:** ConfigTool technician ka best friend hai. Agar koi camera offline hai, toh pehle ConfigTool se check karo — device detect ho raha hai ya nahi. 90% problems yahi solve ho jaati hain.
+
+### Hikvision Ecosystem
+
+Hikvision duniya ka sabse bada CCTV manufacturer hai. Isliye Hikvision ke software kaam aana zaroori hai.
+
+**Mobile App: Hik-Connect**
+- Sabse popular CCTV mobile app hai India mein
+- Live viewing, two-way audio, PTZ control
+- Push notifications for motion detection
+- Remote playback from NVR/DVR
+- QR code se camera add karte hain — bahut easy hai
+
+**PC Software: iVMS-4200**
+- Professional VMS (Video Management Software)
+- Ek PC pe 256 cameras tak manage kar sakte ho
+- Multi-site management — alag-alag locations ke cameras ek jagah dekh sakte ho
+- E-map feature — building map pe cameras dikhte hain
+- Video analytics bhi hai (line crossing, intrusion detection)
+- Free hai — koi license nahi chahiye basic use ke liye
+
+**SADP Tool**
+- **S**urveillance **A**rray **D**evice **P**rovisioning tool
+- Network pe Hikvision devices discover karta hai
+- IP address change karna ho, password reset karna ho — sab isse hota hai
+- Camera ka status check kar sakte ho — online hai ya offline
+- Firmware upgrade bhi possible hai
+
+> **CALLOUT:tip:💡:Tip:** Jab bhi naya Hikvision camera lagao, pehle SADP Tool se IP assign karo, phir iVMS-4200 mein add karo. Seedha camera mein mat jao — network pe pehle setup karo.
+
+### Honeywell Ecosystem
+
+Honeywell premium brand hai, mostly commercial projects mein use hota hai.
+
+**Mobile App: HMAX**
+- Honeywell ka mobile viewing app
+- Live streaming aur playback dono
+- Push alerts for events
+- Multi-camera viewing
+
+**PC Software: Honeywell MaxPro VMS**
+- Enterprise-level VMS
+- Large installations ke liye designed hai (1000+ cameras)
+- Advanced analytics — facial recognition, license plate recognition
+- Integration with access control aur fire alarm systems
+- License-based hai — har camera ke liye alag se license chahiye
+
+> **CALLOUT:tip:💡:Tip:** Honeywell ke products zyada expensive hote hain lekin quality top-notch hoti hai. Banking aur government projects mein Honeywell milta hai.
+
+### Vivotek Ecosystem
+
+Vivotek Taiwan ka brand hai, India mein popular hai especially mid-range segment mein.
+
+**Mobile App: VIVOCloud**
+- Live viewing aur playback
+- PTZ control
+- Push notifications
+- Cloud recording support
+
+**PC Software: VAST 2**
+- Vivotek ka free VMS software
+- Up to 64 cameras manage kar sakte ho
+- Easy device discovery aur configuration
+- Video playback aur export
+- E-map support
+
+### Brand Software Comparison Table
+
+| Brand | Mobile App | PC Software | Specialty | Price Model |
+|-------|-----------|-------------|-----------|-------------|
+| CP Plus / Dahua | EzyKam+ | ConfigTool | Budget-friendly, easy setup | Free |
+| Hikvision | Hik-Connect | iVMS-4200, SADP Tool | Best ecosystem, largest market share | Free |
+| Honeywell | HMAX | MaxPro VMS | Enterprise, premium quality | License-based |
+| Vivotek | VIVOCloud | VAST 2 | Mid-range, good quality | Free |
+
+> **CALLOUT:tip:💡:Tip:** Indian market mein 70% se zyada installations ya toh Hikvision ya CP Plus ke hain. In dono ke software zaroor seekho — yeh daily use aayenge.
+
+> **CALLOUT:tip:💡:Tip:** Ek important baat — agar tumhare paas mixed brand installation hai (jaise Hikvision ke cameras aur Dahua ka NVR), toh ek common software nahi milega. Isliye ONVIF protocol support check karna zaroori hai. ONVIF se alag brands ek saath kaam kar sakte hain.
+
+---
+
 # CHAPTER 2: CCTV Components and Tools
 
 ---
@@ -2536,6 +2642,97 @@ d) Camera ko 2 cables lagti hain
 
 ---
 
+## 2.6 Software Tools for CCTV Technicians
+
+Bhai, hardware tools toh zaroori hain lekin aaj kal CCTV installation mein software tools bhi utne hi important hain. Agar tum sirf hardware jaante ho aur software nahi, toh half technician ho. Yeh section mein sab important software tools cover karenge jo tumhe daily use aayenge.
+
+### ConfigTool / SADP — Device Discovery aur Configuration
+
+**ConfigTool (CP Plus / Dahua)**
+- Windows PC pe install karo
+- Network pe connected sab Dahua/CP Plus devices automatically detect ho jaate hain
+- **IP Discovery:** Camera ka IP address pata chalta hai bina physically gaye
+- **Batch Configuration:** 50-100 cameras ka IP ek saath change kar sakte ho
+- **Password Reset:** Agar admin password bhool gaye ho, toh security question se reset kar sakte ho
+- **Firmware Upgrade:** Camera ka firmware bhi isse update hota hai
+
+**SADP Tool (Hikvision)**
+- Same kaam karta hai ConfigTool jaisa but Hikvision devices ke liye
+- **IP Discovery:** Network pe Hikvision devices dhoondhta hai
+- **Batch Config:** Ek saath multiple devices configure karo
+- **Password Reset:** Hikvision ka password reset karne ka sabse easy tarika
+- **Device Activation:** Naya camera activate karna ho toh SADP se karo
+
+> **CALLOUT:tip:💡:Tip:** ConfigTool aur SADP dono free hain. Dono install karke rakhna — site pe kabhi bhi kaam aa sakta hai.
+
+### IP Scanner — Network Device Discovery
+
+**Angry IP Scanner**
+- Free aur open-source hai
+- Kisi bhi IP range ko scan kar sakta hai
+- Camera ka IP address pata lagana ho — best tool hai
+- Port bhi scan karta hai — kaunsa device kaunsa port open rakhta hai
+- Windows, Mac, Linux teeno pe kaam karta hai
+
+**Advanced IP Scanner**
+- Angry IP Scanner jaisa hi hai but Windows ke liye better hai
+- Network pe sab devices dikh jaate hain — computers, cameras, printers sab
+- Device ka IP, MAC address, manufacturer name dikhata hai
+- Free hai
+
+> **CALLOUT:tip:💡:Tip:** Jab bhi naya installation karo, pehle IP Scanner se network scan karo. Pata chal jaayega ki kitne devices already hain, kaunsa IP available hai, aur kaunsa IP conflict ho raha hai.
+
+### PuTTY — SSH Terminal
+
+PuTTY ek SSH client hai. Agar tumhe camera ya NVR ke terminal access karna ho, toh PuTTY use hota hai.
+
+- **SSH Access:** Camera ke Linux-based system mein terminal se access milta hai
+- **Configuration:** Kuch advanced settings sirf SSH se hi kar sakte ho
+- **Debugging:** Camera ka software hang ho gaya hai, toh SSH se restart kar sakte ho
+- **Log Check:** Camera ke system logs dekh sakte ho
+
+> **CALLOUT:tip:💡:Tip:** PuTTY sirf advanced technicians ke liye hai. Agar tum beginner ho, toh pehle basic software tools seekho. SSH mein galat command daali toh camera bricked ho sakta hai!
+
+### Wireshark — Network Diagnostics
+
+Wireshark world ka sabse powerful network analysis tool hai. Yeh network pe travel ho rahe data packets ko capture aur analyze karta hai.
+
+- **Packet Capture:** Network traffic record karta hai
+- **Protocol Analysis:** Kaunsa device kya bhej raha hai, yeh dekh sakte ho
+- **Troubleshooting:** Camera offline hai, video choppy aa rahi hai — Wireshark se pata lagao ki network pe kya ho raha hai
+- **Bandwidth Check:** Kitna data camera bhej raha hai, yeh measure kar sakte ho
+
+> **CALLOUT:tip:💡:Tip:** Wireshark bahut powerful hai lekin complex bhi hai. Pehle basic filters seekho — jaise "ip.addr == 192.168.1.100" se sirf uss camera ka traffic dikhega.
+
+### Nmap — Port Scanning
+
+Nmap (Network Mapper) ek network scanning tool hai jo batata hai ki kisi device ke kaunse ports open hain.
+
+- **Port Scan:** Camera ke kaunse ports open hain pata chalta hai
+- **Service Detection:** Port pe kaunsa service chal raha hai (RTSP, HTTP, etc.)
+- **Security Audit:** Camera ki security check kar sakte ho — koi vulnerability toh nahi hai
+- **Device Fingerprinting:** Device ka model aur OS detect ho jaata hai
+
+> **CALLOUT:tip:💡:Tip:** Nmap se camera ke open ports dekh sakte ho. RTSP port usually 554 hota hai, HTTP port 80 hota hai. Agar koi unknown port open hai, toh security risk ho sakta hai.
+
+### Software Tools Comparison Table
+
+| Tool Name | Purpose | Platform | Price | Difficulty Level |
+|-----------|---------|----------|-------|-----------------|
+| ConfigTool | CP Plus/Dahua device discovery, batch config, password reset | Windows | Free | Easy |
+| SADP Tool | Hikvision device discovery, password reset, firmware upgrade | Windows | Free | Easy |
+| Angry IP Scanner | IP range scanning, device discovery | Windows, Mac, Linux | Free | Easy |
+| Advanced IP Scanner | Network device discovery, MAC address detection | Windows | Free | Easy |
+| PuTTY | SSH terminal access to devices | Windows | Free | Medium |
+| Wireshark | Packet capture, network diagnostics, protocol analysis | Windows, Mac, Linux | Free | Hard |
+| Nmap | Port scanning, security audit, device fingerprinting | Windows, Mac, Linux | Free | Medium |
+
+> **CALLOUT:tip:💡:Tip:** Sab software tools free hain! Ek bhi paid nahi hai. Sirf install karna hai aur seekhna hai. Apne laptop mein yeh sab pre-install karke rakhna — site pe internet available nahi ho sakta.
+
+> **CALLOUT:tip:💡:Tip:** Practical tip: Jab bhi koi camera offline ho, toh troubleshooting ka order yeh hai: 1) Physical check (cable, power), 2) IP Scanner se check karo, 3) ConfigTool/SADP se check karo, 4) Wireshark se network analyze karo. Pehle basic se shuru karo, advanced pe mat jaldi jao.
+
+---
+
 # CHAPTER 3: Analog CCTV Systems
 
 ---
@@ -3845,6 +4042,123 @@ d) Sasta hota hai
 ---
 
 # ============================================================
+
+---
+
+## 3.5 DVR/NVR Configuration Software
+
+Dosto, DVR/NVR ka hardware toh lagaya, lekin usko configure kaise karoge? Yeh section mein sab important software tools cover karenge jo DVR/NVR configuration ke liye use hote hain. Bina software ke DVR/NVR sirf ek box hai — kaam nahi karega!
+
+### SmartPSS — Dahua/CP Plus ke liye
+
+SmartPSS (Smart Professional Surveillance System) Dahua ka flagship VMS software hai. CP Plus ke Dahua-based devices ke liye bhi yahi use hota hai.
+
+**Features:**
+- **Live Viewing:** 128 cameras tak ek screen pe dekh sakte ho
+- **Playback:** Recording play kar sakte ho date/time ke hisaab se
+- **PTZ Control:** Camera ko remotely ghumaa sakte ho
+- **Video Analytics:** Motion detection, line crossing, intrusion detection
+- **E-Map:** Building map pe cameras ka location dikhta hai
+- **Alarm Management:** Alerts aur notifications manage kar sakte ho
+- **Multi-Site:** Alag-alag locations ke cameras ek jagah dekh sakte ho
+
+**Installation Steps:**
+1. Dahua ya CP Plus ki website se SmartPSS download karo
+2. Windows PC pe install karo (Windows 7/8/10/11 support karta hai)
+3. NVR/DVR ka IP address daalke add karo
+4. Username aur password daalo
+5. Sab cameras automatically aa jaayenge
+
+**Free hai ya paid?**
+- Basic version free hai (up to 64 channels)
+- Advanced features ke liye license chahiye (128+ channels)
+- Indian market mein mostly free version kaafi hai
+
+> **CALLOUT:tip:💡:Tip:** Agar tumhe CP Plus ya Dahua ke 8-16 cameras manage karne hain, toh SmartPSS free version bahut achha hai. Easy to use hai aur features bhi kaafi hain.
+
+### iVMS-4200 — Hikvision ke liye
+
+iVMS-4200 Hikvision ka VMS software hai. Professional technicians ke liye sabse popular software hai.
+
+**Features:**
+- **Live Viewing:** 256 cameras tak manage kar sakte ho
+- **Multi-Site Management:** 10 alag locations ke cameras ek jagah dekh sakte ho
+- **Video Playback:** Recording search aur playback
+- **PTZ Control:** Camera zoom, pan, tilt sab control kar sakte ho
+- **E-Map:** Floor plan pe camera locations dikhte hain
+- **Video Analytics:** Face detection, line crossing, region intrusion
+- **Two-Way Audio:** Camera ke through baat kar sakte ho
+- **Alarm Center:** Sab alarms ek jagah manage hote hain
+
+**Installation Steps:**
+1. Hikvision website se iVMS-4200 download karo
+2. Windows PC pe install karo
+3. Device Management mein jaake NVR/DVR add karo
+4. IP address aur credentials daalo
+5. Cameras auto-detect ho jaayenge
+
+**Free hai ya paid?**
+- Basic use bilkul free hai
+- License-based hai for advanced features
+- Hikvision ke devices ke liye optimized hai
+
+> **CALLOUT:tip:💡:Tip:** iVMS-4200 mein ek bahut achha feature hai — **Import/Export Configuration**. Agar tum 50 cameras ka setup kar rahe ho, toh pehle 1 camera ka setup karo, phir configuration export karo, aur baaki cameras pe import karo. Time bachega!
+
+### Web Interface — Browser-Based Configuration
+
+Har DVR/NVR ka apna web interface hota hai. Yeh sabse simple tarika hai configuration ka.
+
+**How to Access:**
+1. DVR/NVR ka IP address browser mein daalo (Chrome/Firefox/Edge)
+2. Login credentials daalo
+3. Web interface khul jaayega
+
+**Configuration Options:**
+- **Camera Settings:** Resolution, frame rate, bitrate change kar sakte ho
+- **Recording Settings:** Continuous recording ya motion-based recording choose karo
+- **Network Settings:** IP address, DNS, port forwarding configure karo
+- **User Management:** Naye users banao, permissions do
+- **Storage Settings:** HDD format karo, overwrite settings set karo
+- **Alarm Settings:** Motion zones define karo, alerts configure karo
+
+**Limitations:**
+- Advanced features sirf client software mein milte hain
+- Performance client software se kam hoti hai
+- Old browsers mein compatibility issues aa sakte hain
+
+> **CALLOUT:tip:💡:Tip:** Web interface quick settings ke liye best hai. Agar sirf IP address change karna hai ya password reset karna hai, toh browser mein jaake 2 minute mein ho jaayega. SmartPSS ya iVMS-4200 install karna zaroori nahi hai.
+
+### Guarding Vision — Mobile Remote Viewing
+
+Guarding Vision Hikvision ka mobile app hai jo remote viewing ke liye use hota hai.
+
+**Features:**
+- **Live Viewing:** Kahi se bhi cameras dekh sakte ho (internet chahiye)
+- **Playback:** Mobile pe recording play kar sakte ho
+- **PTZ Control:** Camera ko phone se ghuma sakte ho
+- **Push Alerts:** Motion detection ke alerts phone pe aate hain
+- **Two-Way Audio:** Camera ke through baat kar sakte ho
+- **QR Code Setup:** Camera ka QR code scan karo, 1 minute mein add ho jaayega
+
+**Setup Steps:**
+1. Play Store ya App Store se Guarding Vision download karo
+2. NVR/DVR ka device serial number ya QR code scan karo
+3. Username aur password daalo
+4. Cameras aa jaayenge
+
+> **CALLOUT:tip:💡:Tip:** Guarding Vision mein **Easy4Pro** feature use karo. QR code scan karte hi camera add ho jaata hai. Port forwarding ki zaroorat nahi hoti — cloud connection hota hai.
+
+### DVR/NVR Configuration Software Comparison
+
+| Software | Brand | Platform | Channels | Price | Best For |
+|----------|-------|----------|----------|-------|----------|
+| SmartPSS | Dahua/CP Plus | Windows | 64 (free) / 128+ (paid) | Free basic | CP Plus/Dahua installations |
+| iVMS-4200 | Hikvision | Windows | 256 | Free basic | Hikvision installations |
+| Web Interface | All Brands | Browser | All | Free | Quick configuration |
+| Guarding Vision | Hikvision | Android/iOS | All | Free | Mobile remote viewing |
+| EzyKam+ | CP Plus | Android/iOS | All | Free | CP Plus mobile viewing |
+
+> **CALLOUT:tip:💡:Tip:** Professional technicians ke paas laptop mein SmartPSS aur iVMS-4200 dono installed hona chahiye. Site pe pata nahi kab kaunsa brand aa jaaye. Dono free hain toh koi bahana nahi hai!
 
 ---
 
@@ -5666,8 +5980,102 @@ d) Internet connection check karo
 
 **Answer: c) Camera ki power aur cable check karo -- Physical layer se shuru karo troubleshooting**
 
----
+## 4.6 Network Configuration Tools
 
+CCTV installation mein networking knowledge ke saath-saath network configuration tools bhi zaroori hain. Yeh section mein sab important network tools cover karenge jo CCTV technicians ko daily use aayenge.
+
+### Router Web Interface — DHCP aur Port Forwarding
+
+Har router ka apna web interface hota hai jisse configure kar sakte ho.
+
+**Router Web Interface Kaise Access Karein:**
+1. Browser mein router ka IP address daalo (usually 192.168.1.1 ya 192.168.0.1)
+2. Username aur password daalo (default usually admin/admin hota hai)
+3. Router ka dashboard khul jaayega
+
+**DHCP Configuration:**
+- DHCP server ON karo taaki sab devices ko automatically IP mile
+- DHCP range set karo (jaise 192.168.1.100 se 192.168.1.200)
+- Cameras ke liye static IP reserve kar sakte ho MAC address se
+- Camera ka IP conflict hone se bachega
+
+**Port Forwarding for Remote Viewing:**
+- DVR/NVR ke ports forward karne hote hain taaki internet se access ho sake
+- Usually ports forward karte hain: 80 (HTTP), 554 (RTSP), 37777 (Dahua), 8000 (Hikvision)
+- Router ke port forwarding section mein jaake rules add karo
+- Camera ka internal IP address aur port number daalo
+
+> **CALLOUT:tip:💡:Tip:** Port forwarding karte waqt camera ka internal IP **static** rakho. Agar camera ka IP change ho gaya (DHCP se), toh port forwarding kaam karna band kar dega.
+
+### VLAN Configuration — Managed Switches
+
+VLAN (Virtual Local Area Network) ek networking feature hai jo network ko logically divide karta hai.
+
+**CCTV mein VLAN Kyun Zaroori Hai?**
+- CCTV traffic ko alag network pe rakhte hain taaki normal office traffic pe load na aaye
+- Security badhti hai — cameras ka network alag hota hai
+- Bandwidth manage hota hai — video streaming zyada bandwidth leta hai
+
+**VLAN Setup Steps:**
+1. Managed switch ka web interface access karo
+2. VLAN section mein jaake naya VLAN banao (jaise VLAN 10 for CCTV)
+3. Camera ke ports ko CCTV VLAN mein assign karo
+4. NVR/DVR ke port ko bhi CCTV VLAN mein daalo
+5. Trunk port configure karo agar multiple VLAN use kar rahe ho
+
+> **CALLOUT:tip:💡:Tip:** Agar tumhare paas managed switch nahi hai (sirf unmanaged hai), toh VLAN nahi bana sakte. Unmanaged switch mein sab devices ek hi network pe hote hain. Chota installation hai toh chalega, lekin large installation mein managed switch zaroori hai.
+
+### Angry IP Scanner — Device Discovery
+
+Angry IP Scanner ek free network scanning tool hai jo sabse zyada use hota hai.
+
+**CCTV Technician Ke Liye Uses:**
+- **IP Discovery:** Network pe connected sab cameras ka IP address pata chalta hai
+- **Port Check:** Camera ke kaunse ports open hain, yeh dekh sakte ho
+- **MAC Address:** Device ka MAC address manufacturer ke saath dikhta hai
+- **Hostname:** Device ka naam dikhta hai
+
+**How to Use:**
+1. Angry IP Scanner download aur install karo
+2. IP range daalo (jaise 192.168.1.1 to 192.168.1.255)
+3. Scan pe click karo
+4. Green dots = online devices, Red dots = offline
+5. Camera ka IP address aur port number note kar lo
+
+> **CALLOUT:tip:💡:Tip:** Angry IP Scanner mein **Export** feature hai. Scan results ko CSV file mein save kar sakte ho. Client ko dikhane ke liye useful hai — "Sir, network pe yeh yeh devices hain."
+
+### Wireshark — Packet Analysis
+
+Wireshark world ka sabse powerful network packet analyzer hai.
+
+**CCTV Technician Ke Liye Uses:**
+- **Video Stream Check:** Camera se video stream aa rahi hai ya nahi, yeh verify kar sakte ho
+- **Bandwidth Measurement:** Camera kitna bandwidth le raha hai, yeh measure kar sakte ho
+- **Troubleshooting:** Camera offline hai, video choppy hai — Wireshark se root cause pata lagao
+- **Protocol Check:** RTSP, HTTP, ONVIF — sab protocols properly kaam kar rahe hain ya nahi
+
+**How to Use (Basic):**
+1. Wireshark install karo
+2. Network interface select karo (WiFi ya Ethernet)
+3. Capture shuru karo
+4. Camera ka IP address filter lagao (jaise "ip.addr == 192.168.1.100")
+5. Packets dikhne lagenge
+
+> **CALLOUT:tip:💡:Tip:** Wireshark bahut heavy software hai. Agar tumhara laptop slow hai, toh sirf zaroorat pe use karo. Basic troubleshooting ke liye IP Scanner kaafi hai.
+
+### Network Configuration Tools Comparison
+
+| Tool Name | Purpose | Platform | Price | Use Case |
+|-----------|---------|----------|-------|----------|
+| Router Web Interface | DHCP configuration, port forwarding, DNS setup | Browser | Free | Network setup, remote access |
+| Managed Switch Web Interface | VLAN creation, port assignment, QoS | Browser | Free (switch ke saath) | Large installations, traffic management |
+| Angry IP Scanner | IP discovery, device scanning, port check | Windows, Mac, Linux | Free | Finding devices on network |
+| Wireshark | Packet analysis, protocol debugging, bandwidth check | Windows, Mac, Linux | Free | Advanced troubleshooting |
+| Nmap | Port scanning, service detection, security audit | Windows, Mac, Linux | Free | Security assessment |
+
+> **CALLOUT:tip:💡:Tip:** Networking tools seekhna CCTV technician ke liye bahut zaroori hai. Aaj kal sab IP-based hai. Agar networking nahi aati, toh installation complete nahi kar paoge. Har tool free hai — sirf practice karo!
+
+> **CALLOUT:tip:💡:Tip:** Practical tip: Apne ghar ke network pe practice karo. Router ka IP address change karo, DHCP range set karo, port forwarding setup karo. Jab real installation pe jaoge, toh confidence hoga.
 
 ---
 
@@ -7204,6 +7612,148 @@ d) 40 Mbps
 
 > **Trainer Note:** Dosto, yeh dono chapters bahut important hain. Chapter 4 mein tumne networking fundamentals seekhe aur Chapter 5 mein IP CCTV systems samjhe. Ab tumhe pata hai ki IP cameras kaise kaam karte hain, NVR kya hota hai, PoE kaise calculate karte hain, aur remote viewing kaise setup karte hain. Agla chapter Storage ke baare mein hoga. Tab tak practice karo aur MCQs solve karo!
 
+
+---
+
+## 5.7 NVR Management Software
+
+> **CALLOUT:tip:💡:Tip:** IP cameras ko efficiently manage karne ke liye sirf hardware kaafi nahi hai — tumhe sahi software bhi chahiye. Yeh section tumhe batayega ki NVR aur cameras ko PC/phone se kaise control karte hain!
+
+### NVR Web Interface — Browser-Based Configuration
+
+Har NVR ka apna **web interface** hota hai jo browser (Chrome/Firefox/Edge) mein open hota hai. Yeh sabse basic aur sabse zyada used method hai.
+
+**Kaise access karein:**
+
+```
+Step 1: NVR ka IP address pata karo (NVR ke LCD screen pe ya SADP tool se)
+Step 2: Browser mein IP address type karo — http://192.168.1.64
+Step 3: Login page dikhega — username/password daalo
+        (Default: admin / admin ya 12345)
+Step 4: Dashboard khul jayega — sab controls mil jayenge
+```
+
+**Web Interface mein kya kya kar sakte ho:**
+
+| Feature | Kya Karta Hai |
+|---------|---------------|
+| **Live View** | Saare cameras ek saath dekho |
+| **Playback** | Purani recording dekho, date/time select karo |
+| **Recording Schedule** | Kab record hoga, kab nahi — set karo |
+| **HDD Management** | Disk format karo, health check karo |
+| **Network Settings** | IP, DNS, Port forwarding configure karo |
+| **User Management** | Naye users banao, permissions do |
+| **Firmware Update** | NVR ka software update karo |
+| **Motion Detection** | Motion zones set karo, sensitivity adjust karo |
+
+> **CALLOUT:tip:💡:Tip:** Hikvision ke NVR mein login ke baad "Basic Settings" mein jaake sab kuch easily mil jayega. Dahua ke NVR mein "Settings" icon pe click karo. Dono ka interface thoda alag hai but kaam same hai!
+
+### iVMS-4200 — Multi-Channel Management
+
+**iVMS-4200** Hikvision ka **free desktop software** hai jo ek saath bahut saare cameras manage karta hai. Yeh Windows aur Mac dono pe chalta hai.
+
+**Key Features:**
+
+| Feature | Details |
+|---------|---------|
+| **Live View** | 64 tak cameras ek saath dekho |
+| **Recording** | Local PC pe bhi record kar sakte ho |
+| **Playback** | Multiple cameras ki recording ek saath play karo |
+| **Event Management** | Motion alerts, alarm triggers handle karo |
+| **E-Map** | Floor plan pe cameras mark karo |
+| **User Management** | Multiple users banao with different rights |
+| **Remote Configuration** | NVR/DVR ki settings door se change karo |
+| **File Export** | Important clips save/export karo |
+
+**Installation Steps:**
+
+```
+Step 1: Hikvision website pe jaao > Support > Software
+Step 2: iVMS-4200 download karo (Windows/Mac)
+Step 3: Install karo (Next > Agree > Install > Finish)
+Step 4: Software open karo, Admin account banao
+Step 5: Device Management mein jaao
+Step 6: Add Device pe click karo
+Step 7: NVR/DVR ka IP, username, password daalo
+Step 8: Add karo, Camera list dikh jayega
+Step 9: Main View mein jaao, Live dekho!
+```
+
+> **CALLOUT:tip:💡:Tip:** iVMS-4200 sirf Hikvision cameras ke saath kaam karta hai. Agar tumhare paas Dahua ya doosre brand ke cameras hain, toh unke apne softwares hain (SmartPSS, DSS, gDMSS).
+
+### SmartPSS — Professional Surveillance
+
+**SmartPSS** Dahua ka **professional-grade** management software hai. Yeh free hai aur bahut powerful features deta hai.
+
+**SmartPSS vs iVMS-4200:**
+
+| Feature | SmartPSS | iVMS-4200 |
+|---------|----------|-----------|
+| **Brand** | Dahua | Hikvision |
+| **Price** | Free | Free |
+| **Multi-brand Support** | Limited (Dahua + ONVIF) | Hikvision only |
+| **Max Cameras** | 128 | 64 |
+| **AI Analytics** | Yes (Smart Plan) | Limited |
+| **POS Integration** | Yes | No |
+| **Fisheye Support** | Yes (de-warping) | Yes |
+| **ANPR/LPR** | Yes (with license) | No |
+| **Map View** | Yes | Yes (E-Map) |
+| **Mobile Remote** | DMSS app | iVMS-4500 |
+
+**SmartPSS Installation:**
+
+```
+Step 1: Dahua website pe jaao > Support > Tools
+Step 2: SmartPSS download karo
+Step 3: Install karo (default options theek hain)
+Step 4: Login karo (default: admin / admin)
+Step 5: Device Setting mein NVR add karo
+Step 6: Live View setup karo
+```
+
+> **CALLOUT:tip:💡:Tip:** SmartPSS ka "Smart Plan" feature bahut useful hai — yeh automatically camera type detect karke best settings suggest karta hai. Agar tum Dahua cameras use kar rahe ho, SmartPSS is best choice!
+
+### Mobile Apps — Hik-Connect, CP PLUS EzyKam+
+
+Aaj kal client phone pe hi cameras dekhna chahte hain. Yeh apps client ko live view, playback, aur alerts deti hain.
+
+**Major Mobile Apps:**
+
+| App Name | Brand | Features | Free? |
+|----------|-------|----------|-------|
+| **Hik-Connect** | Hikvision | Live view, playback, cloud, two-way audio, PTZ | Yes |
+| **DMSS** | Dahua | Live view, playback, push notifications, e-map | Yes |
+| **iVMS-4500** | Hikvision (Old) | Basic live view, playback (discontinued) | Yes |
+| **CP PLUS EzyKam+** | CP PLUS | Live view, playback, cloud storage, motion alerts | Yes |
+| **Trueportal** | Trueview | Live view, PTZ, two-way audio | Yes |
+| **Secureye** | Secureye | Live view, cloud recording, alerts | Yes |
+
+**App Setup General Steps:**
+
+```
+Step 1: App download karo (Play Store / App Store)
+Step 2: Register karo (email/phone se)
+Step 3: Camera/NVR add karo:
+        - Option A: QR Code scan karo (sabse easy)
+        - Option B: Manual IP daalo
+Step 4: Live View shuru!
+Step 5: Settings mein notification ON karo
+```
+
+> **CALLOUT:tip:💡:Tip:** Client ko app setup karte waqt hamesha **push notifications ON** karke do. Agar motion detect hoga toh client ko turant notification aayega — client khush, tumhara kaam achha!
+
+### NVR Management Software Comparison Table
+
+| Software | Brand | Platform | Price | Max Cameras | Best For |
+|----------|-------|----------|-------|-------------|----------|
+| **NVR Web Interface** | All Brands | Browser | Free | Depends on NVR | Basic config, single NVR |
+| **iVMS-4200** | Hikvision | Win/Mac | Free | 64 | Hikvision multi-site management |
+| **SmartPSS** | Dahua | Windows | Free | 128 | Professional Dahua surveillance |
+| **HikCentral** | Hikvision | Win/Server | Free-Paid | 2000+ | Enterprise Hikvision projects |
+| **DSS Express** | Dahua | Win/Server | Free-Paid | 500+ | Enterprise Dahua projects |
+| **Hik-Connect** | Hikvision | iOS/Android | Free | 128 | Client mobile viewing |
+| **DMSS** | Dahua | iOS/Android | Free | 128 | Client mobile viewing |
+| **CP PLUS EzyKam+** | CP PLUS | iOS/Android | Free | 32 | Budget mobile monitoring |
 
 ---
 
@@ -24310,4 +24860,2194 @@ https://company.com/verify/CCTV/TRAIN/2024/00042/015
 | 78 | Obstacle Identification | Common installation obstacles | "Illustration showing common obstacles for CCTV installation: Steel beams, concrete walls, glass partitions, false ceilings, existing conduit, fire sprinkler pipes, electrical conduits. Each with solution suggestion, 4K" | Draw 7 obstacles with solutions. Steel beam â†’ Use right-angle bracket. Concrete wall â†’ Use hammer drill. Glass â†’ Mount adjacent. False ceiling â†’ Attach to grid. |
 | 79 | Client Interview Questions | Key questions for site survey | "Illustrated checklist of 20 key site survey questions organized by category: Security requirements, Technical requirements, Budget, Timeline, Special needs. Clean infographic with question icons, 4K" | Draw questionnaire with 20 questions in 5 categories (4 each). Use icons for categories: Shield (Security), Gear (Technical), Money (Budget), Clock (Timeline), Star (Special). |
 | 80 | Survey Report Template | Completed survey report example | "Professional survey report document showing: Site photos, floor plan with cameras, cable schedule, equipment list, power requirements, network assessment, and recommendations. Multi-page document preview, 4K" | Draw survey report cover page with: Company logo, Project name, Site address, Survey date, Surveyor name. Preview inner pages: Floor plan, Equipment list, Cable schedule. |
+
+---
+
+# Chapter 15: Home Automation — Smart Home Kaise Banaye?
+
+> **Trainer Note:** Aaj kal CCTV ke saath-saath Home Automation ki demand bhi bahut badh gayi hai. Clients chahte hain ki ghar ka light, fan, curtain, AC — sab kuch phone se control ho. Is chapter mein hum seekhenge ki smart home system kaise install karte hain aur kaise set karte hain. Yeh CCTV technician ke liye extra income ka bahut achha source hai!
+
+---
+
+## 15.1 Home Automation Kya Hai?
+
+### Definition
+
+Home Automation ka matlab hai — ghar ke electrical devices (lights, fans, AC, curtains, locks, cameras) ko **ek system se control karna** — chahe phone se, voice se, ya automatically (timer/motion sensor se).
+
+```
++------------------------------------------------------------------+
+|                 HOME AUTOMATION SYSTEM LAYOUT                      |
+|                                                                    |
+|   [Sensors]        [Controllers]         [Devices]                 |
+|   +----------+     +----------+         +----------+              |
+|   | Motion   |---->| Hub/     |-------->| Lights   |              |
+|   | Door     |     | Gateway  |         | Fans     |              |
+|   | Temp     |     |          |         | AC       |              |
+|   | Light    |     | WiFi/    |         | Curtains |              |
+|   +----------+     | Zigbee   |         | Locks    |              |
+|                    +----------+         +----------+              |
+|                        |    |                                      |
+|                   [App]    [Voice]                                 |
+|                   Phone    Alexa/Google                            |
++------------------------------------------------------------------+
+```
+
+### Home Automation ke Types
+
+| Type | Kya Hai? | Kab Use Kare? | Price Range |
+|------|----------|---------------|-------------|
+| **Wired (KNX)** | Bus cable se sab devices connect hote hain | Bade ghar, office, hotel | ₹5,00,000 — ₹25,00,000 |
+| **Wireless (WiFi/Zigbee)** | WiFi ya Zigbee se devices communicate karte hain | Chhota-madhyam ghar | ₹50,000 — ₹5,00,000 |
+| **DIY Smart Home** | Readymade smart devices lagao, app se control karo | Budget mein smart home | ₹10,000 — ₹1,00,000 |
+
+### Benefits of Home Automation
+
+| Benefit | Detail |
+|---------|--------|
+| **Convenience** | Phone ya voice se sab kuch control hota hai |
+| **Energy Saving** | Timer aur sensors se bijli ka bill kam hota hai |
+| **Security** | Lights automatic on/off hote hain, ghar vacant lagta hai |
+| **Comfort** | AC temperature automatically adjust hota hai |
+| **Value** | Ghar ki value badhti hai resale mein |
+| **Remote Control** | Kahi se bhi ghar ke devices control kar sakte ho |
+
+CALLOUT:tip:💡:Tip:As a CCTV technician, agar aap Home Automation bhi seekh lo toh aapka monthly income 2-3x badh sakta hai. Clients same person se dono chahte hain!
+
+---
+
+## 15.2 Wired Automation (KNX System)
+
+### KNX Kya Hai?
+
+KNX ek **international standard** hai home automation ka. Sab devices (lights, fans, curtains, AC) ek **bus cable** se connect hote hain. Bahut reliable hai lekin expensive bhi.
+
+### KNX System Components
+
+| Component | Kaam | Example |
+|-----------|------|---------|
+| **Bus Cable** | Sab devices ko connect karta hai (2 wires) | KNX Twisted Pair (TP) |
+| **Power Supply** | Bus ko power deta hai (29V DC) | ABB SPS/S KC, Legrand |
+| **Actuator** | Devices ko control karta hai (light, fan) | Switch Actuator, Dimmer |
+| **Sensor** | Input deta hai (button press, motion, temp) | Push button, Motion sensor |
+| **ETS Software** | Programming aur configuration ke liye | ETS5, ETS6 |
+| **Gateway** | WiFi/Zigbee se connect karta hai | KNX IP Router |
+
+### KNX System Kaise Kaam Karta Hai?
+
+1. **Sensor** detect karta hai (jaise button press hua)
+2. Yeh signal **bus cable** pe jaata hai
+3. **Actuator** signal receive karta hai aur device on/off karta hai
+4. **ETS software** mein programming hoti hai ki konsa sensor konsa actuator control karega
+
+### KNX Price Range (India)
+
+| Item | Approx Price |
+|------|-------------|
+| KNX Power Supply | ₹8,000 — ₹15,000 |
+| Switch Actuator (4-channel) | ₹6,000 — ₹12,000 |
+| Dimmer Actuator | ₹10,000 — ₹18,000 |
+| Push Button (4-gang) | ₹3,000 — ₹6,000 |
+| Motion Sensor | ₹4,000 — ₹8,000 |
+| Temperature Sensor | ₹3,000 — ₹5,000 |
+| KNX IP Router | ₹15,000 — ₹25,000 |
+| ETS Software License | ₹25,000 — ₹50,000 |
+| **Complete 3BHK KNX System** | **₹3,00,000 — ₹8,00,000** |
+
+CALLOUT:warning:⚠️:Warning:KNX installation ke liye certified KNX partner hona zaroori hai. Bina training ke KNX mat lagao — client ko damage ho sakta hai!
+
+---
+
+## 15.3 Wireless Automation
+
+### Wireless Protocols Comparison
+
+| Protocol | Range | Speed | Power | Best For | India mein Available? |
+|----------|-------|-------|-------|----------|----------------------|
+| **WiFi** | 30-50m | High | High | Smart plugs, cameras | ✅ Yes |
+| **Zigbee** | 10-100m | Medium | Low | Sensors, lights, locks | ✅ Yes |
+| **Z-Wave** | 30-100m | Medium | Low | Home devices | ⚠️ Limited |
+| **Bluetooth** | 10-30m | Medium | Low | Short range devices | ✅ Yes |
+| **Matter** | Varies | High | Low | Universal standard (new) | ✅ Growing |
+
+### Matter Protocol — Future Ka Standard
+
+Matter ek **new universal standard** hai jo Apple, Google, Amazon sab ne milkar banaya hai. Isse kya hoga ki ab koi bhi smart device kisi bhi brand ke hub se kaam karega. **Yeh future mein sabse important hoga!**
+
+### Smart Life / Tuya App — Sabse Popular
+
+India mein sabse zyada use hone wala app hai **Smart Life / Tuya**. Sab budget wireless devices ispe kaam karte hain.
+
+| Feature | Detail |
+|---------|--------|
+| Devices Add Karna | App scan karo ya manually add karo |
+| Remote Control | Kahi se bhi phone se control |
+| Scene Setting | Ek button se multiple devices on/off |
+| Timer | Time set karo, automatic on/off |
+| Voice Control | Alexa/Google se baat karo |
+| Sharing | Family members ko access do |
+
+### Popular Wireless Brands (India)
+
+| Brand | Products | Price Range |
+|-------|----------|-------------|
+| **Wipro** | Smart bulbs, plugs, switches | ₹500 — ₹3,000 |
+| **Havells** | Smart fans, lights, switches | ₹1,000 — ₹5,000 |
+| **Legrand** | My Home series switches | ₹2,000 — ₹10,000 |
+| **Schneider** | Wiser series | ₹3,000 — ₹15,000 |
+| **CP Plus** | Smart cameras, sensors | ₹1,500 — ₹8,000 |
+| **Honeywell** | Smart thermostats, controls | ₹5,000 — ₹20,000 |
+
+---
+
+## 15.4 Lighting Control
+
+### Smart Lighting Products
+
+| Product | Feature | Price (INR) | Brand |
+|---------|---------|-------------|-------|
+| Smart Bulb 9W | WiFi, RGB + White, App control | ₹500 — ₹1,200 | Wipro, Philips |
+| Smart LED Strip | RGB, Music sync, Cuttable | ₹800 — ₹2,500 | Wipro, Yeelight |
+| Smart Switch (1-gang) | WiFi, Touch, Replace existing switch | ₹800 — ₹2,000 | Havells, Legrand |
+| Smart Switch (4-gang) | WiFi, 4 lights control | ₹2,500 — ₹5,000 | Legrand, Schneider |
+| Smart Dimmer | Light intensity control | ₹1,500 — ₹4,000 | Wipro, Schneider |
+| Smart Curtain Switch | Motorized curtain control | ₹2,000 — ₹5,000 | Legrand |
+
+### Lighting Control Features
+
+| Feature | Kaise Kaam Karta Hai |
+|---------|---------------------|
+| **On/Off Control** | Phone se ya voice se light on/off |
+| **Dimming** | Light ki brightness 1% se 100% tak adjust |
+| **Color Change** | RGB bulbs mein 16 million colors |
+| **Scene Setting** | "Movie Mode" — sab lights dim, sirf TV room mein on |
+| **Timer/Schedule** | Raat 11 baje sab lights自动 off |
+| **Motion-Based** | Motion detect ho toh light on, na ho toh off |
+| **Sunrise/Sunset** | automatically light on/off based on time |
+
+CALLOUT:tip:💡:Tip:Client ko hamesha smart switch recommend karo instead of smart bulb. Smart switch se existing normal bulbs bhi smart ho jaate hain aur cost bhi kam aati hai!
+
+---
+
+## 15.5 Curtain/Motor Control
+
+### Motorized Curtain System
+
+| Component | Detail | Price (INR) |
+|-----------|--------|-------------|
+| Curtain Motor | Tubular motor jo curtain track pe lagta hai | ₹5,000 — ₹15,000 |
+| Curtain Track | Aluminium track motor ke saath | ₹3,000 — ₹8,000 |
+| Smart Controller | WiFi/Zigbee controller motor ke liye | ₹2,000 — ₹5,000 |
+| Remote Control | RF remote curtain ke liye | ₹500 — ₹1,500 |
+| **Complete System** | Motor + Track + Controller + Remote | **₹10,000 — ₹25,000** |
+
+### Curtain Control Features
+
+| Feature | Detail |
+|---------|--------|
+| **Open/Close** | Phone ya voice se curtains open/close |
+| **Position Control** | 10%, 30%, 50%, 70% — kitna open karna hai |
+| **Timer Schedule** | Subah 7 baje curtains自动 open, raat 9 baje close |
+| **Sunrise/Sunset** | Automatic based on time of day |
+| **Scene Integration** | "Good Morning" scene mein curtains bhi open |
+| **Manual Override** | Motor ke saath chain bhi hoti hai, manually bhi chal sakta hai |
+
+### Motor Types
+
+| Type | Best For | Price |
+|------|----------|-------|
+| **Tubular Motor** | Roller blinds,Roman blinds | ₹5,000 — ₹12,000 |
+| **Track Motor** | Curtains on track | ₹6,000 — ₹15,000 |
+| **Belt Motor** | Heavy curtains | ₹8,000 — ₹18,000 |
+| **Chain Motor** | Existing chain curtains | ₹3,000 — ₹8,000 |
+
+---
+
+## 15.6 Climate Control
+
+### Smart Thermostat
+
+| Product | Feature | Price (INR) |
+|---------|---------|-------------|
+| Honeywell Home T6 | WiFi thermostat, Alexa compatible | ₹12,000 — ₹18,000 |
+| Schneider Wiser Thermostat | Smart temperature control | ₹10,000 — ₹15,000 |
+| Legrand My Home Thermostat | KNX compatible | ₹8,000 — ₹14,000 |
+| Sensibo Sky | AC controller (IR based) | ₹5,000 — ₹8,000 |
+
+### AC Control (IR Blaster)
+
+Sabse aasan tarika — **IR Blaster** lagao existing AC pe:
+
+| Product | Detail | Price |
+|---------|--------|-------|
+| Broadlink RM4 Mini | WiFi IR controller | ₹2,500 — ₹3,500 |
+| Pragotec IR Blaster | Budget option | ₹1,000 — ₹2,000 |
+| Sensibo Air | Premium IR controller | ₹6,000 — ₹9,000 |
+
+### Climate Control Features
+
+| Feature | Detail |
+|---------|--------|
+| **Temperature Control** | Phone se AC temperature set karo |
+| **Schedule** | Raat ko AC自动 26°C pe set ho jaye |
+| **Geofencing** | Ghar ke paas aao toh AC on ho jaye |
+| **Energy Saving** | AC automatically power save mode mein jaaye |
+| **Fan Speed** | Auto fan speed control based on temperature |
+| **Humidity Control** | Smart thermostat humidity bhi control karta hai |
+
+---
+
+## 15.7 Energy Monitoring
+
+### Power Monitoring Devices
+
+| Device | Feature | Price (INR) |
+|--------|---------|-------------|
+| Smart Plug with Energy Monitor | Har plug pe power consumption dikhta hai | ₹800 — ₹2,000 |
+| Whole House Energy Monitor | Ghar ka total consumption track karta hai | ₹5,000 — ₹15,000 |
+| Smart Distribution Board | Har circuit ka consumption alag dikhta hai | ₹15,000 — ₹40,000 |
+| Schneider PowerTag | Wireless energy sensor | ₹3,000 — ₹8,000 |
+
+### Energy Monitoring Benefits
+
+| Benefit | Detail |
+|---------|--------|
+| **Consumption Tracking** | Daily, weekly, monthly bijli kitni use hui |
+| **Bill Prediction** | Agle month ka bill estimate dikhta hai |
+| **Device-level Tracking** | AC kitna consume kar raha hai, geyser kitna |
+| **Alerts** | Agar koi device zyada power le raha hai toh alert |
+| **History & Reports** | Purana data dekh sakte ho graphs mein |
+| **Peak Hours** | Peak rate pe device auto off kar sakte ho |
+
+---
+
+## 15.8 Voice Control Integration
+
+### Voice Assistant Comparison
+
+| Feature | Google Home | Amazon Alexa | Apple HomeKit |
+|---------|-------------|--------------|---------------|
+| **Command** | "Hey Google" | "Alexa" | "Hey Siri" |
+| **Price (India)** | ₹3,000 — ₹8,000 | ₹3,000 — ₹12,000 | ₹15,000+ (Apple device) |
+| **Hindi Support** | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Smart Devices** | Bahut saare brands | Sabse zyada | Limited |
+| **Setup** | Google Home App | Alexa App | Home App |
+| **Best For** | Budget users | Maximum compatibility | Apple users |
+
+### Setup Steps (General)
+
+1. **Speaker/Display setup karo** — WiFi se connect karo
+2. **App download karo** — Google Home / Alexa / Home
+3. **Smart device add karo** — App mein "+" pe click karo
+4. **Device discover karo** — App automatically dhund lega
+5. **Name do** — "Bedroom Light", "Living Room AC" jaise
+6. **Voice test karo** — "Hey Google, bedroom light on karo"
+7. **Routines banao** — Multiple commands ek saath
+
+### Voice Commands Examples
+
+| Command | Kya Hoga |
+|---------|----------|
+| "Hey Google, sab lights on karo" | Ghar ki sab lights on ho jayengi |
+| "Alexa, AC 24°C pe set karo" | AC temperature 24°C ho jayega |
+| "Hey Google, curtains close karo" | Sab curtains band ho jayenge |
+| "Alexa, Good Morning" | Routine: Lights on, curtains open, news sunao |
+| "Hey Google, sab band karo" | Sab devices off ho jayenge |
+
+CALLOUT:tip:💡:Tip:Client ko hamesha bolo ki Voice control sirf supplement hai — main control app se hota hai. Voice assistant kabhi kabhi command samajh nahi pata!
+
+---
+
+## 15.9 Scene & Automation Programming
+
+### Common Scenes
+
+| Scene | Kya Hoga | Devices |
+|-------|----------|---------|
+| **Good Morning** | Subah ka scene — sab lights on, curtains open, AC off, geyser on | Lights, Curtains, AC, Geyser |
+| **Good Night** | Raat ka scene — sab lights off, AC 26°C, main door lock, night light on | Lights, AC, Lock, Night light |
+| **Movie Time** | TV room mein sab lights dim, curtains close, AC on | Lights, Curtains, AC |
+| **Away Mode** | Ghar vacant hai — lights random on/off, CCTV recording, door lock | Lights, CCTV, Lock |
+| **Welcome Home** | Ghar aane pe — gate open, lights on, AC on, music on | Gate, Lights, AC, Speaker |
+| **Emergency** | Sab lights on, door unlock, alarm on, CCTV record | All devices |
+
+### Automation Examples
+
+| Trigger | Action |
+|---------|--------|
+| Motion detect (raat ko) | Staircase light on (5 min baad off) |
+| Door open | Hall light on automatically |
+| Subah 6:00 AM | Curtains open, lights on slowly |
+| Raat 11:00 PM | Sab lights off, AC 26°C, door lock |
+| Temperature > 30°C | AC automatically on at 25°C |
+| Hub offline alert | CCTV recording on, lights random on/off |
+
+### Programming Flow
+
+```
++------------------------------------------------------------------+
+|                    AUTOMATION PROGRAMMING FLOW                     |
+|                                                                    |
+|   Step 1: CHOOSE TRIGGER                                          |
+|   +----------------+                                               |
+|   | Motion Sensor  |---+                                          |
+|   | Door Sensor    |   |                                          |
+|   | Time/Schedule  |   +---> Step 2: DEFINE CONDITION             |
+|   | Temperature    |   |     +----------------+                   |
+|   | Voice Command  |   |     | Time: Night?   |---+              |
+|   +----------------+   |     | Temp > 25°C?   |   |              |
+|                        |     | Anyone Home?   |   |              |
+|                        |     +----------------+   |              |
+|                        |                          v              |
+|                        |     Step 3: SET ACTION                   |
+|                        |     +----------------+                   |
+|                        +---->| Lights ON      |                   |
+|                              | AC 25°C        |                   |
+|                              | Curtains Open   |                   |
+|                              +----------------+                   |
++------------------------------------------------------------------+
+```
+
+CALLOUT:warning:⚠️:Warning:Automation programming mein hamesha **manual override** rakho. Agar smart system crash ho jaye toh client manually devices chala sake!
+
+---
+
+## 15.10 Installation Tips
+
+### Wiring Tips
+
+| Tip | Detail |
+|-----|--------|
+| **Separate wiring** | Smart switches ke liye neutral wire zaroori hai — pehle check karo |
+| **Back-up wiring** | Manual switch bhi rakho parallel mein |
+| **Surge protection** | Smart devices mein surge protector lagao |
+| **Earthing** | Proper earthing zaroori hai — nahi toh devices kharab honge |
+| **Conduit size** | Smart wires thick hoti hain — conduit size bada rakho |
+| **Labeling** | Har wire pe label lagao — baad mein debugging easy hogi |
+
+### Device Placement
+
+| Device | Best Placement | Avoid |
+|--------|---------------|-------|
+| **WiFi Hub** | Central location, open area | Metal box ke andar, basement |
+| **Motion Sensor** | 2-2.5m height, corner mein | AC vent ke paas, direct sunlight |
+| **Temperature Sensor** | Living room, bedroom wall | Kitchen, direct sun, near AC |
+| **Smart Switch** | Existing switch board mein | Wet areas (bathroom) |
+| **IR Blaster** | AC ke saamne, line of sight | TV cabinet ke andar |
+
+### Common Installation Mistakes
+
+| Mistake | Problem | Solution |
+|---------|---------|----------|
+| Neutral wire nahi hai | Smart switch kaam nahi karega | Neutral wire lagao ya no-neutral switch use karo |
+| WiFi router door hai | Smart devices disconnect honge | WiFi extender lagao ya central router rakho |
+| Zigbee devices zyada door hain | Range issue | Zigbee repeater/repeater use karo |
+| Single brand use nahi kiya | Compatibility issues | Ek ecosystem stick karo |
+| Manual switch band kar diya | Smart switch bhi band ho gaya | Manual switch hamesha ON rakho |
+| UPS nahi lagaya | Power cut mein sab band | UPS ya inverter lagao smart hub ke liye |
+
+CALLOUT:tip:💡:Tip:Installation se pehle hamesha client ko demo do. Ek room mein setup karo, phir poora ghar karo. Client ko dikhao ki kaise phone se control hota hai!
+
+---
+
+## 15.11 Troubleshooting Guide
+
+### Common Issues and Fixes
+
+| Problem | Possible Cause | Fix |
+|---------|---------------|-----|
+| Smart device connect nahi ho raha | WiFi 2.4GHz nahi hai | Router mein 2.4GHz band enable karo |
+| Devices baar baar disconnect ho rahe hain | WiFi signal weak hai | WiFi extender lagao, router close karo |
+| Voice command kaam nahi kar raha | Alexa/Google device mute hai | Unmute karo, phir se discover karo |
+| Smart switch on ho gaya lekin light nahi | Neutral wire loose hai | Neutral wire check karo, tight karo |
+| IR Blaster AC control nahi kar raha | AC IR receiver blocked hai | Blaster AC ke saamne rakho, line of sight ensure karo |
+| Timer/schedule kaam nahi kar raha | Phone ka timezone galat hai | App mein timezone set karo (IST) |
+| Curtain motor stuck ho gaya | Track mein obstruction hai | Track saaf karo, motor ka manual override use karo |
+| Energy monitor zero dikha raha hai | CT clamp properly attach nahi hai | CT clamp wire pe properly lagao |
+| App login nahi ho raha | Password galat ya account blocked hai | Password reset karo, support se baat karo |
+| Hub offline hai | Internet down hai ya hub hang ho gaya hai | Router restart karo, hub ka power cycle karo |
+| Multiple devices ek saath on nahi ho rahe | Hub overloaded hai | Devices ko batches mein add karo |
+| Smart lock unlock nahi ho raha | Battery low hai | Battery change karo |
+
+### Troubleshooting Flowchart
+
+```
++------------------------------------------------------------------+
+|                SMART HOME TROUBLESHOOTING FLOW                     |
+|                                                                    |
+|   Problem: Device kaam nahi kar raha                               |
+|       |                                                            |
+|       v                                                            |
+|   +------------------+     YES    +-------------------+           |
+|   | Power on hai?    |---------->| WiFi connected?   |           |
+|   +------------------+           +-------------------+           |
+|       | NO                              | NO         | YES        |
+|       v                                 v            v            |
+|   Power supply                        WiFi        App mein        |
+|   check karo                         restart      device          |
+|                                      karo         remove karke   |
+|                                                   re-add karo    |
+|                                                                    |
+|   Phir bhi kaam nahi kara?                                        |
+|       |                                                            |
+|       v                                                            |
+|   Factory reset karo + reconfigure karo                           |
+|   Agar phir bhi nahi? → Manufacturer ko contact karo               |
++------------------------------------------------------------------+
+```
+
+---
+
+## Quick Reference: Product Price List (2026)
+
+### Smart Home Starter Kit (Budget — ₹15,000-₹25,000)
+
+| Item | Qty | Price Each | Total |
+|------|-----|-----------|-------|
+| Smart Bulb 9W (Wipro/Philips) | 4 | ₹800 | ₹3,200 |
+| Smart Plug with Energy Monitor | 2 | ₹1,000 | ₹2,000 |
+| IR Blaster (Broadlink RM4 Mini) | 1 | ₹3,000 | ₹3,000 |
+| WiFi Hub (if needed) | 1 | ₹2,500 | ₹2,500 |
+| Smart Door Sensor | 1 | ₹800 | ₹800 |
+| Smart Motion Sensor | 1 | ₹1,200 | ₹1,200 |
+| Google Nest Mini / Echo Dot | 1 | ₹3,500 | ₹3,500 |
+| **Total** | | | **₹16,200** |
+
+### Smart Home Mid-Range Kit (₹50,000-₹1,00,000)
+
+| Item | Qty | Price Each | Total |
+|------|-----|-----------|-------|
+| Smart Switch 4-gang (Legrand/Schneider) | 6 | ₹3,500 | ₹21,000 |
+| Smart Dimmer Switch | 2 | ₹3,000 | ₹6,000 |
+| Smart Curtain Motor + Track | 2 | ₹15,000 | ₹30,000 |
+| IR Blaster (Broadlink RM4 Pro) | 1 | ₹4,500 | ₹4,500 |
+| Smart Door Lock | 1 | ₹12,000 | ₹12,000 |
+| Motion Sensors | 4 | ₹1,200 | ₹4,800 |
+| Temperature Sensors | 2 | ₹1,500 | ₹3,000 |
+| Google Nest Hub / Echo Show | 1 | ₹8,000 | ₹8,000 |
+| **Total** | | | **₹89,300** |
+
+### Smart Home Premium Kit (₹2,00,000+)
+
+| Item | Qty | Price Each | Total |
+|------|-----|-----------|-------|
+| KNX System (Wired) | 1 set | ₹2,00,000 | ₹2,00,000 |
+| Motorized Curtains (Premium) | 4 | ₹20,000 | ₹80,000 |
+| Smart Thermostat (Honeywell) | 2 | ₹15,000 | ₹30,000 |
+| Smart Lock (Premium) | 2 | ₹18,000 | ₹36,000 |
+| Whole House Energy Monitor | 1 | ₹15,000 | ₹15,000 |
+| Voice Assistant (Echo Show 10) | 2 | ₹18,000 | ₹36,000 |
+| Installation & Programming | 1 | ₹40,000 | ₹40,000 |
+| **Total** | | | **₹4,37,000** |
+
+---
+
+## Chapter Summary
+
+| Topic | Key Point |
+|-------|-----------|
+| **Home Automation** | Ghar ke devices ko ek system se control karna |
+| **Wired (KNX)** | Reliable but expensive — ₹3L-₹8L for 3BHK |
+| **Wireless** | Budget friendly — ₹15,000 se start hota hai |
+| **Lighting** | Smart switches best hain — existing bulbs bhi smart ho jayenge |
+| **Curtain** | Motor + Track + Controller — ₹10,000-₹25,000 |
+| **Climate** | IR Blaster se existing AC bhi smart ho jayega |
+| **Energy** | Monitoring se bijli ka bill 20-30% kam ho sakta hai |
+| **Voice Control** | Google/Alexa se voice se control — convenient hai |
+| **Scenes** | Multiple devices ek button ya command se control |
+| **Installation** | Neutral wire, WiFi range, surge protection — dhyan rakho |
+| **Troubleshooting** | WiFi 2.4GHz check karo, hub restart karo, battery check karo |
+
+> **Trainer Note:** Home Automation seekhna CCTV technician ke liye bahut valuable hai. Clients ab smart home chahte hain aur wohi person chahte hain jo CCTV bhi aur automation bhi handle kare. Is chapter ko practical mein try karo — ek chhota setup banao aur demo do!
+
+---
+
+**End of Chapter 15**
+
+---
+
+# Chapter 16: Access Control & Biometric Systems — Kaun Aaye, Kaun Jaaye?
+
+> **Trainer Note:** CCTV ke saath-saath access control seekhna bahut zaroori hai. Clients ko full security package chahiye — camera dekhein aur entry bhi control karein. Yeh chapter practical-heavy hai, har system ko haath mein lo!
+
+---
+
+## 16.1 Access Control Kya Hai?
+
+Access Control ka matlab hai — **kaun building mein aayega, kaun jaayega, aur kab** — yeh decide karna automatically. Manual locks ki jagah electronic systems lagte hain jo cards, biometrics, ya PIN se kaam karte hain.
+
+### Access Control Kyun Zaroori Hai?
+
+| Reason | Detail |
+|--------|--------|
+| **Security** | Unauthorized entry rokna — chori, vandalism, data breach |
+| **Audit Trail** | Kaun kab aaya, kab gaya — sab record hota hai |
+| **Convenience** | Keys ki zaroorat nahi — card ya finger se door khulta hai |
+| **Integration** | CCTV ke saath combine karke full security milega |
+| **Remote Access** | Phone se door lock/unlock kar sakte ho |
+
+### Access Control Types
+
+| Type | Kaise Kaam Karta Hai | Use Case |
+|------|----------------------|----------|
+| **Card-Based** | RFID / Proximity card tap karo | Offices, apartments |
+| **Biometric** | Fingerprint / Face / Iris scan | High-security areas |
+| **PIN-Based** | Code type karo keypad pe | Budget installations |
+| **Multi-Factor** | Card + PIN ya Biometric + PIN | Banks, data centers |
+| **Mobile-Based** | Phone app se unlock | Premium projects |
+
+CALLOUT:tip:💡:Tip:CCTV + Access Control = Complete Security Package. Dono together install karo toh client ko ek hi vendor milega — yeh selling point hai!
+
+---
+
+## 16.2 Card-Based Access Control
+
+Sabse popular aur common system hai. Card tap karo ya card reader ke paas lao — door khul jaata hai.
+
+### RFID vs Proximity Cards
+
+| Feature | RFID Card | Proximity Card |
+|---------|-----------|----------------|
+| **Range** | 1-10 cm (tap karna padta hai) | Up to 10 cm (card paas lao) |
+| **Frequency** | 125 kHz (low freq) ya 13.56 MHz (high freq) | 125 kHz |
+| **Security** | Low frequency = low security | Better than basic RFID |
+| **Cost** | ₹20-₹50 per card | ₹30-₹80 per card |
+| **Examples** | EM-Marin, Mifare | HID iCLASS, Indala |
+
+### Popular Card Access Brands
+
+| Brand | Model | Card Type | Price (System) | Made In |
+|-------|-------|-----------|----------------|---------|
+| **HID** | ProxCard II | Proximity | ₹15,000-₹35,000 | USA |
+| **HID** | iCLASS SE | Smart Card | ₹30,000-₹70,000 | USA |
+| **eSSL** | Z-FP | Fingerprint + Card | ₹12,000-₹25,000 | India |
+| **ZKTeco** | Eco-SL | Proximity | ₹8,000-₹15,000 | China |
+| **Suprema** | BioLite N2 | Card + Biometric | ₹25,000-₹45,000 | Korea |
+| **Matrix** | COSEC VEGA | Card + PIN + Bio | ₹20,000-₹50,000 | India |
+
+CALLOUT:warning:⚠️:Warning:125 kHz cards bahut easily clone ho sakte hain. Agar high security chahiye toh 13.56 MHz (Mifare DESFire / HID iCLASS) use karo!
+
+---
+
+## 16.3 Biometric Access
+
+Biometric = aapka **body** hi aapki key hai. Fingerprint, face, ya iris — koi churaa nahi sakta!
+
+### Biometric Types Comparison
+
+| Type | Kaise Kaam Karta Hai | Accuracy | Speed | Cost | Best For |
+|------|----------------------|----------|-------|------|----------|
+| **Fingerprint** | Finger place karo reader pe | 99%+ | Fast | Low-Medium | Offices, apartments |
+| **Face Recognition** | Camera se face detect karo | 99.5%+ | Fast | Medium | Hands-free entry |
+| **Iris Scan** | Eye pattern scan karo | 99.99% | Medium | High | Banks, labs, military |
+| **Palm Vein** | Hand veins read karo | 99.9% | Fast | High | Hospitals, clean rooms |
+| **Voice** | Bolne se recognize karo | 95%+ | Slow | Low | Smart homes |
+
+### Biometric Machine Prices
+
+| Brand | Model | Type | Users | Price (INR) |
+|-------|-------|------|-------|-------------|
+| **eSSL** | ZK-K40 | Fingerprint | 3,000 | ₹6,500 |
+| **ZKTeco** | UA860 | Face + Finger | 1,500 | ₹12,000 |
+| **Suprema** | BioEntry W2 | Fingerprint | 10,000 | ₹22,000 |
+| **HID** | Edge E400 | Card + Bio | 5,000 | ₹35,000 |
+| **Matrix** | COSEC ARGO | Face + Card | 25,000 | ₹28,000 |
+| **Realtime** | M630 | Fingerprint + Card | 5,000 | ₹8,000 |
+
+CALLOUT:tip:💡:Tip:Fingerprint readers gande haath ya cuts wali ungli se kaam nahi karte. Offices mein face recognition better hai kyunki employees ke haath mein documents hote hain!
+
+---
+
+## 16.4 PIN-Based Access
+
+Sabse sasta aur simple system. Keypad pe code type karo — door khul jaata hai.
+
+### Digital Keypad Locks
+
+| Brand | Model | Type | Features | Price (INR) |
+|-------|-------|------|----------|-------------|
+| **Yale** | YDM3109 | Digital Lock | PIN + Card + Fingerprint | ₹18,000 |
+| **Hafele** | ED900 | Digital Lock | PIN + Card | ₹12,000 |
+| **Godrej** | Advantis | Digital Lock | PIN + Card + App | ₹15,000 |
+| **Samsung** | SHP-DP609 | Digital Lock | PIN + Card + Fingerprint | ₹22,000 |
+| **Ozone** | SmartLock | Digital Lock | PIN + Card | ₹8,000 |
+
+### PIN System Pros & Cons
+
+| Pros | Cons |
+|------|------|
+| Sabse sasta option | Code share ho sakta hai |
+| Battery powered — wiring nahi | Code yaad rakhna padta hai |
+| Easy installation | Security limited hai |
+| No hardware dependency | Audit trail basic hota hai |
+
+CALLOUT:warning:⚠️:Warning:PIN code mein minimum 6 digits rakho. Simple codes jaise "123456" ya "000000" mat do — yeh sabse pehle try karte hain hackers!
+
+---
+
+## 16.5 Access Controller Boards
+
+Controller board = access control system ka **dimaag**. Yeh decide karta hai ki card/fingerprint valid hai ya nahi, aur door kab unlock karna hai.
+
+### Controller Board Kaise Kaam Karta Hai
+
+```
+[Card Reader / Biometric] → Wiegand Wire → [Controller Board] → Relay Output → [EM Lock / Electric Strike]
+                                    ↑
+                              [Power Supply]
+                                    ↓
+                          [Software (PC/Mobile)]
+```
+
+### Wiegand Protocol
+
+Wiegand sabse purana aur widely used protocol hai card readers ke liye:
+
+| Feature | Detail |
+|---------|--------|
+| **Wires** | 3 wires — Data 0 (Green), Data 1 (White), Common (Black) |
+| **Distance** | Maximum 100 meters reader se controller tak |
+| **Security** | Encrypted nahi hai — data easy to intercept |
+| **OSDP** | Newer, encrypted protocol — better security |
+| **Bit Format** | 26-bit (standard), 34-bit, 37-bit available |
+
+### Popular Controller Boards
+
+| Brand | Model | Doors | Readers | Price (INR) |
+|-------|-------|-------|---------|-------------|
+| **eSSL** | AC-220 | 2 | 2 | ₹4,500 |
+| **ZKTeco** | C3-200 | 2 | 2 | ₹3,800 |
+| **Suprema** | CoreStation | 4 | 16 | ₹35,000 |
+| **Matrix** | COSEC VEGA | 4 | 8 | ₹18,000 |
+| **HID** | Edge E400 | 4 | 8 | ₹28,000 |
+| **Realtime** | AC-2000 | 2 | 2 | ₹2,800 |
+
+CALLOUT:tip:💡:Tip:2-door controller sabse common hai — reception pe ek door aur office area pe ek. Agar future expansion ho sakta hai toh 4-door board le lo, paisa bachega!
+
+---
+
+## 16.6 EM Lock / Magnetic Lock
+
+Door ko electronically lock karna hai toh EM lock ya electric strike lagao. Door khule toh bhi rok sakein, aur authorized access pe turant khule.
+
+### EM Lock vs Electric Strike
+
+| Feature | EM Lock (Magnetic Lock) | Electric Strike |
+|---------|-------------------------|-----------------|
+| **Working** | Electromagnet se door hold hota hai | Strike plate door ko rokta hai |
+| **Holding Force** | 280 lbs (125 kg) se lekar 1200 lbs (540 kg) | Limited force |
+| **Fail-Safe** | Power OFF = door khul jaata hai (safe) | Fail-safe ya fail-secure dono milte hain |
+| **Fail-Secure** | Power OFF = door band (security) | Power OFF = door locked |
+| **Installation** | Frame pe magnet + door pe armature | Door frame mein strike plate |
+| **Best For** | Glass doors, main entrance | Wooden doors, cabinets |
+
+### EM Lock Prices
+
+| Brand | Model | Holding Force | Price (INR) |
+|-------|-------|---------------|-------------|
+| **Ozone** | YL-02 | 280 lbs | ₹1,200 |
+| **Hafele** | EL500 | 600 lbs | ₹3,500 |
+| **Godrej** | EML-600 | 600 lbs | ₹4,000 |
+| **Yale** | YALE EM-1200 | 1200 lbs | ₹8,000 |
+| **DORCAS** | DC-ML600 | 600 lbs | ₹1,800 |
+| **EM Lock** | Generic 600 lbs | 600 lbs | ₹800-₹1,500 |
+
+### Electric Strike Prices
+
+| Brand | Model | Type | Price (INR) |
+|-------|-------|------|-------------|
+| **Hafele** | EL200 | Fail-Safe | ₹2,800 |
+| **Ozone** | ES-200 | Fail-Safe | ₹1,500 |
+| **Godrej** | EST-200 | Fail-Secure | ₹3,000 |
+| **Yale** | YALE ES-100 | Fail-Safe | ₹2,500 |
+
+CALLOUT:warning:⚠️:Warning:EM Lock ka power supply critical hai. Agar power backup nahi hai aur light chali jaaye — door khul jaayega! UPS ya battery backup zaroor lagao!
+
+---
+
+## 16.7 Turnstile & Flap Barriers
+
+Large buildings, metro stations, corporate offices mein crowd control ke liye turnstile aur flap barriers use hote hain.
+
+### Types of Turnstiles
+
+| Type | Features | Speed | Price Range (INR) |
+|------|----------|-------|-------------------|
+| **Tripod Turnstile** | 3 rotating arms — basic | Medium | ₹15,000-₹35,000 |
+| **Flap Barrier** | Motorized flaps — smooth | Fast | ₹30,000-₹60,000 |
+| **Speed Gate** | Glass panels — premium look | Fast | ₹50,000-₹1,20,000 |
+| **Full Height** | Floor-to-ceiling — maximum security | Slow | ₹80,000-₹1,50,000 |
+| **Swing Gate** | Glass swing panels — elegant | Fast | ₹45,000-₹80,000 |
+
+### Popular Turnstile Brands
+
+| Brand | Model | Type | Material | Price (INR) |
+|-------|-------|------|----------|-------------|
+| **Ozone** | TSE-1000 | Tripod | SS304 | ₹18,000 |
+| **ZKTeco** | FBL3000 | Flap Barrier | Tempered Glass | ₹45,000 |
+| **Matrix** | COSEC TRIPD | Tripod | SS304 | ₹22,000 |
+| **Mantra** | MS-TS200 | Speed Gate | Tempered Glass | ₹65,000 |
+| **Hikvision** | DS-K3Y211 | Flap Barrier | Tempered Glass | ₹38,000 |
+
+CALLOUT:tip:💡:Tip:Tripod turnstile mein wheelchair users aur emergency evacuation ka dhyan rakho. Flap barriers mein auto-open feature hota hai power failure pe — building code ke hisaab se zaroori hai!
+
+---
+
+## 16.8 Attendance Machines
+
+Access control machines hi attendance bhi track kar sakte hain. Ek hi device — do kaam!
+
+### Biometric Attendance Systems
+
+| Brand | Model | Type | Users | Price (INR) |
+|-------|-------|------|-------|-------------|
+| **eSSL** | i9C | Fingerprint + Card | 3,000 | ₹5,500 |
+| **ZKTeco** | X100-C | Face + Card | 1,500 | ₹9,000 |
+| **Realtime** | T52 | Fingerprint | 5,000 | ₹4,500 |
+| **Suprema** | BioEntry P2 | Fingerprint | 10,000 | ₹15,000 |
+| **Matrix** | COSEC LE | Face + Card | 25,000 | ₹20,000 |
+| **Hikvision** | DS-K1T607MFW | Face + Card | 3,000 | ₹12,000 |
+
+### Attendance + Access Control Integration
+
+| Feature | Standalone Attendance | Integrated System |
+|---------|----------------------|-------------------|
+| **Entry** | Sirf attendance record | Door bhi khulta hai + attendance |
+| **Data** | Sirf login time | Login + Logout + Door events |
+| **Software** | Basic attendance software | Full HR + Access Control |
+| **Cost** | ₹5,000-₹15,000 | ₹25,000-₹75,000 |
+| **Best For** | Small offices (10-50 staff) | Medium-large offices (50+) |
+
+CALLOUT:tip:💡:Tip:Agar client ko attendance bhi chahiye toh attendance-enabled access control machine lo — ek hi device se door bhi khulega aur attendance bhi record hogi. Alag se machine lagane ki zaroorat nahi!
+
+---
+
+## 16.9 Software & Configuration
+
+Hardware ke saath software bhi important hai — records dekhna, reports nikalna, aur remote access.
+
+### Popular Access Control Software
+
+| Software | Brand | Features | Price Model |
+|----------|-------|----------|-------------|
+| **COSEC** | Matrix | Real-time monitoring, reports, mobile app | Free with hardware |
+| **eSSL** | eSSL | Attendance + Access, cloud option | Free with hardware |
+| **HID** | HID | Enterprise-grade, multi-site | Annual license |
+| **Suprema** | Suprema | BioStar 2, web-based | Free + Premium |
+| **ZKTeco** | ZKTeco | ZKBioSecurity, cloud | Free with hardware |
+| **TimeDynamo** | Realtime | Attendance + Access | Free with hardware |
+
+### Software Features to Look For
+
+| Feature | Why Important |
+|---------|---------------|
+| **Real-time Logs** | Live monitoring — kahan hai, kab aaya |
+| **Access Levels** | Different people ko different doors ka access do |
+| **Time Zones** | Sirf office hours pe access — baad mein band |
+| **Anti-Passback** | Ek hi card se do baar entry nahi hoga |
+| **Visitor Management** | Visitors ka record rakhna |
+| **Mobile App** | Phone se door lock/unlock |
+| **Reports** | Daily, weekly, monthly attendance/access reports |
+| **Backup** | Database backup aur restore |
+
+CALLOUT:warning:⚠️:Warning:Software ka default password zaroor change karo! "admin/admin" ya "1234" se koi bhi system access kar sakta hai — yeh sabse badi galti hoti hai!
+
+---
+
+## 16.10 Installation Guide
+
+### Wiring Diagram (Basic 2-Door Setup)
+
+```
+[Power Supply 12V DC] 
+        ↓
+[Controller Board] ──── Door 1 Reader (Wiegand) ──── EM Lock 1
+        |                                               ↑
+        └──────── Door 2 Reader (Wiegand) ──── EM Lock 2
+        |                                               ↑
+[PC/Laptop] ←── TCP/IP ──→ [Controller]
+        ↑
+[UPS / Battery Backup]
+```
+
+### Installation Checklist
+
+| Step | Detail | Status |
+|------|--------|--------|
+| 1 | Power supply 12V DC ready hai? | ☐ |
+| 2 | Controller board safe jagah pe hai? | ☐ |
+| 3 | Reader wire (Wiegand) properly connected hai? | ☐ |
+| 4 | EM lock / electric strike sahi position pe hai? | ☐ |
+| 5 | Door sensor connected hai? | ☐ |
+| 6 | Software install ho gaya? | ☐ |
+| 7 | Admin card / fingerprint registered hai? | ☐ |
+| 8 | UPS / battery backup connected hai? | ☐ |
+| 9 | All cards / fingerprints enrolled hain? | ☐ |
+| 10 | Testing — har door pe card/finger try karo | ☐ |
+
+### Controller Board Placement Rules
+
+| Rule | Detail |
+|------|--------|
+| **Location** | Server room ya secure cabinet mein — authorized access only |
+| **Height** | 1.5 meter se zyada — koi chhoo na sake |
+| **Wiring** | Concealed wiring — wall ke andar, exposed nahi |
+| **Power** | Dedicated circuit — AC ke saath mat share karo |
+| **Backup** | UPS ya SMPS with battery — minimum 4 hour backup |
+
+CALLOUT:tip:💡:Tip:Controller board ko reader ke paas rakhne ki galti mat karo! Agar koi reader ka wire kheenche toh board bhi dikkat mein aa sakta hai. Controller ko door ke opposite side rakho!
+
+---
+
+## 16.11 Troubleshooting
+
+### Common Issues & Solutions
+
+| Problem | Possible Cause | Solution |
+|---------|---------------|----------|
+| **Card nahi pad raha** | Card damage ya reader problem | Card replace karo ya reader clean karo |
+| **Fingerprint nahi jaata** | Wet/dirty finger, sensor ganda | Finger dry karo, sensor clean karo |
+| **Lock release nahi ho raha** | Wiring loose, power issue | Connections check karo, power test karo |
+| **Lock release nahi ruka** | EM lock damage, alignment problem | Lock replace karo, alignment fix karo |
+| **Software connectivity nahi ho rahi** | Network issue, IP conflict | Cable check karo, IP verify karo |
+| **Doors open ho rahe bina access ke** | Wiring short, controller hang | Wiring check karo, controller restart karo |
+| **Battery backup kaam nahi kar raha** | Battery dead, charging issue | Battery replace karo |
+| **Reader beep nahi kar raha** | Reader fault, power nahi aa rahi | Reader test karo, power supply check karo |
+| **Anti-passback error** | Exit event missing, wrong config | Exit reader add karo, config check karo |
+| **Logs mein gap hai** | Controller restart hua, connection loss | Connection stable karo, backup power lagao |
+
+### Quick Fix Reference
+
+| Issue Level | What to Check | Tool Needed |
+|-------------|---------------|-------------|
+| **Level 1** (Basic) | Power supply, connections, card/finger | Multimeter, clean cloth |
+| **Level 2** (Intermediate) | Wiring, Wiegand connections, IP config | Multimeter, laptop, software |
+| **Level 3** (Advanced) | Board replacement, firmware update, database repair | Spare board, programmer |
+| **Level 4** (Expert) | Network architecture, server migration, integration issues | Network engineer |
+
+CALLOUT:warning:⚠️:Warning:EM Lock test karte waqt door pe koi khada na ho! 600 lbs holding force wala lock suddenly khule toh serious injury ho sakti hai. Pehle area clear karo, phir test karo!
+
+---
+
+## Chapter Summary
+
+| Topic | Key Point |
+|-------|-----------|
+| **Access Control** | Entry control karna — authorized logon ko allow, unauthorized ko deny |
+| **Card-Based** | RFID / Proximity cards — popular but 125 kHz cloneable hai |
+| **Biometric** | Fingerprint, Face, Iris — most secure but cost zyada |
+| **PIN-Based** | Sabse sasta but least secure — code share ho sakta hai |
+| **Controller Board** | System ka dimaag — Wiegand protocol se reader se connect hota hai |
+| **EM Lock** | Electromagnetic lock — Fail-Safe ya Fail-Secure dono milte hain |
+| **Turnstile** | Crowd control ke liye — Tripod, Flap, Speed Gate |
+| **Attendance** | Same device se door + attendance dono |
+| **Software** | Real-time monitoring, access levels, reports — sab software se |
+| **Installation** | Controller secure jagah, concealed wiring, UPS zaroori |
+| **Troubleshooting** | Power check, wiring check, software check — level-wise approach |
+
+> **Trainer Note:** Access Control seekhna CCTV technician ke liye bahut valuable hai. Clients ko full security package chahiye — camera bhi aur entry bhi controlled ho. Yeh chapter practical mein try karo — ek chhota 2-door setup banao aur demo do! EM Lock + Controller + Reader + Software — sab ko connect karo aur working demo do!
+
+---
+
+**End of Chapter 16**
+
+---
+
+# Chapter 17: Intercom & EPABX Systems — Office Mein Phone Kaise Lagaye?
+
+---
+
+## 17.1 Intercom Kya Hai?
+
+### Definition
+
+**Intercom** ek **communication system** hai jo ek building ya campus ke andar logon ko aapas mein baat karne deta hai — bina public telephone line ke. Yeh system **door entry**, **security guard communication**, aur **office internal calls** ke liye use hota hai.
+
+CALLOUT:info:📘:Simple Definition:Intercom ek "andar ka telephone" hai — jo sirf usi building mein kaam karta hai. Guard se baat karo, visitor se pucho, boss se connect ho — sab intercom se!
+
+### Intercom Ke Types
+
+| Type | Description | Use Case | Price Range |
+|------|-------------|----------|-------------|
+| **Analog Intercom** | Wire-based, simple, purana technology | Choti offices, ghar | Rs.2,000 - Rs.8,000 |
+| **IP Intercom** | Network pe kaam karta hai, high quality audio/video | Bade offices, campuses | Rs.8,000 - Rs.50,000 |
+| **Wireless Intercom** | Wi-Fi ya RF se connect hota hai, cable nahi chahiye | Temporary setups, home | Rs.3,000 - Rs.15,000 |
+| **Video Intercom** | Audio + video dono — screen pe visitor dikhta hai | Residential societies, offices | Rs.5,000 - Rs.35,000 |
+
+CALLOUT:tip:💡:Pro Tip:Chhote office mein analog intercom kaafi hai. But agar video door phone chahiye toh IP ya Video Intercom lo — ROI (Return on Investment) zyada hota hai security perspective se.
+
+---
+
+## 17.2 EPABX System
+
+### EPABX Kya Hai?
+
+**EPABX** ka full form hai **Electronic Private Automatic Branch Exchange**. Yeh ek **telephone switching system** hai jo ek organization ke andar **internal aur external calls** handle karta hai.
+
+### EPABX Ka Kaam Kaise Karta Hai?
+
+```
++------------------------------------------------------------------+
+|                  EPABX SYSTEM WORKING                             |
+|                                                                   |
+|  [Telephone Line 1 (Trunk)] ----+                                |
+|  [Telephone Line 2 (Trunk)] ----+---> [EPABX BOX] ---> [Extension 101]|
+|  [Telephone Line 3 (Trunk)] ----+     |            ---> [Extension 102]|
+|                                  |     |            ---> [Extension 103]|
+|  Trunk Lines = BSNL/Airtel se    |     |            ---> [Extension 104]|
+|  aane wali telephone lines       |     |            ---> [Extension 105]|
+|                                  |     |                        |
+|  Extensions = Andar ke phones    |     +---> [CO Lines - Outgoing]|
+|  jo EPABX se connect hain        |                              |
++------------------------------------------------------------------+
+```
+
+### Key Terms
+
+| Term | Full Form | Meaning |
+|------|-----------|---------|
+| **Trunk Line** | — | Bahar se aane wali telephone line (BSNL, Airtel) |
+| **Extension** | — | Andar ka phone number (101, 102, 103...) |
+| **CO Line** | Central Office Line | Public telephone line jo EPABX se connect hoti hai |
+| **DID** | Direct Inward Dialing | Bahar se seedha extension pe call aa sakta hai |
+| **DOD** | Direct Outward Dialing | Extension se seedha bahar call ja sakti hai |
+| **IVR** | Interactive Voice Response | "Press 1 for Sales, Press 2 for Support" |
+
+CALLOUT:note:📝:Note:EPABX sabse important cheez hai office communication mein. Bina EPABX ke 50 logon ko alag alag telephone line lagani padegi — EPABX se sirf 2-3 lines pe sab ka kaam ho jaata hai!
+
+---
+
+## 17.3 IP PBX / VoIP
+
+### Modern Phone Systems
+
+**IP PBX** aur **VoIP** aaj kal sabse popular hain. Inmein traditional telephone lines ki zaroorat nahi — sab **internet** pe chalta hai.
+
+| Feature | Traditional EPABX | IP PBX / VoIP |
+|---------|-------------------|---------------|
+| **Copper Wire** | Haan, zaroori hai | Nahi, internet cable chahiye |
+| **Cost** | Mehenga (hardware zyada) | Sasta (software-based) |
+| **Scalability** | Limited slots | Unlimited practically |
+| **Remote Extension** | Nahi possible | Duniya mein kahi se bhi |
+| **Video Call** | Nahi | Haan! |
+| **Maintenance** | Hardware service chahiye | Software update bas |
+| **Cloud Option** | Nahi | Haan — Cloud PBX available |
+
+### SIP Protocol
+
+**SIP (Session Initiation Protocol)** VoIP ka **language** hai — yeh decide karta hai ki call kaise start hogi, kaise chalegi, aur kaise band hogi.
+
+CALLOUT:info:📘:SIP Simple Language mein:SIP ek "phone ka internet language" hai. Jaise HTTP web pages ke liye hota hai, waise SIP phone calls ke liye hota hai. Port 5060 (UDP/TCP) pe kaam karta hai.
+
+### Cloud PBX — Office Bina Hardware Ke
+
+**Cloud PBX** mein koi physical box nahi hota — sab **server pe** hota hai. Bas internet connection chahiye aur IP phones lagao.
+
+| Cloud PBX Provider | India Popularity | Starting Price |
+|--------------------|-----------------|----------------|
+| **Exotel** | Very High | Rs.500/extension/month |
+| **Ozonetel** | High | Rs.600/extension/month |
+| **Knowlarity** | High | Rs.550/extension/month |
+| **Zoho PhoneBridge** | Medium | Rs.400/extension/month |
+| **Asterisk (Self-hosted)** | High (Free) | Free (Open Source) |
+
+---
+
+## 17.4 Video Intercom
+
+### Video Door Phone System
+
+**Video Intercom** mein **door pe camera + microphone + speaker** hota hai aur **andar ek screen** hoti hai. Visitor aake bell bajaye toh andar screen pe uska face dikhta hai aur aap baat kar sakte ho. Door automatically ya manually khul jaata hai.
+
+```
++------------------------------------------------------------------+
+|                  VIDEO INTERCOM SYSTEM                            |
+|                                                                   |
+|  [DOOR UNIT]                    [INDOOR UNIT]                    |
+|  +-----------+                  +---------------+                 |
+|  |  Camera   |---wire/IP----->  |   LCD Screen  |                 |
+|  |  Microphone|                 |   Speaker     |                 |
+|  |  Speaker  |<---wire/IP----  |   Microphone  |                 |
+|  |  Button   |                  |   Unlock Btn  |                 |
+|  |  Card Reader|                +-------+-------+                 |
+|  +-----------+                          |                         |
+|                                         v                         |
+|                                  [Electric Lock]                  |
+|                                  (Door khulta hai)                |
++------------------------------------------------------------------+
+```
+
+### Video Intercom Brands & Pricing (India)
+
+| Brand | Model | Type | Features | Price (INR) |
+|-------|-------|------|----------|-------------|
+| **Hikvision** | DS-KV6113 | IP Video Intercom | 2MP camera, PoE, app support | Rs.12,000 - Rs.18,000 |
+| **Hikvision** | DS-KD8003 | IP Module | Modular, elevator ke liye | Rs.8,000 - Rs.12,000 |
+| **Dahua** | VTO2000C | IP Door Station | 2MP, PoE, night vision | Rs.10,000 - Rs.15,000 |
+| **CP Plus** | CP-VDP-301 | Analog Video | 7" screen, wired | Rs.5,000 - Rs.8,000 |
+| **Honeywell** | AC-VDA1-2PS | IP Video | 2MP, app control, PoE | Rs.15,000 - Rs.25,000 |
+| **Godrej** | Security Pro | IP/Analog | Indian brand, warranty | Rs.6,000 - Rs.12,000 |
+
+CALLOUT:tip:💡:Pro Tip:Society installation mein Video Intercom + Access Control + CCTV teeno integrate karo — client ko "Smart Building" package de sakte ho aur profit zyada hoga!
+
+---
+
+## 17.5 Matrix EPABX
+
+### Matrix Brand Products
+
+**Matrix** ek **Indian brand** hai jo EPABX, access control, aur IP communication solutions banata hai. Yeh brand **enterprise-level** products ke liye jaana jaata hai.
+
+### Matrix Popular EPABX Models
+
+| Model | Type | Extensions | Trunk Lines | Features | Price (INR) |
+|-------|------|-----------|-------------|----------|-------------|
+| **Matrix ETERNITY 120P** | IP PBX | Up to 120 | 8-16 | SIP, VoIP, IVR, Call Recording | Rs.45,000 - Rs.75,000 |
+| **Matrix ETERNITY 500P** | IP PBX | Up to 500 | 32-64 | Enterprise, Multi-location | Rs.1,50,000 - Rs.3,00,000 |
+| **Matrix ETERNITY 1200P** | IP PBX | Up to 1200 | 64-128 | Large enterprise, clustering | Rs.4,00,000 - Rs.8,00,000 |
+| **Matrix PANASONIC KX-TA824** | Analog PBX | Up to 24 | 6 | Basic office, reliable | Rs.25,000 - Rs.40,000 |
+
+### Matrix + COSEC Integration
+
+Matrix ka **COSEC** platform access control aur time-attendance ke liye hai. Jab EPABX COSEC se integrate ho jaaye toh:
+
+| Integration Feature | Benefit |
+|--------------------|---------|
+| **Auto-Attendant** | Visitor aaya → COSEC ne card diya → EPABX ne internal call kiya |
+| **Time-Based Routing** | Office hours ke baad calls auto-forward ho jaate hain |
+| **Security Alerts** | Unauthorized access ho toh EPABX pe alarm call jaaye |
+| **Employee Directory** | COSEC database se extension mapping auto hoti hai |
+
+CALLOUT:note:📝:Matrix Pricing Note:Matrix ke prices market ke hisaab se badalte rehte hain. Authorized dealer se latest quotation lo. Installation charge Rs.5,000 - Rs.15,000 alag se lagta hai.
+
+---
+
+## 17.6 Honeywell Intercom
+
+### Honeywell Products
+
+**Honeywell** ek **global brand** hai jo security aur communication products banata hai. Unka intercom system **premium segment** mein aata hai.
+
+### Honeywell Intercom Models
+
+| Model | Type | Display | Features | Price (INR) |
+|-------|------|---------|----------|-------------|
+| **Honeywell AC-VDA1-2PS** | IP Video Intercom | 7" Touch | 2MP camera, app control, PoE | Rs.15,000 - Rs.25,000 |
+| **Honeywell AC-VDA4-4PS** | IP Video Multi-Door | 7" Touch | 4 door support, 4-wire | Rs.35,000 - Rs.55,000 |
+| **Honeywell AC-100** | Analog Intercom | LCD | Basic audio, cost-effective | Rs.4,000 - Rs.8,000 |
+| **Honeywell IPCP-PRO** | IP PBX Module | — | Enterprise integration | Rs.20,000 - Rs.35,000 |
+
+### Honeywell + Access Control Integration
+
+| Feature | Detail |
+|---------|--------|
+| **PRO3000 Panel** | Honeywell alarm panel se intercom integrate hota hai |
+| **Total Connect** | Mobile app se remote door unlock + video call |
+| **Vista Panel** | Access control + intercom ek platform pe |
+| **MAXPRO VMS** | Video management + intercom ek dashboard mein |
+
+CALLOUT:warning:⚠️:Warning:Honeywell products sirf authorized dealers se kharido! Warranty aur after-sales service sirf authorized channel pe milti hai. Duplicate ya grey market product mat lena!
+
+---
+
+## 17.7 Installation Guide
+
+### Wiring & Cabling
+
+Intercom aur EPABX installation mein **sahi cable** lagana bahut zaroori hai.
+
+| Cable Type | Use Case | Max Distance | Price per Meter |
+|-----------|----------|-------------|-----------------|
+| **CAT5e** | IP Intercom, IP PBX | 100m | Rs.15 - Rs.25 |
+| **CAT6** | IP Intercom (High Speed) | 100m | Rs.20 - Rs.35 |
+| **2-Core Wire** | Analog Intercom (Audio) | 200m | Rs.5 - Rs.10 |
+| **4-Core Wire** | Analog Video Intercom | 150m | Rs.8 - Rs.15 |
+| **Coaxial RG59** | Analog Video Intercom | 100m | Rs.10 - Rs.18 |
+| **Fiber Optic** | Campus (Long Distance) | 2km+ | Rs.50 - Rs.100 |
+
+### Extension Setup — Step by Step
+
+```
++------------------------------------------------------------------+
+|              EXTENSION SETUP STEPS                                |
+|                                                                   |
+|  Step 1: EPABX box ko secure jagah lagao (server room)           |
+|  Step 2: Trunk lines (BSNL/Airtel) EPABX ke CO port pe lagao    |
+|  Step 3: Extension cables (CAT6) EPABX se rooms tak laid karo   |
+|  Step 4: Har extension ke end pe RJ45 connector lagao           |
+|  Step 5: Phone ya IP desk phone ko extension pe connect karo    |
+|  Step 6: EPABX ka web interface khol ke extension assign karo   |
+|  Step 7: Har extension ko number do (101, 102, 103...)           |
+|  Step 8: Test karo — intercom call, external call, transfer     |
++------------------------------------------------------------------+
+```
+
+CALLOUT:tip:💡:Pro Tip:CAT6 cable use karo even agar analog intercom bhi laga rahe ho — future-proofing! Jab IP PBX upgrade karna ho toh cable change nahi karni padegi.
+
+---
+
+## 17.8 Configuration Basics
+
+### Extension Numbering Plan
+
+| Department | Extension Range | Example |
+|-----------|----------------|---------|
+| **Reception** | 100 | 100 |
+| **Sales** | 101-110 | 101, 102, 103... |
+| **Support** | 111-120 | 111, 112, 113... |
+| **Accounts** | 121-130 | 121, 122, 123... |
+| **Management** | 140-149 | 140, 141... |
+| **Security/Guard** | 150 | 150 |
+| **Conference Room** | 160 | 160 |
+
+### Call Routing Rules
+
+| Rule | Description | Example |
+|------|-------------|---------|
+| **Ring All** | Sab extensions ek saath bajenge | Reception ke liye |
+| **Sequential** | Pehle ek, phir doosra, phir teesra | Manager ke liye |
+| **Time-Based** | Din mein alag, raat mein alag routing | 24/7 office |
+| **DID Routing** | Bahar se number dial karo toh seedha extension | Client calling direct |
+| **Failover** | Agar line busy ho toh auto-forward | Backup reception |
+
+### DID/DOD Configuration
+
+**DID (Direct Inward Dialing):** Bahar se koi call kare 011-XXXX-101 toh seedha Extension 101 pe jaayega — reception se guzarne ki zaroorat nahi.
+
+**DOD (Direct Outward Dialing):** Extension 101 se bahar call kare toh automatically BSNL/Airtel line use hogi — dial 0 ya 9 prefix lagao.
+
+CALLOUT:note:📝:Note:DID ke liye BSNL/Airtel se multiple numbers lena padta hai. Har extension ke liye ek number chahiye. Cost Rs.500-1000/number/month extra lagta hai.
+
+---
+
+## 17.9 Troubleshooting
+
+### Common Problems & Solutions
+
+| # | Problem | Possible Cause | Solution |
+|---|---------|---------------|----------|
+| 1 | **Dial Tone Nahi Aa Raha** | Line loose hai ya EPABX band hai | Cable check karo, EPABX restart karo |
+| 2 | **Ring Nahi Ho Raha** | Extension number galat hai | Extension mapping check karo |
+| 3 | **Call Drop Ho Raha Hai** | Network congestion ya cable damaged | Bandwidth check karo, cable replace karo |
+| 4 | **Echo Aa Raha Hai** | Duplex issue ya speaker volume | Speaker volume kam karo, echo cancellation enable karo |
+| 5 | **Cross Talk** | Wire mein short circuit hai | Cable continuity test karo |
+| 6 | **External Line Se Call Nahi Ja Raha** | DOD prefix missing hai | EPABX mein outgoing rule set karo |
+| 7 | **VoIP Call Quality Poor** | Bandwidth kam hai ya jitter | Minimum 100kbps per call, QoS enable karo |
+| 8 | **Video Intercom Mein Video Nahi Aa Raha** | Camera ya cable issue | Camera power check karo, cable replace karo |
+| 9 | **Extension Ek Dusre Ko Nahi Sun Paa Raha** | Duplex mode galat hai | Full-duplex mode enable karo |
+| 10 | **EPABX Ka Web Interface Nahi Khul Raha** | IP address galat hai | Default IP check karo, factory reset karo |
+
+### Quick Troubleshooting Flowchart
+
+```
++------------------------------------------------------------------+
+|              TROUBLESHOOTING FLOWCHART                            |
+|                                                                   |
+|  Problem: Call Nahi Lag Raha                                      |
+|         |                                                         |
+|         v                                                         |
+|  Kya Dial Tone hai? -----> NAHI -----> Line/Trunk Check karo     |
+|         |                                                         |
+|        HAAN                                                       |
+|         |                                                         |
+|         v                                                         |
+|  Kya Ring Ho Raha Hai? ---> NAHI -----> Extension Number Check   |
+|         |                                                         |
+|        HAAN                                                       |
+|         |                                                         |
+|         v                                                         |
+|  Kya Utha Raha Hai? -----> NAHI -----> Phone/Handset Replace     |
+|         |                                                         |
+|        HAAN                                                       |
+|         |                                                         |
+|         v                                                         |
+|  Call Connect Ho Raha? ---> NAHI -----> EPABX Config Check       |
+|         |                                                         |
+|        HAAN                                                       |
+|         |                                                         |
+|         v                                                         |
+|  Audio Aa Raha Hai? -----> NAHI -----> Codec/Bandwidth Check     |
+|         |                                                         |
+|        HAAN = CALL WORKING! Problem solved!                      |
++------------------------------------------------------------------+
+```
+
+CALLOUT:warning:⚠️:Warning:EPABX aur Intercom installation mein hamesha **UPS lagao!** Power cut mein system band ho jaayega aur calls drop ho jaayenge. Minimum 1 hour backup zaroori hai!
+
+---
+
+## Chapter Summary
+
+| Topic | Key Point |
+|-------|-----------|
+| **Intercom** | Andar ka communication system — analog, IP, wireless, video |
+| **EPABX** | Telephone switching system — trunk lines + extensions manage karta hai |
+| **IP PBX / VoIP** | Modern phone system — internet pe chalta hai, sasta aur scalable |
+| **Video Intercom** | Audio + Video — door pe visitor dikhta hai andar ke screen pe |
+| **Matrix** | Indian brand — ETERNITY series popular hai, COSEC se integrate hota hai |
+| **Honeywell** | Global premium brand — PRO3000, Total Connect support |
+| **Installation** | CAT6 cable, proper extension numbering, UPS zaroori |
+| **Configuration** | DID/DOD, call routing, sequential ring — sab EPABX se set hota hai |
+| **Troubleshooting** | Dial tone check → Ring check → Audio check → level-wise approach |
+
+> **Trainer Note:** Intercom aur EPABX seekhna CCTV technician ke liye bahut valuable hai. Office clients ko CCTV + Access Control + Intercom teeno chahiye — "Complete Security Package" de sakte ho aur revenue badha sakte ho. Yeh chapter practical mein try karo — ek chhota 4-extension EPABX setup banao aur demo do!
+
+---
+
+**End of Chapter 17**
+
+---
+
+# Chapter 18: AV Solutions & Equipment — Projector, Speaker, Display Kaise Lagaye?
+
+---
+
+## 18.1 AV Solutions Kya Hain?
+
+**AV** ka full form hai **Audio-Visual**. AV solutions mein wo saari equipment aati hai jo **dekhne (visual)** aur **sunne (audio)** ke liye use hoti hai — projectors, displays, speakers, microphones, video conferencing systems, etc.
+
+> **Trainer Note:** AV installations ek CCTV technician ke liye **additional revenue stream** hai. Office clients ko CCTV + AV sab ek jagah se chahiye. Agar tum AV bhi install kar sakte ho toh contract badh jaayega.
+
+### AV Solutions Ki Types
+
+| Type | Equipment | Use Case |
+|------|-----------|----------|
+| **Display** | Projector, LED display, LCD video wall, digital signage | Presentations, ads, monitoring |
+| **Audio** | Ceiling speakers, PA system, amplifiers, DSP | Announcements, BGM, events |
+| **Conferencing** | Video conferencing kit, microphone, codec | Meetings, webinars |
+| **Control** | AV switcher, remote control, automation panel | Source switching, room control |
+
+---
+
+## 18.2 Projector Installation
+
+### Projector Ke Types
+
+| Type | Technology | Brightness | Lamp Life | Price Range |
+|------|-----------|------------|-----------|-------------|
+| **LCD Projector** | LCD panels | 3,000–5,000 lumens | 10,000 hrs | Rs.25,000–80,000 |
+| **LED Projector** | LED light source | 2,000–4,000 lumens | 20,000+ hrs | Rs.15,000–50,000 |
+| **Laser Projector** | Laser diode | 5,000–10,000+ lumens | 20,000+ hrs | Rs.80,000–5,00,000 |
+| **Short Throw** | Ultra-short throw lens | 3,000–5,000 lumens | Varies | Rs.50,000–2,00,000 |
+
+### Brightness Selection Guide
+
+| Room Size | Ambient Light | Recommended Lumens |
+|-----------|--------------|-------------------|
+| Small (10x12 ft) | Dark room | 2,000–3,000 |
+| Medium (15x20 ft) | Moderate light | 3,000–5,000 |
+| Large (20x30 ft) | Bright room | 5,000–8,000 |
+| Auditorium | Fully lit | 8,000–15,000+ |
+
+### Throw Ratio Samjho
+
+> **Throw Ratio** = Projector se screen ki doori / Screen ki width
+
+| Throw Ratio | Matlab | Best For |
+|-------------|--------|----------|
+| **0.2:1 – 0.4:1** | Ultra Short Throw | Small rooms, interactive whiteboard |
+| **0.4:1 – 1.0:1** | Short Throw | Conference rooms |
+| **1.0:1 – 2.0:1** | Standard Throw | classrooms, halls |
+| **2.0:1 – 5.0:1** | Long Throw | Auditoriums, large venues |
+
+### Projector Mounting Options
+
+| Mount Type | Description | Use Case |
+|-----------|-------------|----------|
+| **Ceiling Mount** | Ceiling pe ulta lagaya jaata hai | Conference rooms, classrooms |
+| **Table Mount** | Table pe rakha jaata hai | Temporary setups, meetings |
+| **Wall Mount** | Wall pe lagaya jaata hai | Digital signage |
+| **Floor Mount** | Floor pe stand pe rakha jaata hai | Large venue, event halls |
+
+CALLOUT:tip:💡:Pro Tip:Projector lagate waqt **keystone correction** zaroor karo — agar projector screen ke centre mein nahi hai toh image trapezoid aayegi. Auto keystone ya manual adjustment se image square karo.
+
+---
+
+## 18.3 Display & Video Walls
+
+### LED Display vs LCD Display
+
+| Feature | LED Display | LCD Display |
+|---------|------------|-------------|
+| **Brightness** | 800–2,500 nits | 300–700 nits |
+| **Seamless** | Haan, bilkul seamless | Bezels hote hain (thin borders) |
+| **Lifespan** | 1,00,000+ hrs | 50,000–60,000 hrs |
+| **Viewing Angle** | Wide (178°) | Wide (178°) |
+| **Best For** | Outdoor, large video walls | Indoor, kiosks, small displays |
+| **Price** | Premium | Affordable |
+
+### Video Wall Configuration
+
+> **Video Wall** mein 2x2, 3x3, ya aur zyada displays ek saath lagaye jaate hain aur ek bada image dikhata hai.
+
+| Configuration | Displays | Resolution (Full HD each) | Use Case |
+|---------------|----------|--------------------------|----------|
+| **2x2** | 4 panels | 3840x2160 | Reception, lobby |
+| **3x3** | 9 panels | 5760x3240 | Command center, mall |
+| **4x4** | 16 panels | 7680x4320 | Large control rooms |
+| **1x3** | 3 panels (horizontal) | 5760x1080 | Retail, airport |
+
+### Digital Signage
+
+| Component | Description | Price Range |
+|-----------|-------------|-------------|
+| **Media Player** | Content chalane wala device | Rs.5,000–25,000 |
+| **Display Panel** | Commercial-grade LCD/LED | Rs.15,000–2,00,000 |
+| **CMS Software** | Content management | Rs.500–5,000/month |
+| **Mounting Kit** | Wall/stand mount | Rs.1,000–5,000 |
+
+CALLOUT:warning:⚠️:Warning:Video wall mein **bezel width** bahut important hai. Commercial displays ka bezel 3.5mm–0.9mm hota hai. Normal TV se video wall mat banao — bezel bahut mota hoga aur image toot-tuta dikhega.
+
+---
+
+## 18.4 Ceiling Speaker System
+
+### Speaker System Ke Types
+
+| Type | Description | Use Case |
+|------|-------------|----------|
+| **PA System** | Public Address — announcements ke liye | Schools, hospitals, railway stations |
+| **Background Music (BGM)** | Smooth, continuous music | Restaurants, hotels, malls |
+| **Ceiling Speaker** | Ceiling mein recessed lagta hai | Offices, retail, homes |
+| **Horn Speaker** | Zor se awaaz, outdoor use | Parking, boundaries, factories |
+| **Column Speaker** | Directional sound | Auditoriums, halls |
+
+### PA System Components
+
+| Component | Function | Price Range |
+|-----------|----------|-------------|
+| **Mixer/Amplifier** | Audio signal mix aur amplify karta hai | Rs.5,000–50,000 |
+| **Ceiling Speaker** | Ceiling mein mounted, even sound | Rs.800–5,000/piece |
+| **Horn Speaker** | Long range, outdoor | Rs.500–3,000/piece |
+| **Mic (Gooseneck/Desktop)** | Announcement ke liye | Rs.500–5,000 |
+| **Priority Module** | Emergency announcements override BGM | Rs.2,000–8,000 |
+| **70V/100V Line Transformer** | Long distance audio distribution | Rs.200–1,000/speaker |
+
+CALLOUT:info:ℹ️:Note:India mein PA systems mein **70V/100V line** technology use hoti hai — isme ek hi cable pe bahut se speakers series mein lag sakte hain aur long distance tak audio jaata hai without signal loss.
+
+---
+
+## 18.5 Conference Room Setup
+
+### Basic Conference Room AV Components
+
+| Component | Purpose | Recommended |
+|-----------|---------|-------------|
+| **Display** | Presentations, video calls | 65"–86" Interactive Display ya Projector |
+| **Speakers** | Audio output | Ceiling speakers ya soundbar |
+| **Microphone** | Audio input | Ceiling mic, tabletop mic, ya wireless lapel |
+| **Video Conferencing** | Remote meetings | Zoom/Teams certified kit |
+| **Camera** | Video feed for remote participants | PTZ USB camera ya IP camera |
+| **AV Switcher** | Multiple source switching | HDMI matrix switcher |
+| **Control Panel** | Room control from one place | Touch panel controller |
+
+### Conference Room Size Guide
+
+| Room Size | Display Size | Speakers | Mic Type |
+|-----------|-------------|----------|----------|
+| **Small (4–6 people)** | 55"–65" TV | 2 ceiling speakers | Tabletop mic |
+| **Medium (8–12 people)** | 75"–86" display | 4 ceiling speakers | Ceiling mic array |
+| **Large (15–25 people)** | Projector (100"+) | 6–8 ceiling speakers | Multiple ceiling mics |
+| **Boardroom (25+)** | Dual displays/projectors | 8–12 speakers + sub | DSP + ceiling mic array |
+
+CALLOUT:tip:💡:Pro Tip:Conference room mein **echo cancellation** bahut zaroori hai. Bina echo cancellation ke speaker ki awaaz mic mein wapas jaati hai aur remote logon ko apni hi awaaz sunai deti hai. Hamesha **DSP (Digital Signal Processor)** lagao.
+
+---
+
+## 18.6 Cabling for AV
+
+### AV Cable Types
+
+| Cable Type | Max Resolution | Max Distance | Use Case |
+|-----------|---------------|-------------|----------|
+| **HDMI 2.0** | 4K @ 60Hz | 15m (standard) | Primary display connection |
+| **HDMI 2.1** | 8K @ 60Hz / 4K @ 120Hz | 15m | Gaming, high-end AV |
+| **HDMI Fiber Optic** | 4K @ 60Hz | Up to 100m | Long distance AV runs |
+| **VGA** | 1080p (analog) | 15m | Older devices (legacy) |
+| **DisplayPort** | 8K @ 60Hz | 15m | PCs, monitors |
+| **3.5mm Audio** | Analog stereo | 50m | Audio-only connections |
+| **XLR** | Balanced audio | 100m | Professional microphones |
+| **CAT6 (Dante/AES67)** | Network audio | 100m | IP-based audio systems |
+| **Speaker Wire (2-core)** | N/A (analog) | 50–100m (gauge dependent) | Ceiling speakers |
+| **USB-C (DP Alt)** | 4K @ 60Hz | 5m | Laptop to display |
+
+### Cable Management Best Practices
+
+| Practice | Detail |
+|----------|--------|
+| **Cable Trunking** | PVC ya metal trunking se cables organize karo |
+| **Labeling** | Har cable ke dono ends pe label lagao |
+| **Separation** | Power cables se AV cables alag rakho (interference) |
+| **Service Loops** | Device ke paas 30cm extra cable rakho maintenance ke liye |
+| **Conduit** | Walls ke andar conduit mein cables daalo |
+| **Color Coding** | HDMI = Blue, Audio = Red, Speaker = Yellow — convention follow karo |
+
+CALLOUT:warning:⚠️:Warning:HDMI cable 15m se zyada lambi ho toh **active HDMI cable** ya **fiber optic HDMI** use karo. Passive HDMI 15m ke baad signal loss aur flickering start ho jaati hai.
+
+---
+
+## 18.7 AV Equipment Prices
+
+### Projector Price Table (India, 2026)
+
+| Brand | Model | Type | Brightness | Throw | Price (INR) |
+|-------|-------|------|-----------|-------|-------------|
+| **Epson** | EB-X57 | LCD | 3,800 lm | Standard | Rs.42,000 |
+| **Epson** | EB-U52 | LCD | 3,000 lm | Standard | Rs.55,000 |
+| **Epson** | EB-L520U | Laser | 5,200 lm | Standard | Rs.1,85,000 |
+| **BenQ** | MW560 | DLP | 4,000 lm | Standard | Rs.38,000 |
+| **BenQ** | LU935 | Laser | 6,000 lm | Standard | Rs.2,90,000 |
+| **BenQ** | TH671ST | DLP | 3,000 lm | Short Throw | Rs.65,000 |
+| **ViewSonic** | PA503S | DLP | 3,800 lm | Standard | Rs.32,000 |
+| **Sony** | VPL-DX221 | LCD | 3,500 lm | Standard | Rs.48,000 |
+
+### Speaker & Audio Price Table (India, 2026)
+
+| Brand | Model | Type | Power | Price (INR) |
+|-------|-------|------|-------|-------------|
+| **JBL** | Control 24CT | Ceiling Speaker | 30W | Rs.6,500/piece |
+| **JBL** | Control 25-1 | Ceiling Speaker | 20W | Rs.4,800/piece |
+| **JBL** | PRX412M | Stage Monitor | 350W | Rs.45,000/piece |
+| **Bose** | FreeSpace 3 | Ceiling Speaker | 20W | Rs.12,000/piece |
+| **Bose** | FreeSpace 6T | Ceiling Speaker | 40W | Rs.18,500/piece |
+| **Bose** | L1 Compact | Portable PA | 160W | Rs.85,000 |
+| **QSC** | AD-C4T | Ceiling Speaker | 40W | Rs.8,000/piece |
+| **Yamaha** | NS-AC722 | Ceiling Speaker | 20W | Rs.3,500/piece |
+
+### Display & Video Wall Price Table (India, 2026)
+
+| Brand | Model | Size | Type | Price (INR) |
+|-------|-------|------|------|-------------|
+| **Samsung** | QM75C | 75" | Commercial LCD | Rs.1,85,000 |
+| **Samsung** | QM85C | 85" | Commercial LCD | Rs.3,20,000 |
+| **LG** | 55UH5N-E | 55" | IPS Video Wall | Rs.65,000/panel |
+| **LG** | 55VH7J | 55" | Video Wall (0.44mm) | Rs.1,50,000/panel |
+| **BenQ** | RP75 | 75" | Interactive Display | Rs.3,50,000 |
+| **ViewSonic** | TD2455 | 24" | Touch Display | Rs.22,000 |
+
+### Amplifier & DSP Price Table (India, 2026)
+
+| Brand | Model | Type | Power | Price (INR) |
+|-------|-------|------|-------|-------------|
+| **JBL** | CSA240Z | Mixer Amplifier | 240W | Rs.35,000 |
+| **QSC** | CX302V | Power Amplifier | 300W x 2 | Rs.55,000 |
+| **Yamaha** | MTX3 | Matrix Processor | DSP | Rs.1,20,000 |
+| **Shure** | P300 | IntelliMix DSP | DSP | Rs.85,000 |
+| **Biamp** | TesiraFORTE | DSP Processor | DSP | Rs.1,50,000 |
+
+CALLOUT:info:ℹ️:Note:Yeh prices 2026 ke approximate market rates hain. Bulk orders mein 10–20% discount mil jaata hai. Hamesha authorized dealer se hi purchase karo — warranty aur service guarantee milti hai.
+
+---
+
+## 18.8 Troubleshooting — AV Problems aur Solutions
+
+### Common AV Problems
+
+| # | Problem | Possible Cause | Solution |
+|---|---------|---------------|----------|
+| 1 | **Projector mein kuch nahi aa raha** | Source select galat hai | Remote se correct HDMI/VGA source select karo |
+| 2 | **Projector mein image blur hai** | Focus adjustment galat | Manual focus ring adjust karo |
+| 3 | **Projector overheating ho raha hai** | Air filter blocked, dust | Air filter saaf karo ya replace karo;周围 ventilation ensure karo |
+| 4 | **Speaker se awaaz nahi aa rahi** | Amplifier OFF hai ya cable loose | Amplifier ON karo, cable connections check karo |
+| 5 | **Video wall mein 1 panel blank hai** | Cable loose ya panel fault | HDMI/DP cable reseat karo, agar nahi toh panel replace |
+| 6 | **Conference call mein echo aa raha hai** | Echo cancellation ON nahi hai | DSP mein AEC (Acoustic Echo Cancellation) enable karo |
+| 7 | **HDMI mein flickering aa rahi hai** | Cable too long ya damaged | Shorter/active HDMI cable use karo |
+| 8 | **Ceiling speaker mein se awaaz kam aa rahi hai** | Impedance mismatch ya amplifier low | Amplifier gain badhao, speaker tap setting check karo |
+| 9 | **Display ka colour galat aa raha hai** | Source setting ya cable issue | Display settings reset karo, cable replace karo |
+| 10 | **Digital signage content nahi dikh raha** | Media player OFF ya network issue | Media player restart karo, network check karo |
+
+CALLOUT:warning:⚠️:Warning:AV equipment service karte waqt **power OFF karo pehle!** Speaker wires mein 70V/100V hota hai jo **jaanleva** ho sakta hai. Projector ki bulb/laser module mein **UV radiation** hoti hai — directly mat dekho.
+
+### Quick Troubleshooting Flowchart
+
+```
+AV PROBLEM HAI?
+      |
+      v
+DISPLAY KA ISSUE HAI?
+   |          |
+  HAAN       NAHI
+   |          |
+   v          v
+SOURCE CHECK   AUDIO KA ISSUE HAI?
+-> Cable check      |          |
+-> Input select    HAAN       NAHI
+-> Keystone       |          |
+   |              v          v
+   v          AMP CHECK    BOTH (CONFERENCING)
+DISPLAY THIK?   |              |
+   |          SPEAKER CHECK   MIC + SPEAKER
+  HAAN       -> Cable         -> DSP CHECK
+   |          -> Tap setting   -> Echo C
+PROBLEM SOLVED!
+```
+
+---
+
+## Chapter Summary
+
+| Topic | Key Point |
+|-------|-----------|
+| **AV Solutions** | Audio-Visual — display, audio, conferencing, control |
+| **Projector** | LCD, LED, Laser — lumens, throw ratio, mounting important |
+| **Video Wall** | Multiple displays, seamless, commercial-grade panels |
+| **PA System** | 70V/100V line — speakers series mein lagte hain, long distance |
+| **Conference Room** | Display + Speaker + Mic + VC Kit + DSP — sab alag se |
+| **Cabling** | HDMI (<15m passive), Speaker wire, Fiber HDMI (long run) |
+| **Brands** | Epson, BenQ (projector), JBL, Bose (audio), Samsung, LG (display) |
+| **Safety** | Power OFF, 70V/100V danger, ventilation for projector |
+
+> **Trainer Note:** AV installations seekhna CCTV technicians ke liye **revenue booster** hai. Office mein CCTV + Access Control + Intercom + AV sab ek saath install karke **"Complete Smart Office Package"** banao. Client ko ek vendor se sab milta hai toh woh khush rehta hai aur tumhara contract bhi bada hota hai. Practical mein ek conference room setup zaroor try karo — display + speakers + mic sab connect karo!
+
+---
+
+**End of Chapter 18**
+
+
+---
+
+# Chapter 19: Smart Door Locks & Intrusion Detection — Ghar Ko Safe Kaise Banaye?
+
+---
+
+> **[INFO] :bulb: Chapter Overview:** Aaj kal sirf CCTV camera lagana kaafi nahi hai. Ghar aur office ko safe banane ke liye **Smart Door Locks** aur **Intrusion Detection Systems** bhi zaroori hain. Yeh chapter aapko sikhayega ki smart locks kaise kaam karte hain, kaunse brands available hain, kaise install karein, aur alarm systems kaise setup karein. CCTV + Smart Lock + Alarm = **Complete Security System!**
+
+---
+
+## 19.1 Smart Door Lock Kya Hai?
+
+### 19.1.1 Definition
+
+**Smart Door Lock** — Yeh ek electronic lock hai jo traditional key ki jagah **fingerprint, PIN code, RFID card, Bluetooth, ya WiFi** se unlock hota hai. Isko phone se bhi control kar sakte ho.
+
+[TERM] Smart Lock = Intelligent Lock = Electronic Lock = Digital Lock
+[TERM] Biometric = Fingerprint based = Anguli chhap se kaam karne wala
+[TERM] Access Control = Kaun darwaza khol sakta hai — iska control
+
+### 19.1.2 Smart Lock Types
+
+| Type | Kaise Kaam Karta Hai | Price Range (INR) | Best For |
+|------|---------------------|-------------------|----------|
+| **Fingerprint Lock** | Ungli rakhni hai — scan hoga — unlock | ₹8,000 – ₹25,000 | Main door, office |
+| **PIN Code Lock** | Code dalna hai (4-8 digit) — unlock | ₹5,000 – ₹15,000 | Budget homes |
+| **RFID/Card Lock** | Card ya fob tagaaro — unlock | ₹6,000 – ₹18,000 | Hotels, offices |
+| **Bluetooth Lock** | Phone ke Bluetooth se — paas aao — unlock | ₹7,000 – ₹20,000 | Tech-savvy users |
+| **WiFi Lock** | Internet se kahin se bhi control karo | ₹10,000 – ₹35,000 | Smart homes |
+| **Multi-Mode Lock** | Fingerprint + PIN + Card + Key sab milega | ₹12,000 – ₹40,000 | Premium homes |
+
+### 19.1.3 Why Smart Lock Zaroori Hai?
+
+1. **Key Lost Problem** — Traditional key kho gayi toh lock change karo. Smart lock mein PIN ya fingerprint se unlock
+2. **Multiple Users** — Ghar ke sab log apna fingerprint ya code set kar sakte hain
+3. **Remote Access** — Kahi se bhi phone se lock/unlock karo
+4. **Entry Log** — Pata chalega kaun kab aaya aur kab gaya
+5. **Auto-Lock** — Darwaza band hote hi automatically lock
+6. **Temporary Access** — Guests ko temporary code de sakte ho (expiry ke baad kaam nahi karega)
+
+> **[TIP] :bulb: Pro Tip:** Smart lock lagane se pehle darwaze ki **thickness** aur **material** check karo. Wooden door, metal door, aur glass door — sab ke liye alag lock hota hai.
+
+---
+
+## 19.2 Smart Lock Brands — Kaunsa Best Hai?
+
+### 19.2.1 Brand Comparison Table
+
+| Brand | Country | Popular Models | Price Range (INR) | Warranty | Rating |
+|-------|---------|---------------|-------------------|----------|--------|
+| **Godrej** | India | Qualis, Advantis, Pristine | ₹8,000 – ₹35,000 | 2 years | ⭐⭐⭐⭐ |
+| **Yale** | USA | Conexis, Assure, Linus | ₹12,000 – ₹45,000 | 2-3 years | ⭐⭐⭐⭐⭐ |
+| **Samsung** | Korea | SHP-DP609, SHP-P72 | ₹15,000 – ₹50,000 | 1-2 years | ⭐⭐⭐⭐ |
+| **Dorma** | Germany | ES 200, IT 60 | ₹18,000 – ₹55,000 | 2 years | ⭐⭐⭐⭐⭐ |
+| **Hager** | Germany | Valetto, Solenio | ₹15,000 – ₹40,000 | 2 years | ⭐⭐⭐⭐ |
+| **Ozone** | India | V5, V8, SPARSH | ₹6,000 – ₹25,000 | 1-2 years | ⭐⭐⭐ |
+| **Hettich** | Germany | Locksmart | ₹12,000 – ₹30,000 | 2 years | ⭐⭐⭐⭐ |
+
+### 19.2.2 Budget-Friendly Options (India)
+
+| Model | Brand | Type | MRP (INR) | Online Price |
+|-------|-------|------|-----------|--------------|
+| Godrej Qualis | Godrej | Fingerprint + PIN | ₹12,999 | ₹10,499 |
+| Yale Conexis L2 | Yale | Multi-mode | ₹24,999 | ₹19,999 |
+| Samsung SHP-DP609 | Samsung | PIN + Card + Key | ₹18,999 | ₹15,499 |
+| Ozone SPARSH | Ozone | Fingerprint + PIN | ₹8,499 | ₹6,999 |
+| CP Plus Smart Lock | CP Plus | Fingerprint + WiFi | ₹11,999 | ₹9,499 |
+
+---
+
+## 19.3 Smart Lock Installation
+
+### 19.3.1 Door Compatibility Check
+
+| Door Type | Compatible? | Special Requirement |
+|-----------|-------------|-------------------|
+| Wooden Door (40-50mm) | ✅ Haan | Standard installation |
+| Wooden Door (50-70mm) | ✅ Haan | Longer screws lagao |
+| Metal/Steel Door | ✅ Haan | Metal drill bit chahiye |
+| Glass Door | ⚠️ Special Lock | Glass door specific lock lagao |
+| UPVC/PVC Door | ✅ Haan | Adapter lagana padega |
+| Main Gate (Iron) | ⚠️ Weather-proof Lock | Outdoor rated lock chahiye |
+
+### 19.3.2 Installation Steps
+
+`
+SMART LOCK INSTALLATION PROCEDURE:
+
+Step 1: DOOR MEASUREMENT
+  -> Door thickness measure karo (mm mein)
+  -> Backset measure karo (edge se center tak)
+  -> Standard backset: 60mm ya 70mm
+  -> Cross bore hole: 20mm (key hole)
+
+Step 2: OLD LOCK REMOVAL
+  -> Power OFF (agar electrical hai)
+  -> Old lock screws nikalo
+  -> Old lock body bahar nikalo
+  -> Hole saaf karo
+
+Step 3: MOUNTING PLATE
+  -> Mounting plate andar ki side lagao
+  -> Screws se tight karo
+  -> Ensure plate properly aligned hai
+
+Step 4: LOCK BODY INSTALLATION
+  -> Lock body bahar ki side lagao
+  -> Cables andar bhejo (drilled hole se)
+  -> Screws se secure karo
+
+Step 5: WIRING CONNECTION
+  -> Cable connect karo control panel se
+  -> Battery compartment check karo
+  -> Test connection
+
+Step 6: PROGRAMMING
+  -> Admin fingerprint/code set karo
+  -> User codes add karo
+  -> Auto-lock timer set karo
+  -> Test all modes
+
+Step 7: FINAL TESTING
+  -> Fingerprint test karo (5-6 baar)
+  -> PIN code test karo
+  -> Card test karo
+  -> Manual key test karo
+  -> Auto-lock test karo
+`
+
+### 19.3.3 Battery Backup
+
+| Feature | Details |
+|---------|---------|
+| **Battery Type** | 4x AA alkaline batteries |
+| **Battery Life** | 6-12 months (normal use) |
+| **Low Battery Warning** | Beep + LED indicator |
+| **Emergency Power** | 9V battery se temporarily power do |
+| **External Power** | USB-C port (kuch models mein) |
+
+> **[WARN] :warning: Important:** Battery khatam hone se pehle replace karo! Agar battery dead ho gayi aur PIN/fingerprint kaam nahi karta, toh **emergency key** se kholna padega. Hamesha ek extra key ghar ke bahar kisi trusted jagah rakho.
+
+---
+
+## 19.4 Intrusion Detection System — Kya Hai?
+
+### 19.4.1 Definition
+
+**Intrusion Detection System (IDS)** — Yeh ek system hai jo unauthorized entry ko detect karta hai aur alarm bajata hai. Matlab: agar koi bina permission ke ghar mein ghusne ki koshish kare, toh system detect karke alert dega.
+
+[TERM] Intrusion = Ghusna = Unauthorized Entry = Bina ijazat ke andar aana
+[TERM] Detection = Pata lagana = Sense karna
+[TERM] Perimeter = Building ka boundary = Bahar ki deewar
+
+### 19.4.2 PIR Sensors (Passive Infrared)
+
+**PIR Sensor** — Yeh sensor **body heat** (infrared radiation) detect karta hai. Jab koi insaan movement kare, toh PIR sensor ko pata chalta hai.
+
+| Feature | Details |
+|---------|---------|
+| **Detection Range** | 5-12 meters |
+| **Detection Angle** | 90° to 120° |
+| **Mounting Height** | 2.1 - 2.4 meter |
+| **Best Position** | Corner se opposite corner |
+| **False Alarm Cause** | Pets, AC vent, direct sunlight |
+
+**PIR Sensor Placement:**
+
+`
+ROOM LAYOUT — PIR SENSOR POSITION
+
+    +------------------------------------------+
+    |                                          |
+    |   [PIR]                                  |
+    |    \                                     |
+    |     \  (Detection Zone)                  |
+    |      \                                  |
+    |       \                                 |
+    |        \                                |
+    |         *                               |
+    |       (Person)                          |
+    |                                          |
+    |              Door                        |
+    |              [DS]                        |
+    +------------------------------------------+
+    
+    [PIR] = PIR Sensor (corner mounted)
+    [DS]  = Door Sensor
+    *     = Detection point
+`
+
+### 19.4.3 Door/Window Sensors
+
+**Magnetic Contact Sensor** — Yeh do parts se banta hai: **magnet** (door pe) aur **sensor** (frame pe). Jab door khule, magnet door se hat'ti hai, aur sensor alarm trigger karta hai.
+
+| Type | Range | Battery Life | Price (INR) |
+|------|-------|-------------|-------------|
+| **Wired Magnetic Contact** | N/A (wire se connected) | N/A | ₹100 – ₹300 |
+| **Wireless Magnetic Contact** | 50-300m | 2-3 years | ₹300 – ₹800 |
+| **Recessed Contact** | N/A | N/A | ₹200 – ₹500 |
+
+---
+
+## 19.5 Alarm System Components
+
+### 19.5.1 Complete Alarm System
+
+| Component | Kya Karta Hai | Price Range (INR) |
+|-----------|--------------|-------------------|
+| **Control Panel** | System ka brain — sab sensors se data leta hai | ₹3,000 – ₹15,000 |
+| **PIR Sensor** | Movement detect karta hai | ₹500 – ₹2,000 |
+| **Door/Window Sensor** | Darwaza/khidki ka status detect | ₹300 – ₹800 |
+| **Glass Break Sensor** | Sheeshe ke tootne ki aawaaz detect | ₹500 – ₹1,500 |
+| **Smoke Detector** | Dhuaan detect karta hai | ₹500 – ₹2,000 |
+| **Siren (Indoor)** | 85-110 dB alarm bajata hai | ₹300 – ₹1,000 |
+| **Siren (Outdoor)** | 120+ dB — bahar sunayi de | ₹800 – ₹3,000 |
+| **Keypad** | PIN se arm/disarm karo | ₹500 – ₹2,000 |
+| **Remote Fob** | Remote se control karo | ₹300 – ₹1,000 |
+| **GSM Module** | SMS/Call alert bhejta hai | ₹1,000 – ₹3,000 |
+
+### 19.5.2 Alarm Panel Features
+
+`
+ALARM CONTROL PANEL LAYOUT
+
+    +-------------------------------+
+    |      ALARM CONTROL PANEL      |
+    +-------------------------------+
+    |                               |
+    |   [ARM]  [DISARM]  [STATUS]  |
+    |                               |
+    |   Zone 1: Front Door  [OK]    |
+    |   Zone 2: Back Door   [OK]    |
+    |   Zone 3: Living Room [OK]    |
+    |   Zone 4: Bedroom     [OK]    |
+    |   Zone 5: Window 1    [OK]    |
+    |                               |
+    |   [BELL]   [BATTERY]  [GSM]   |
+    |   READY    FULL       CONNECT |
+    |                               |
+    +-------------------------------+
+`
+
+---
+
+## 19.6 Wired vs Wireless Alarm System
+
+### 19.6.1 Comparison
+
+| Feature | Wired System | Wireless System |
+|---------|-------------|-----------------|
+| **Installation** | Difficult — wire banana padta hai | Easy — wire nahi lagana |
+| **Cost (Installation)** | ₹5,000 – ₹15,000 (labor) | ₹0 – ₹3,000 |
+| **Reliability** | Very High — wire se connected | Good — battery/RF dependent |
+| **Interference** | Nahi hota | WiFi/Bluetooth se interfere ho sakta hai |
+| **Maintenance** | Kam — wire check karo | Battery change karna padta hai |
+| **Expansion** | New wire banana padta hai | Naya sensor add karo — done |
+| **Best For** | New construction, large buildings | Existing homes, rental flats |
+| **Lifespan** | 15-20 years | 5-8 years |
+| **Total Cost (10 sensors)** | ₹25,000 – ₹60,000 | ₹15,000 – ₹40,000 |
+
+### 19.6.2 When to Use Which?
+
+| Situation | Recommended |
+|-----------|-------------|
+| Naya ghar ban raha hai (construction) | **Wired** |
+| Existing ghar mein lagana hai | **Wireless** |
+| Office building (large) | **Wired** |
+| Rental flat | **Wireless** |
+| Budget kam hai | **Wireless** (initial cost kam) |
+| Maximum reliability chahiye | **Wired** |
+| Server room / high security | **Wired + Wireless backup** |
+
+---
+
+## 19.7 Integration with CCTV — Alarm + Camera Ka Power Combo
+
+### 19.7.1 How Alarm Triggers Camera Recording
+
+`
+INTEGRATION FLOW:
+
+Alarm Sensor Detects Intrusion
+         |
+         v
+Control Panel Processes Signal
+         |
+         +---> Siren Bajao (120 dB)
+         |
+         +---> SMS/Call Alert to Owner
+         |
+         +---> CCTV Camera Recording START (Alarm Input Port)
+         |
+         +---> Camera PTZ Move to Preset Position
+         |
+         +---> NVR Starts Event Recording
+         |
+         +---> Mobile App Notification + Snapshot
+`
+
+### 19.7.2 Connection Methods
+
+| Method | Kaise Connect Hota Hai | Price |
+|--------|----------------------|-------|
+| **Alarm Output → Camera Alarm Input** | Panel ka NO/NC output → Camera ka alarm input terminal | Free (wiring) |
+| **IP Network Integration** | Dono same network pe → NVR software se link | ₹0 – ₹5,000 (software) |
+| **Cloud Integration** | Third-party app se connect | ₹500 – ₹2,000/month |
+| **Hikvision AcuSense** | Hikvision alarm + camera auto-integrate | ₹0 (same brand) |
+| **CP Plus EzyKam** | CP Plus alarm + camera app se link | ₹0 (same brand) |
+
+### 19.7.3 What Happens When Alarm Triggers?
+
+| Step | Action | Time |
+|------|--------|------|
+| 1 | Sensor detects intrusion | 0 second |
+| 2 | Panel processes signal | 0.5 second |
+| 3 | Siren starts | 1 second |
+| 4 | Camera recording triggers | 1-2 seconds |
+| 5 | SMS/Call to owner | 2-5 seconds |
+| 6 | Mobile notification | 3-5 seconds |
+| 7 | Camera PTZ moves to target | 5-10 seconds |
+
+---
+
+## 19.8 Configuration Basics — System Setup
+
+### 19.8.1 Zone Setup
+
+**Zone** — Har sensor ek zone hota hai. Alarm panel mein zones define karte hain taaki pata chale ki problem kahan hai.
+
+| Zone | Location | Sensor Type | Response |
+|------|----------|-------------|----------|
+| Zone 1 | Main Door | Magnetic Contact | Instant Alarm |
+| Zone 2 | Back Door | Magnetic Contact | Instant Alarm |
+| Zone 3 | Living Room | PIR Motion | Delay 30 sec |
+| Zone 4 | Bedroom | PIR Motion | Delay 30 sec |
+| Zone 5 | Window 1 | Magnetic Contact | Instant Alarm |
+| Zone 6 | Window 2 | Magnetic Contact | Instant Alarm |
+| Zone 7 | Kitchen | Smoke Detector | Instant Alarm |
+| Zone 8 | Garage | PIR Motion | Delay 60 sec |
+
+### 19.8.2 Delay Timers
+
+| Timer Type | Duration | Kya Karta Hai |
+|------------|----------|---------------|
+| **Entry Delay** | 30-60 seconds | Darwaza khulne ke baad itna time — code dalne ke liye |
+| **Exit Delay** | 30-45 seconds | Arm karne ke baad itna time — ghar chhodne ke liye |
+| **Bell Timeout** | 5-15 minutes | Siren kitni der bajegi |
+
+> **[WARN] :warning: Important:** Entry delay bahut kam rakho (30 sec max). Agar delay zyada rakho toh chor ke paas system disarm karne ka time ho jayega!
+
+### 19.8.3 Arm/Disarm Modes
+
+| Mode | Description | Use Case |
+|------|-------------|----------|
+| **ARM HOME** | Sirf perimeter sensors active — andar ke PIR off | Raat ko ghar mein sab so rahe hain |
+| **ARM AWAY** | Sab sensors active — PIR + Door + Window | Ghar khali hai — bahar gaye |
+| **DISARM** | Sab sensors off — system inactive | Ghar mein log hain |
+| **INSTANT** | Bina delay ke — turant alarm | Emergency / High security |
+
+### 19.8.4 User Code Management
+
+| User | Code | Access Level |
+|------|------|-------------|
+| Admin (Owner) | 1234 (change karo!) | Full access — add/delete users |
+| Family Member 1 | 5678 | Arm/Disarm only |
+| Family Member 2 | 9012 | Arm/Disarm only |
+| Servant | 3456 | Limited hours (8 AM - 6 PM) |
+| Guest | 7890 | Temporary (24 hour expiry) |
+
+---
+
+## 19.9 Troubleshooting — Common Problems & Solutions
+
+### 19.9.1 Smart Lock Problems
+
+| Problem | Possible Cause | Solution |
+|---------|---------------|----------|
+| Fingerprint not detected | Wet/finger dirty | Clean finger, retry |
+| Fingerprint not detected | Sensor dirty | Clean sensor with soft cloth |
+| Lock not unlocking | Battery dead | Replace batteries immediately |
+| Lock not unlocking | Motor jammed | Manual key se kholo, service center |
+| Auto-lock not working | Timer setting wrong | Reconfigure auto-lock timer |
+| Card not reading | Card damaged | New card register karo |
+| WiFi not connecting | Router issue | Router restart karo |
+| Keypad not responding | Moisture/water damage | Dry karo, service center |
+| Lock beeping continuously | Low battery warning | Battery change karo |
+| Lock stuck | Internal gear issue | Lubricate karo, professional service |
+
+### 19.9.2 Alarm System Problems
+
+| Problem | Possible Cause | Solution |
+|---------|---------------|----------|
+| False alarm (raat ko) | Pet movement detected | Pet-immune PIR sensor lagao |
+| False alarm | AC vent directed at sensor | Sensor ki position badlo |
+| False alarm | Direct sunlight on sensor | Curtain ya cover lagao |
+| Siren not sounding | Siren wire loose | Wire check karo, re-connect |
+| Siren not sounding | Panel in bypass mode | Bypass mode se bahar nikalo |
+| Sensor not detecting | Battery low | Sensor battery change karo |
+| Sensor not detecting | Out of range | Sensor closer karo ya repeater lagao |
+| Door sensor false open | Magnet misaligned | Magnet ko properly align karo |
+| GSM not sending SMS | SIM card issue | SIM check karo, balance verify |
+| Panel keeps beeping | Tamper alarm | Panel cover properly close karo |
+| Keypad not accepting code | Wrong zone programming | Re-program keypad code |
+| All zones showing fault | Wiring issue (wired) | Wiring continuity check karo |
+
+### 19.9.3 Quick Troubleshooting Table
+
+| Issue | First Check | Second Check | Call Service If |
+|-------|------------|--------------|-----------------|
+| Smart lock stuck | Manual key try karo | Battery check karo | Motor burn |
+| False alarm | Sensor position check | Sensitivity reduce | Hardware fault |
+| No SMS alert | SIM balance check | GSM module power | Module dead |
+| Camera not recording on alarm | Alarm input wire check | NVR alarm setting | NVR port damage |
+| System not arming | Zone fault check | Code verify karo | Panel malfunction |
+
+---
+
+## Chapter 19 Summary Table
+
+| Section | Key Takeaway |
+|---------|-------------|
+| Smart Lock Types | Fingerprint, PIN, Card, WiFi, Bluetooth — sab ke alag fayde |
+| Brands | Godrej (budget), Yale (best), Samsung (popular), Dorma (premium) |
+| Installation | Door thickness check, mounting, wiring, programming — 7 steps |
+| Intrusion Detection | PIR sensor (movement) + Door sensor (magnetic) = complete coverage |
+| Alarm Components | Panel + Sensors + Siren + Keypad + GSM Module |
+| Wired vs Wireless | New build = wired, Existing = wireless |
+| CCTV Integration | Alarm trigger → Camera recording + SMS alert |
+| Configuration | Zone setup, delay timers, arm/disarm modes |
+| Troubleshooting | Battery, position, alignment — first 3 cheezein check karo |
+
+---
+
+> **Trainer Note:** Smart locks aur intrusion detection aaj kal har ghar mein demand mein hai. CCTV technician agar smart lock + alarm bhi install karna jaanta hai toh uski earning **2-3 guna** badh jaati hai. Students ko practical mein ek smart lock aur ek alarm panel zaroor dikhao. Unhe samjhao ki CCTV + Lock + Alarm = **Complete Security Package** — client ko ek hi jagah se sab milega!
+
+---
+
+**End of Chapter 19**
+
+---
+
+# Chapter 20: FUDS Services & Product Guide — Hamari Services Dekho!
+
+> **Trainer Note:** Yeh chapter FUDS International ke services aur products ka complete guide hai. Har technician ko pata hona chahiye ki company kya kya provide karti hai, kitne mein karti hai, aur client ko kaise book karna hai.
+
+---
+
+## 20.1 FUDS International Kya Hai?
+
+FUDS International Mumbai-based **security solutions company** hai jo CCTV, Access Control, AV Solutions, WiFi Networking, Intercom/EPABX, aur Cabling services provide karti hai. Hamara motto hai — **"Ek call pe security expert ghar pe!"**
+
+**Key Points:**
+- Head Office: Mumbai, Maharashtra
+- Services: Installation, Maintenance, Fault Finding, AMC
+- Products: CCTV cameras, NVR/DVR, Access Control, Smart Locks
+- Brands: CP Plus, Hikvision, Honeywell, Dahua, Yale, Godrej
+- Coverage: Greater Mumbai, Navi Mumbai, Thane, Panvel
+
+---
+
+## 20.2 CCTV Services
+
+Yeh hamara **core service** hai — CCTV se related har kaam karte hain.
+
+| Service | Price (₹) | Time |
+|---------|-----------|------|
+| HD Camera Installation | ₹499 | 30-45 min |
+| DVR Installation | ₹749 | 45-60 min |
+| Camera Shifting/Moving | ₹499 | 20-30 min |
+| Power Supply Check | ₹499 | 15-20 min |
+| HDD Check & Replacement | ₹699 | 20-30 min |
+| CCTV Password Reset | ₹999 | 15-20 min |
+| Camera Offline Issue Fix | ₹999 | 30-60 min |
+| Old Recording Backup (500GB) | ₹1,499 | 2-4 hrs |
+| Old Recording Backup (1TB) | ₹2,499 | 4-8 hrs |
+| VLAN Configuration | ₹1,499 | 1-2 hrs |
+| Lift Camera Installation | ₹999 | 1-2 hrs |
+
+> **Note:** Prices are per-camera/per-device basis. Site visit charges may apply for locations outside Mumbai city limits.
+
+---
+
+## 20.3 Access Control Services
+
+Access Control matlab — **door lock by card/fingerprint/PIN.** Offices, buildings, societies mein demand zyada hai.
+
+| Service | Price (₹) | Time |
+|---------|-----------|------|
+| EM Lock Installation | ₹749 | 45-60 min |
+| Access Controller Install | ₹1,499 | 1-2 hrs |
+| Access Control Fault Finding | ₹999 | 30-60 min |
+| Access Control Password Reset | ₹999 | 15-20 min |
+| Attendance Machine Installation | ₹1,499 | 1-2 hrs |
+| Turnstile Installation | ₹4,999 | 3-4 hrs |
+
+---
+
+## 20.4 AV Solutions
+
+Conference rooms, auditoriums, offices ke liye **Audio-Visual solutions** dete hain.
+
+| Service | Price (₹) | Time |
+|---------|-----------|------|
+| Projector Installation | ₹2,499 | 1-2 hrs |
+| Ceiling Speaker Installation | ₹799 | 30-45 min |
+
+---
+
+## 20.5 WiFi & Networking
+
+Aaj kal **WiFi cameras** aur **networking** bahut demand mein hai.
+
+| Service | Price (₹) | Time |
+|---------|-----------|------|
+| Router Installation & Config | ₹749 | 30-45 min |
+| WiFi Camera Installation | ₹699 | 30-45 min |
+| Network Rack Setup | ₹1,499 | 2-3 hrs |
+
+---
+
+## 20.6 Intercom / EPABX
+
+Buildings mein **internal communication** ke liye EPABX aur Video Door Phone lagte hain.
+
+| Service | Price (₹) | Time |
+|---------|-----------|------|
+| EPABX Install (Basic 4-Line) | ₹1,499 | 2-3 hrs |
+| EPABX Install (Advanced 8-Line) | ₹2,999 | 3-4 hrs |
+| Video Door Phone Install | ₹999 | 1-2 hrs |
+| Video Door Phone Install (Premium) | ₹1,499 | 1.5-2.5 hrs |
+
+---
+
+## 20.7 Cabling Services
+
+**Structured cabling** ke bina koi bhi system kaam nahi karta. Yeh foundation hai.
+
+**Types of Cabling:**
+- **Structured Cabling** — Cat6/Cat6a cable laying, patch panel termination, labeling
+- **Fiber Optic** — Single mode/multi mode fiber, OTDR testing, splicing
+- **Cable Tray** — GI tray, PVC tray, ladder tray installation
+- **Conduit Wiring** — Surface/concealed conduit for camera cables
+
+> **Note:** Cabling charges depend on site survey. Distance, floor count, and cable type ke basis pe final quote diya jaata hai. Free site survey available hai!
+
+---
+
+## 20.8 Products We Sell
+
+Hamare paas **sabhi major brands** ke products available hain.
+
+| Category | Brands | Products |
+|----------|--------|----------|
+| CCTV Cameras | CP Plus, Hikvision, Honeywell, Dahua | Bullet, Dome, PTZ, Floodlight, 4G Camera |
+| NVR / DVR | CP Plus, Hikvision | 4CH, 8CH, 16CH, 32CH — H.265+ Support |
+| Hard Disk | Seagate, WD Purple | 500GB, 1TB, 2TB, 4TB, 8TB Surveillance Grade |
+| Access Control | CP Plus, ZKTeco, eSSL | EM Lock, Controller, Card Reader, Fingerprint |
+| Smart Locks | Godrej, Yale, Samsung, Dorma | Fingerprint, PIN, Card, WiFi, Bluetooth |
+| Networking | TP-Link, D-Link, Netgear | Router, Switch, Patch Panel, Cable |
+| AV Products | BenQ, Epson, JBL, Bose | Projector, Speaker, Amplifier, Screen |
+| Intercom | CP Plus, Dahua, Samsung | EPABX, Video Door Phone, Intercom Kit |
+
+---
+
+## 20.9 How to Book a Service?
+
+Client ko **3 easy tarike** se service book kar sakti hai:
+
+**1. Website Booking:**
+- Visit: www.fudsinternational.com
+- "Book a Service" pe click karo
+- Service type select karo
+- Address aur time fill karo
+- Confirm button dabao — Done!
+
+**2. WhatsApp Booking:**
+- Hamare WhatsApp number pe message karo: "Mujhe CCTV install karwana hai"
+- Technician details aayenge
+- Date aur time confirm hoga
+- Address share karo — Technician aa jaayega!
+
+**3. Phone Call:**
+- Direct call karo hamare number pe
+- Executive se baat karo
+- Service type batao
+- Slot book ho jaayega
+
+> **Note:** Same day service available hai Mumbai city mein. advance payment nahi lagta — service ke baad cash/UPI payment karo.
+
+---
+
+## 20.10 Service Area & Pricing Notes
+
+**Coverage Areas:**
+
+| Zone | Areas Covered |
+|------|---------------|
+| South Mumbai | Colaba, Fort, Churchgate, Marine Drive, Dadar |
+| Central Mumbai | Parel, Matunga, Sion, Kurla, Ghatkopar |
+| Western Mumbai | Andheri, Goregaon, Malad, Borivali, Kandivali |
+| Eastern Mumbai | Chembur, Mulund, Thane, Kalyan, Dombivli |
+| Navi Mumbai | Vashi, Nerul, Belapur, Panvel, Kharghar |
+| Thane Region | Thane West, Thane East, Ghodbunder, Manpada |
+
+> **Important:** Pricing mentioned in this chapter are **base prices.** Final quotation pe site conditions, distance, and quantity ka impact padega. Bade projects ke liye **customized quotation** diya jaata hai. Free site survey Mumbai city ke andar available hai!
+
+---
+
+## Service Price Summary Table
+
+| # | Service | Price (₹) |
+|---|---------|-----------|
+| 1 | HD Camera Installation | ₹499 |
+| 2 | DVR Installation | ₹749 |
+| 3 | Camera Shifting | ₹499 |
+| 4 | Power Supply Check | ₹499 |
+| 5 | HDD Check | ₹699 |
+| 6 | Password Reset (CCTV) | ₹999 |
+| 7 | Camera Offline Fix | ₹999 |
+| 8 | Old Recording Backup | ₹1,499–2,499 |
+| 9 | VLAN Configuration | ₹1,499 |
+| 10 | Lift Camera | ₹999 |
+| 11 | EM Lock Installation | ₹749 |
+| 12 | Access Controller Install | ₹1,499 |
+| 13 | Access Control Fault Finding | ₹999 |
+| 14 | Access Control Password Reset | ₹999 |
+| 15 | Attendance Machine | ₹1,499 |
+| 16 | Turnstile Installation | ₹4,999 |
+| 17 | Projector Installation | ₹2,499 |
+| 18 | Ceiling Speaker | ₹799 |
+| 19 | Router Installation | ₹749 |
+| 20 | WiFi Camera Installation | ₹699 |
+| 21 | Network Rack Setup | ₹1,499 |
+| 22 | EPABX Install (Basic) | ₹1,499 |
+| 23 | EPABX Install (Advanced) | ₹2,999 |
+| 24 | Video Door Phone | ₹999–1,499 |
+
+---
+
+> **Trainer Note:** Har technician ko yeh pricing yaad honi chahiye. Client call kare toh turant bata sake ki kitna lagega. Agar koi special discount dena ho toh **head office se approval** lena zaroori hai. Hamesha pehle service karo, phir payment lo — yeh hamari company ki policy hai!
+
+---
+
+**End of Chapter 20**
+
+---
 
