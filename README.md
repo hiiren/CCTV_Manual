@@ -28,72 +28,36 @@ start http://localhost:8080/manual.html
 ## Features
 
 ### Manual Viewer (`manual.html`)
-- **Light Theme** - Clean, classroom-friendly design
+- **Light Theme** - Clean, classroom-friendly design (default)
+- **Dark Theme** - Toggle with button (optional)
 - **Interactive Sidebar** - Auto-generated chapter navigation with scroll spy
 - **Search** - Find any text instantly across all chapters
 - **Presentation Mode** - Press `F` for fullscreen, optimized for 1080p projectors
 - **Keyboard Navigation** - Arrow keys to scroll, Escape to close panels
 - **Font Size Control** - A-/A+ buttons for readability
-- **Image Placeholders** - Yellow boxes for missing images (25 JPGs are placeholders)
-- **Diagram Placeholders** - Blue boxes for missing diagrams (now 24 SVG diagrams added)
-- **Linked Images** - Green bordered, centered and scaled
+- **25 Real Stock Photos** - Pexels free photos replacing all placeholders
+- **54 SVG Diagrams** - Technical diagrams for networking, CCTV, access control
 - **Callout Boxes** - Warning, Tip, Best Practice, Tool Required
 - **Status Panel** - Real-time image/diagram counts
 - **Interactive Wiring Diagrams** - Click components to see details
-- **YouTube Video Embeds** - Video cards for each chapter
-
-### AI Chatbot
-- Built-in AI assistant that answers questions about CCTV installation
-- Trained on the manual content
-- Works in Hinglish (Hindi + English)
-- Answers troubleshooting queries, explains concepts, and provides tips
+- **YouTube Video Embeds** - Video cards for all 14 chapters
+- **AI Chatbot** - Built-in assistant for real-time Q&A (Hinglish)
 
 ---
 
-## MCP Server Configuration
+## QA Status
 
-The project uses 7 MCP (Model Context Protocol) servers via opencode:
+| Metric | Result |
+|--------|--------|
+| Test Cases | 26 |
+| Pass Rate | 96.2% (25/26) |
+| Images Loaded | 58/59 (1 known headless-only issue) |
+| Tables | 540 |
+| Code Blocks | 369 |
+| Callouts | 52 |
+| Nav Links | 251 |
 
-| Server | Purpose |
-|--------|---------|
-| `notebooklm` | AI-powered Q&A on manual content |
-| `puppeteer` | Browser automation and screenshot testing |
-| `memory` | Persistent context across sessions |
-| `filesystem` | Read/write project files |
-| `fetch` | Fetch URLs, YouTube metadata, APIs |
-| `github` | Push to GitHub and deploy |
-| `playwright` | Browser testing and screenshots |
-
-Configuration is in `opencode.json`.
-
----
-
-## OpenCode Plugins
-
-The project uses 5 OpenCode plugins for enhanced AI-assisted development:
-
-| Plugin | Purpose |
-|--------|---------|
-| `@franlol/opencode-md-table-formatter` | Auto-formats markdown tables with proper alignment |
-| `opencode-firecrawl` | Web scraping, crawling, and search for research |
-| `opencode-conductor` | Structured Context → Spec → Plan → Implement workflow |
-| `opencode-goal-plugin` | Session-scoped goals with auto-continuation |
-| `opencode-supermemory` | Persistent memory across sessions |
-
-### Available Commands
-
-| Command | Plugin | Description |
-|---------|--------|-------------|
-| `/conductor:setup` | conductor | Initialize project structure |
-| `/conductor:newTrack` | conductor | Create feature/bug track |
-| `/conductor:implement` | conductor | Execute implementation |
-| `/goal` | goal-plugin | Set auto-continuing goal |
-| `/supermemory-init` | supermemory | Memorize codebase |
-
-### Authentication Required
-
-- **Firecrawl:** `npx -y firecrawl-cli@latest init --all -k <your-api-key>` (free at firecrawl.dev)
-- **Supermemory:** `npx opencode-supermemory@latest login` (free account)
+See `TEST_REPORT.md` for full details.
 
 ---
 
@@ -133,15 +97,13 @@ The project uses 5 OpenCode plugins for enhanced AI-assisted development:
 
 | Item | Status |
 |------|--------|
-| Manual Content (14 chapters) | 100% Complete |
-| HTML Viewer | 100% Complete |
-| Images (25 placeholder JPGs + 25 SVG diagrams) | 100% Coverage |
-| Diagrams (24 SVG technical diagrams) | 100% Coverage |
-| Interactive Wiring Diagrams | Complete |
-| AI Chatbot | Complete |
-| GitHub Pages Deployment | Live |
-
-> **Note:** The 25 JPG images in `images/` are currently placeholder/dummy images. These will be replaced with real CCTV equipment photos (from Unsplash/Pexels free stock) in a future update.
+| Manual Content (14 chapters) | ✅ Complete |
+| HTML Viewer (light+dark, presentation, chatbot) | ✅ Complete |
+| Images (25 real Pexels stock photos) | ✅ Complete |
+| SVG Diagrams (54 technical diagrams) | ✅ Complete |
+| YouTube Videos (14 chapters configured) | ✅ Complete |
+| QA Testing (96.2% pass rate) | ✅ Complete |
+| GitHub Pages Deployment | ⬜ Pending (enable in Settings) |
 
 ---
 
@@ -154,40 +116,17 @@ CCTV_Installation_Manual/
 ├── manual.html                  <- HTML viewer with AI chatbot
 ├── index.html                   <- Status dashboard
 ├── opencode.json                <- MCP server config + plugins
-├── package.json                 <- Node.js dependencies (goal-plugin)
-├── package-lock.json            <- Dependency lock file
-├── project.md                   <- Project summary
-├── Promt.md                     <- Master prompt
-├── STATUS.md                    <- Project status
+├── TEST_REPORT.md               <- QA test results (26 cases)
+├── REVAMP_TRACKER.md            <- 7-phase progress tracker
 │
-├── images/                      <- All images (70+ files)
-│   ├── 01_dome_camera.jpg       <- 25 placeholder JPGs (to be replaced with real photos)
-│   ├── ... (25 equipment placeholders)
-│   ├── diagram_*.svg            <- 24 technical SVG diagrams
-│   ├── old_vs_modern_cctv.svg   <- SVG illustration placeholders
-│   └── All25Images.png          <- Combined reference image
+├── images/                      <- 79 files (25 JPGs + 54 SVGs)
+│   ├── 01_dome_camera.jpg       <- Real Pexels stock photos
+│   ├── ... (25 equipment photos)
+│   ├── exam_station_layout.svg  <- Technical SVG diagrams
+│   └── ... (54 SVG diagrams)
 │
-└── diagrams/                    <- Diagram source files
-    ├── ALL_DIAGRAMS.md
-    ├── foundation_dimensions.svg
-    ├── outdoor_unit_anatomy.svg
-    ├── indoor_monitor.svg
-    └── exam_station_layout.svg
+└── diagrams/                    <- Diagram source files (4 SVGs)
 ```
-
----
-
-## How It Was Built
-
-This project was built using **opencode** with 7 MCP servers and 5 plugins:
-
-1. **Content Generation** - 14 chapters of CCTV training content generated via AI
-2. **UI Design** - HTML/CSS/JS viewer built with vanilla JS (no frameworks)
-3. **Diagrams** - 24 SVG technical diagrams (LAN, WAN, IPv4, access control, etc.)
-4. **Images** - 25 placeholder JPGs + 24 SVG illustrations (real photos pending)
-5. **Interactive Features** - Wiring diagrams, video embeds, search, presentation mode
-6. **AI Chatbot** - Built-in assistant for real-time Q&A
-7. **Deployment** - Pushed to GitHub and deployed to GitHub Pages
 
 ---
 
