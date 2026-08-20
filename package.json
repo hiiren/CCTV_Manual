@@ -1,0 +1,26 @@
+{
+  "name": "cctv_installation_manual",
+  "version": "1.0.0",
+  "description": "A comprehensive, beginner-friendly training manual for CCTV installation technicians, diploma students, internships, electricians, and freshers. Written in Hinglish (Hindi + English mix) with a practical-first approach.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiiren/CCTV_Manual.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiiren/CCTV_Manual/issues"
+  },
+  "homepage": "https://github.com/hiiren/CCTV_Manual#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "express": "^5.2.1"
+  }
+}

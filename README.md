@@ -36,10 +36,11 @@ start http://localhost:8080/manual.html
 - **YouTube Video Embeds** — Video cards for all chapters
 - **AI Chatbot** — Built-in assistant for real-time Q&A (Hinglish)
 
-### Chatbot Upgrade Plan (Phase 9)
-- Current: Keyword-matching (100+ topics, all 20 chapters covered)
-- Target: NotebookLM AI-powered (full manual knowledge)
-- Free tier: 50 queries/day
+### Chatbot (AI + Keyword Fallback)
+- **Local mode:** NotebookLM MCP-powered (100+ topics, full manual knowledge)
+- **GitHub Pages:** Keyword-matching fallback (100+ topics, all 20 chapters)
+- **First time setup:** `npm start` → visit `/api/auth` → login with Google
+- **Free tier:** 50 queries/day via NotebookLM
 
 ---
 

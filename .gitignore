@@ -1,0 +1,5 @@
+node_modules/
+.firecrawl/
+.opencode/
+fix_images.py
+test_images.py

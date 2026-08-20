@@ -71,14 +71,15 @@
 
 | Step | Task                                             | Status      |
 | ---- | ------------------------------------------------ | ----------- |
-| 9.1  | Create NotebookLM notebook for manual content    | ⬜ Pending  |
-| 9.2  | Upload CCTV_Training_Manual.md as source         | ⬜ Pending  |
-| 9.3  | Configure chatbot to query NotebookLM API        | ⬜ Pending  |
-| 9.4  | Add fallback for offline mode                     | ⬜ Pending  |
+| 9.1  | Create server.js (Node.js MCP bridge)            | ✅ Complete |
+| 9.2  | Chatbot calls server API with keyword fallback   | ✅ Complete |
+| 9.3  | Create NotebookLM notebook for manual content    | ⬜ Pending  |
+| 9.4  | Upload CCTV_Training_Manual.md as source         | ⬜ Pending  |
 | 9.5  | Test chatbot accuracy across all 20 chapters     | ⬜ Pending  |
-| 9.6  | Update manual.html chatbot UI                     | ⬜ Pending  |
+| 9.6  | Add fallback for GitHub Pages (offline mode)     | ✅ Complete |
 
 **Phase 9 Target:** AI chatbot with full manual knowledge, 50 queries/day free
+**Status:** Server ready, needs Google auth + notebook setup (manual one-time steps)
 
 ---
 

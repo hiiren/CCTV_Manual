@@ -700,6 +700,25 @@ function loadFile(file) {
 tryAutoLoad();
 
 /* ===== AI CHATBOT ===== */
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:3000' : '';
+let chatMode = 'keyword'; // 'keyword' | 'notebooklm'
+let notebooklmAvailable = false;
+
+// Check if server is running
+if (API_BASE) {
+  fetch(API_BASE + '/api/health', { signal: AbortSignal.timeout(3000) })
+    .then(r => r.json())
+    .then(d => {
+      if (d.status === 'online') {
+        notebooklmAvailable = true;
+        chatMode = 'notebooklm';
+        console.log('[Chat] NotebookLM connected');
+      }
+    })
+    .catch(() => { console.log('[Chat] Server offline, using keyword mode'); });
+}
+
 function toggleChat() {
   const panel = document.getElementById('chat-panel');
   panel.classList.toggle('open');
@@ -725,7 +744,35 @@ function sendChat() {
   if (!q) return;
   input.value = '';
   addChatMsg(q, true);
-  setTimeout(function() { addChatMsg(getCCTVAnswer(q), false); }, 400);
+
+  if (chatMode === 'notebooklm' && API_BASE) {
+    // Try NotebookLM first
+    addChatMsg('<span style="color:var(--text3)">🤖 Thinking with NotebookLM...</span>', false);
+    fetch(API_BASE + '/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q }),
+    })
+    .then(r => r.json())
+    .then(data => {
+      // Remove "Thinking" message
+      const msgs = document.getElementById('chat-messages');
+      if (msgs.lastChild) msgs.removeChild(msgs.lastChild);
+      if (data.fallback) {
+        addChatMsg(getCCTVAnswer(q), false);
+      } else {
+        addChatMsg(data.answer, false);
+      }
+    })
+    .catch(() => {
+      const msgs = document.getElementById('chat-messages');
+      if (msgs.lastChild) msgs.removeChild(msgs.lastChild);
+      addChatMsg(getCCTVAnswer(q), false);
+    });
+  } else {
+    // Keyword mode (offline / GitHub Pages)
+    setTimeout(function() { addChatMsg(getCCTVAnswer(q), false); }, 400);
+  }
 }
 
 document.getElementById('chat-input').addEventListener('keydown', function(e) {
