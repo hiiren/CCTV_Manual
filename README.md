@@ -68,6 +68,35 @@ Configuration is in `opencode.json`.
 
 ---
 
+## OpenCode Plugins
+
+The project uses 5 OpenCode plugins for enhanced AI-assisted development:
+
+| Plugin | Purpose |
+|--------|---------|
+| `@franlol/opencode-md-table-formatter` | Auto-formats markdown tables with proper alignment |
+| `opencode-firecrawl` | Web scraping, crawling, and search for research |
+| `opencode-conductor` | Structured Context → Spec → Plan → Implement workflow |
+| `opencode-goal-plugin` | Session-scoped goals with auto-continuation |
+| `opencode-supermemory` | Persistent memory across sessions |
+
+### Available Commands
+
+| Command | Plugin | Description |
+|---------|--------|-------------|
+| `/conductor:setup` | conductor | Initialize project structure |
+| `/conductor:newTrack` | conductor | Create feature/bug track |
+| `/conductor:implement` | conductor | Execute implementation |
+| `/goal` | goal-plugin | Set auto-continuing goal |
+| `/supermemory-init` | supermemory | Memorize codebase |
+
+### Authentication Required
+
+- **Firecrawl:** `npx -y firecrawl-cli@latest init --all -k <your-api-key>` (free at firecrawl.dev)
+- **Supermemory:** `npx opencode-supermemory@latest login` (free account)
+
+---
+
 ## About This Manual
 
 - **Audience:** New Technicians, Diploma Students, Interns, Electricians, Freshers
@@ -124,7 +153,9 @@ CCTV_Installation_Manual/
 ├── CCTV_Training_Manual.md      <- Main manual (21,000+ lines)
 ├── manual.html                  <- HTML viewer with AI chatbot
 ├── index.html                   <- Status dashboard
-├── opencode.json                <- MCP server config
+├── opencode.json                <- MCP server config + plugins
+├── package.json                 <- Node.js dependencies (goal-plugin)
+├── package-lock.json            <- Dependency lock file
 ├── project.md                   <- Project summary
 ├── Promt.md                     <- Master prompt
 ├── STATUS.md                    <- Project status
@@ -148,7 +179,7 @@ CCTV_Installation_Manual/
 
 ## How It Was Built
 
-This project was built using **opencode** with 6 MCP servers:
+This project was built using **opencode** with 7 MCP servers and 5 plugins:
 
 1. **Content Generation** - 14 chapters of CCTV training content generated via AI
 2. **UI Design** - HTML/CSS/JS viewer built with vanilla JS (no frameworks)

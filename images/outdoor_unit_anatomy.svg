@@ -1,0 +1,37 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1a1a2e"/>
+  <text x="600" y="50" fill="white" font-family="sans-serif" font-size="24" text-anchor="middle">VDP Outdoor Unit / वीडियो डोर फोन आउटडोर यूनिट</text>
+  
+  <!-- Main Body -->
+  <rect x="400" y="100" width="400" height="600" rx="20" fill="#363654" stroke="#818cf8" stroke-width="3"/>
+  
+  <!-- Camera -->
+  <circle cx="600" cy="200" r="60" fill="#0f0f1a" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="600" cy="200" r="30" fill="#252542" stroke="#818cf8" stroke-width="1"/>
+  <text x="600" y="280" fill="white" font-size="14" text-anchor="middle">Camera / कैमरा</text>
+  
+  <!-- IR LEDs -->
+  <circle cx="520" cy="180" r="10" fill="#f87171"/>
+  <circle cx="680" cy="180" r="10" fill="#f87171"/>
+  <text x="750" y="185" fill="#f87171" font-size="12">IR LEDs</text>
+  
+  <!-- Call Button -->
+  <circle cx="600" cy="400" r="50" fill="#34d399" stroke="white" stroke-width="2"/>
+  <text x="600" y="405" fill="white" font-size="24" text-anchor="middle">CALL</text>
+  <text x="600" y="470" fill="white" font-size="14" text-anchor="middle">Call Button / कॉल बटन</text>
+  
+  <!-- Speaker -->
+  <rect x="450" y="550" width="300" height="60" fill="#2d2d4a" stroke="#4a4a6a" stroke-width="1"/>
+  <text x="600" y="585" fill="#9090a8" font-size="12" text-anchor="middle">Speaker / स्पीकर</text>
+  
+  <!-- Mic -->
+  <circle cx="600" cy="500" r="5" fill="#9090a8"/>
+  <text x="620" y="505" fill="#9090a8" font-size="10">Mic</text>
+  
+  <!-- Labels -->
+  <text x="150" y="200" fill="#fbbf24" font-size="16">IP65 Weatherproof Housing</text>
+  <text x="150" y="220" fill="#9090a8" font-size="12">IP65 मौसम प्रतिरोधी हाउसिंग</text>
+  
+  <text x="900" y="400" fill="#fbbf24" font-size="16">Viewing Angle: 120°</text>
+  <path d="M 600 200 L 200 500 M 600 200 L 1000 500" stroke="#6366f1" stroke-width="1" stroke-dasharray="5,5" fill="none"/>
+</svg>

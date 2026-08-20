@@ -35,6 +35,29 @@
   --sidebar-w: 280px;
   --nav-h: 64px;
 }
+body.dark {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --surface2: #16213e;
+  --border: #2a2a4a;
+  --border2: #3a3a5a;
+  --text: #e8e8f0;
+  --text2: #b0b0c8;
+  --text3: #6a6a8a;
+  --brand: #3b82f6;
+  --brand-light: #60a5fa;
+  --brand-bg: #1e293b;
+  --green-bg: #0a2010;
+  --yellow-bg: #2a1f0a;
+  --red-bg: #2a0a0a;
+  --blue-bg: #0a1a2a;
+  --orange-bg: #2a150a;
+  --purple-bg: #1a0a2a;
+}
+body.dark .md-content pre { background: #0a0a15; }
+body.dark .md-content code { color: #60a5fa; }
+body.dark #sidebar { background: var(--surface); }
+body.dark #navbar { background: var(--surface); }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -42,7 +65,7 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.8;
   overflow: hidden;
   height: 100vh;
@@ -154,18 +177,6 @@ body {
 .diagram-placeholder .label { font-weight: 700; color: var(--blue); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
 .diagram-placeholder .desc { color: var(--text2); font-size: 13px; }
 
-/* STATUS */
-#status-panel {
-  position: fixed; bottom: 20px; left: 20px; background: var(--surface);
-  border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px;
-  z-index: 95; min-width: 220px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-#status-panel h4 { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); margin-bottom: 10px; font-weight: 700; }
-.stat-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 13px; }
-.stat-label { display: flex; align-items: center; gap: 8px; color: var(--text2); }
-.stat-dot { width: 8px; height: 8px; border-radius: 50%; }
-.stat-count { font-weight: 700; }
-
 /* SEARCH */
 mark.search-highlight { background: var(--yellow); color: #000; padding: 1px 3px; border-radius: 3px; }
 
@@ -180,12 +191,20 @@ mark.search-highlight { background: var(--yellow); color: #000; padding: 1px 3px
 #component-panel .close-btn { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 20px; color: var(--text3); cursor: pointer; }
 
 /* PRESENTATION */
-body.presentation #sidebar, body.presentation #navbar, body.presentation #status-panel { display: none !important; }
+body.presentation #sidebar, body.presentation #navbar { display: none !important; }
 body.presentation #main { margin: 0; padding: 60px 100px; }
 body.presentation .md-content { font-size: 22px; line-height: 2; }
 body.presentation h1 { font-size: 2.8rem; }
 body.presentation h2 { font-size: 2rem; }
 body.presentation h3 { font-size: 1.6rem; }
+body.presentation #pres-hint { display: block !important; }
+#pres-hint {
+  display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.7); color: #fff; padding: 8px 20px; border-radius: 20px;
+  font-size: 13px; z-index: 1000; pointer-events: none;
+  animation: fadeHint 4s ease forwards;
+}
+@keyframes fadeHint { 0%,70% { opacity: 1; } 100% { opacity: 0; } }
 
 /* CHATBOT */
 #chat-btn {
@@ -260,6 +279,7 @@ body.presentation h3 { font-size: 1.6rem; }
   </div>
   <button onclick="changeFontSize(-2)" title="Smaller Text">A-</button>
   <button onclick="changeFontSize(2)" title="Larger Text">A+</button>
+  <button onclick="toggleTheme()" title="Toggle Dark/Light Theme" id="theme-btn">🌙</button>
   <button onclick="togglePresentation()" style="background:var(--brand);color:#fff;border-color:var(--brand)">Present (F)</button>
   <div class="sep"></div>
   <div class="search-box">
@@ -292,6 +312,7 @@ body.presentation h3 { font-size: 1.6rem; }
 
 <!-- AI CHATBOT -->
 <button id="chat-btn" onclick="toggleChat()" title="AI Assistant">💬</button>
+<div id="pres-hint">Press F or Escape to exit presentation mode</div>
 <div id="chat-panel">
   <div id="chat-header">
     <div class="title">🤖 CCTV AI Assistant</div>
@@ -312,21 +333,25 @@ body.presentation h3 { font-size: 1.6rem; }
   </div>
 </div>
 
-<!-- STATUS PANEL -->
-<div id="status-panel">
-  <h4>Status</h4>
-  <div class="stat-row"><span class="stat-label"><span class="stat-dot" style="background:var(--green)"></span>Images linked</span><span class="stat-count" id="stat-linked">0</span></div>
-  <div class="stat-row"><span class="stat-label"><span class="stat-dot" style="background:var(--yellow)"></span>Image needed</span><span class="stat-count" id="stat-images">0</span></div>
-  <div class="stat-row"><span class="stat-label"><span class="stat-dot" style="background:var(--blue)"></span>Diagrams needed</span><span class="stat-count" id="stat-diagrams">0</span></div>
-</div>
-
 <script>
 const CHAPTER_VIDEOS = {
-  ch1: "", ch2: "", ch3: "", ch4: "", ch5: "", ch6: "", ch7: "",
-  ch8: "", ch9: "", ch10: "", ch11: "", ch12: "", ch13: "", ch14: ""
+  ch1: "https://www.youtube.com/embed/0eRUs250Ss0",
+  ch2: "https://www.youtube.com/embed/_Cxw4bselos",
+  ch3: "https://www.youtube.com/embed/3JXF1atsnco",
+  ch4: "https://www.youtube.com/embed/P8UUpER7L4I",
+  ch5: "https://www.youtube.com/embed/H6iUE82CjS0",
+  ch6: "https://www.youtube.com/embed/H6iUE82CjS0",
+  ch7: "https://www.youtube.com/embed/v4rjAtyCsEU",
+  ch8: "https://www.youtube.com/embed/v4rjAtyCsEU",
+  ch9: "https://www.youtube.com/embed/eoHZ0jrIOGo",
+  ch10: "https://www.youtube.com/embed/eoHZ0jrIOGo",
+  ch11: "https://www.youtube.com/embed/eoHZ0jrIOGo",
+  ch12: "https://www.youtube.com/embed/BiT41dW46yk",
+  ch13: "https://www.youtube.com/embed/COb5-0sPrkg",
+  ch14: "https://www.youtube.com/embed/abffeDp-CAE"
 };
 
-let currentFontSize = 17;
+let currentFontSize = 18;
 let searchMatches = [];
 let searchIdx = -1;
 let rawMarkdown = '';
@@ -357,7 +382,7 @@ function preprocessCallouts(md) {
           body += '\n' + cont;
           i++;
         }
-        result.push('<div class="callout ' + info.cls + '"><span class="callout-icon">' + info.icon + '</span><div class="callout-body"><strong>' + info.label + '</strong>' + marked.parse(body) + '</div></div>');
+        result.push('CALLOUT:' + info.cls + ':' + info.icon + ':' + info.label + ':' + body);
         continue;
       }
     }
@@ -369,12 +394,40 @@ function preprocessCallouts(md) {
 
 function renderMarkdown(md) {
   rawMarkdown = md;
-  try { marked.setOptions({ gfm: true, breaks: false }); } catch(e) {}
-  const processed = preprocessCallouts(md);
-  document.getElementById('content').innerHTML = marked.parse(processed);
-  postProcess();
-  buildSidebar();
-  updateStats();
+  try { marked.setOptions({ gfm: true, breaks: false }); } catch(e) { console.error('marked setOptions error:', e); }
+  try {
+    const processed = preprocessCallouts(md);
+    document.getElementById('content').innerHTML = marked.parse(processed);
+    convertCalloutMarkers();
+    postProcess();
+    buildSidebar();
+    updateStats();
+  } catch(e) {
+    console.error('Render error, trying raw markdown:', e);
+    document.getElementById('content').innerHTML = marked.parse(md);
+    postProcess();
+    buildSidebar();
+  }
+}
+
+function convertCalloutMarkers() {
+  const el = document.getElementById('content');
+  el.querySelectorAll('p').forEach(p => {
+    const text = p.textContent;
+    const m = text.match(/^CALLOUT:([^:]+):([^:]+):([^:]+):(.*)/);
+    if (m) {
+      p.outerHTML = '<div class="callout ' + m[1] + '"><span class="callout-icon">' + m[2] + '</span><div class="callout-body"><strong>' + m[3] + '</strong><p>' + m[4] + '</p></div></div>';
+    }
+  });
+  el.querySelectorAll('strong').forEach(strong => {
+    const parent = strong.parentElement;
+    if (!parent || parent.tagName !== 'P') return;
+    const text = parent.textContent;
+    const m = text.match(/^CALLOUT:([^:]+):([^:]+):([^:]+):(.*)/);
+    if (m) {
+      parent.outerHTML = '<div class="callout ' + m[1] + '"><span class="callout-icon">' + m[2] + '</span><div class="callout-body"><strong>' + m[3] + '</strong><p>' + m[4] + '</p></div></div>';
+    }
+  });
 }
 
 function postProcess() {
@@ -425,24 +478,65 @@ function buildSidebar() {
     if (!h.id) h.id = 'heading-' + i;
     const a = document.createElement('a');
     a.href = '#' + h.id;
-    a.textContent = h.textContent.substring(0, 45) + (h.textContent.length > 45 ? '...' : '');
-    a.className = h.tagName === 'H1' ? 'h1-link' : 'h2-link';
+    const isH1 = h.tagName === 'H1';
+    const prefix = isH1 ? '📖 ' : '  ';
+    a.textContent = prefix + h.textContent.substring(0, 42) + (h.textContent.length > 42 ? '...' : '');
+    a.className = isH1 ? 'h1-link' : 'h2-link';
     links.appendChild(a);
   });
+  updateSidebarProgress();
 }
 
-function updateStats() {
-  const content = document.getElementById('content');
-  const linked = content.querySelectorAll('img').length;
-  const images = (content.innerHTML.match(/IMAGE NEEDED/g) || []).length;
-  const diagrams = (content.innerHTML.match(/DIAGRAM NEEDED/g) || []).length;
-  document.getElementById('stat-linked').textContent = linked;
-  document.getElementById('stat-images').textContent = images;
-  document.getElementById('stat-diagrams').textContent = diagrams;
+function updateSidebarProgress() {
+  const main = document.getElementById('main');
+  const headings = document.querySelectorAll('#content h1');
+  const scrollPos = main.scrollTop + 200;
+  let lastSeenH1 = null;
+  headings.forEach(h => {
+    const offsetTop = h.offsetTop + h.closest('.md-content').offsetTop;
+    if (offsetTop <= scrollPos) lastSeenH1 = h;
+  });
+  document.querySelectorAll('#sidebar a.h1-link').forEach(a => {
+    const href = a.getAttribute('href');
+    if (!href) return;
+    const h = document.querySelector(href);
+    if (!h) return;
+    if (lastSeenH1 && h === lastSeenH1) {
+      a.textContent = '🔄 ' + h.textContent.substring(0, 42);
+    } else if (lastSeenH1 && h.offsetTop < lastSeenH1.offsetTop) {
+      a.textContent = '✅ ' + h.textContent.substring(0, 42);
+    } else {
+      a.textContent = '📖 ' + h.textContent.substring(0, 42);
+    }
+  });
 }
 
 function toggleSidebar() { document.getElementById('sidebar').classList.toggle('hidden'); }
 function togglePresentation() { document.body.classList.toggle('presentation'); }
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  const btn = document.getElementById('theme-btn');
+  btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  localStorage.setItem('cctv-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+}
+(function() {
+  if (localStorage.getItem('cctv-theme') === 'dark') {
+    document.body.classList.add('dark');
+    const btn = document.getElementById('theme-btn');
+    if (btn) btn.textContent = '☀️';
+  }
+})();
+
+function updateStats() {
+  const imgs = document.querySelectorAll('#content img');
+  const svgs = document.querySelectorAll('#content svg');
+  const h1s = document.querySelectorAll('#content h1');
+  const h2s = document.querySelectorAll('#content h2');
+  const tables = document.querySelectorAll('#content table');
+  const codeBlocks = document.querySelectorAll('#content pre');
+  const callouts = document.querySelectorAll('#content .callout');
+  document.title = 'CCTV Manual | ' + h1s.length + ' Chapters | ' + imgs.length + ' Images';
+}
 
 function changeFontSize(delta) {
   currentFontSize = Math.max(14, Math.min(28, currentFontSize + delta));
@@ -522,10 +616,21 @@ function openVideoModal(url) {
 /* KEYBOARD */
 document.addEventListener('keydown', function(e) {
   if (e.target.tagName === 'INPUT') return;
-  if (e.key === 'f' || e.key === 'F') togglePresentation();
-  if (e.key === 'ArrowRight') document.getElementById('main').scrollBy(0, 500);
-  if (e.key === 'ArrowLeft') document.getElementById('main').scrollBy(0, -500);
-  if (e.key === 'Escape') { clearSearch(); closePanel(); }
+  if (e.key === 'f' || e.key === 'F') {
+    togglePresentation();
+    if (document.body.classList.contains('presentation')) {
+      const hint = document.getElementById('pres-hint');
+      hint.style.animation = 'none';
+      hint.offsetHeight;
+      hint.style.animation = 'fadeHint 4s ease forwards';
+    }
+  }
+  if (e.key === 'ArrowRight') { document.getElementById('main').scrollBy(0, 500); e.preventDefault(); }
+  if (e.key === 'ArrowLeft') { document.getElementById('main').scrollBy(0, -500); e.preventDefault(); }
+  if (e.key === 'Escape') {
+    if (document.body.classList.contains('presentation')) { togglePresentation(); return; }
+    clearSearch(); closePanel();
+  }
 });
 
 /* SCROLL SPY */
@@ -539,20 +644,42 @@ document.getElementById('main').addEventListener('scroll', function() {
     if (link) { link.classList.add('active'); link.scrollIntoView({ block: 'nearest' }); }
     document.getElementById('current-chapter').textContent = current.textContent.substring(0, 60);
   }
+  updateSidebarProgress();
+  updateProgress();
 });
 
+function updateProgress() {
+  const main = document.getElementById('main');
+  const total = main.scrollHeight - main.clientHeight;
+  const pct = total > 0 ? Math.round((main.scrollTop / total) * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = pct + '% read';
+}
+
 /* AUTO LOAD */
-async function tryAutoLoad() {
+async function tryAutoLoad(retryCount) {
+  retryCount = retryCount || 0;
   const paths = ['CCTV_Training_Manual.md', './CCTV_Training_Manual.md', 'manual.md'];
   for (const p of paths) {
     try {
       const resp = await fetch(p);
       if (resp.ok) {
         const text = await resp.text();
+        if (text.length < 100) {
+          console.warn('File too small (' + text.length + ' bytes), trying next path');
+          continue;
+        }
         renderMarkdown(text);
         return;
       }
-    } catch(e) {}
+    } catch(e) {
+      console.warn('Fetch failed for ' + p + ':', e.message);
+    }
+  }
+  if (retryCount < 2) {
+    console.log('Retrying auto-load (attempt ' + (retryCount + 2) + ')...');
+    setTimeout(function() { tryAutoLoad(retryCount + 1); }, 1000);
+    return;
   }
   document.getElementById('content').innerHTML = '<div style="text-align:center;margin-top:80px"><h2 style="color:var(--text2)">Could not load manual</h2><p style="color:var(--text3);margin-top:8px">Click below to select the file manually.</p><label style="display:inline-block;margin-top:16px;padding:10px 24px;background:var(--brand);color:#fff;border-radius:8px;cursor:pointer;font-weight:600">Choose File<input type="file" accept=".md" style="display:none" onchange="loadFile(this.files[0])"></label></div>';
 }
